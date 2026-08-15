@@ -23,10 +23,11 @@ if errorlevel 1 (
     exit /b 1
 )
 
-rem Берём самый свежий подписанный пакет: их несколько, если собирали разные версии
+rem Пакет один: publish каждый раз перезаписывает его
 set APK=
-for /f "delims=" %%F in ('dir /b /s /o-d "src\CyberForum.App\bin\%CONFIG%\net10.0-android\*-Signed.apk" 2^>nul') do (
-    if not defined APK set APK=%%F
+for %%F in ("%OUTDIR%\*-Signed.apk") do (
+    copy /y "%%F" "%OUTDIR%\cyberforum.apk" >nul
+    set APK=1
 )
 
 if not defined APK (
@@ -34,8 +35,6 @@ if not defined APK (
     echo Пакет не нашёлся - посмотрите, что написал dotnet выше.
     exit /b 1
 )
-
-copy /y "!APK!" "%OUTDIR%\cyberforum.apk" >nul
 
 echo.
 echo Готово: %OUTDIR%\cyberforum.apk
