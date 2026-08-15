@@ -17,15 +17,40 @@ public sealed partial class SessionStateParser
         var token = SecurityTokenRegex().Match(html);
         var authenticated = LogoutRegex().IsMatch(html);
         var userName = UserNameRegex().Match(html);
-        var userId = MemberIdRegex().Match(html);
+        var name = authenticated && userName.Success ? userName.Groups[1].Value : null;
 
         return new SessionState
         {
             IsAuthenticated = authenticated,
-            UserName = authenticated && userName.Success ? userName.Groups[1].Value : null,
-            UserId = authenticated && userId.Success ? int.Parse(userId.Groups[1].Value) : null,
+            UserName = name,
+            UserId = authenticated ? FindUserId(html, name) : null,
             SecurityToken = token.Success ? token.Groups[1].Value : null,
         };
+    }
+
+    /* Свой номер ищем двумя способами. Сперва по ссылке «Мой профиль» в меню, а если
+       её нет — по ссылке, подписанной нашим же именем: форум здоровается с человеком
+       в шапке и ставит там ссылку на его страницу. */
+    private static int? FindUserId(string html, string? name)
+    {
+        var menu = MemberIdRegex().Match(html);
+
+        if (menu.Success)
+        {
+            return int.Parse(menu.Groups[1].Value);
+        }
+
+        if (string.IsNullOrEmpty(name))
+        {
+            return null;
+        }
+
+        var greeting = Regex.Match(
+            html,
+            $@"/members/(\d+)\.html""[^>]*>\s*{Regex.Escape(name)}\s*<",
+            RegexOptions.IgnoreCase);
+
+        return greeting.Success ? int.Parse(greeting.Groups[1].Value) : null;
     }
 
     [GeneratedRegex(@"SECURITYTOKEN\s*=\s*""([^""]+)""")]
@@ -38,6 +63,7 @@ public sealed partial class SessionStateParser
     [GeneratedRegex(@"searchuser=([^&""'\s]+)", RegexOptions.IgnoreCase)]
     private static partial Regex UserNameRegex();
 
-    [GeneratedRegex(@"/members/(\d+)\.html""[^>]*>\s*(?:<[^>]+>\s*)?(?:Профиль|профиль)", RegexOptions.IgnoreCase)]
+    // в меню пользователя пункт называется «Мой профиль», а раньше был просто «Профиль»
+    [GeneratedRegex(@"/members/(\d+)\.html""[^>]*>\s*(?:<[^>]+>\s*)?(?:Мой\s+)?(?:Профиль|профиль)", RegexOptions.IgnoreCase)]
     private static partial Regex MemberIdRegex();
 }

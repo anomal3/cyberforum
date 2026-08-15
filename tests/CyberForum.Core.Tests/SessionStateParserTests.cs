@@ -14,6 +14,9 @@ public class SessionStateParserTests
         Assert.True(state.IsAuthenticated);
         Assert.Equal("tester42", state.UserName);
 
+        // свой номер нужен, чтобы понимать, где наши сообщения и записи блога
+        Assert.Equal(100500, state.UserId);
+
         // Сам токен из эталонных страниц вычищен перед публикацией — им можно
         // было бы действовать от чужого имени. Проверяем, что он вообще нашёлся.
         Assert.False(string.IsNullOrWhiteSpace(state.SecurityToken));
