@@ -94,15 +94,34 @@
 
                 <VerticalStackLayout>
 
+                    <Grid
+                        Padding="16,15"
+                        ColumnDefinitions="Auto,*,Auto,Auto"
+                        IsVisible="{Binding IsSignedIn}">
+
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding OpenMyThreadsCommand}" />
+                        </Grid.GestureRecognizers>
+
+                        <Path Grid.Column="0" Margin="0,0,12,0" Data="{StaticResource IconComment}" Style="{StaticResource IconRow}" />
+                        <Label Grid.Column="1" FontSize="16" Text="Мои темы" />
+                        <Path Grid.Column="3" Margin="10,0,0,0" Data="{StaticResource IconChevron}" Style="{StaticResource IconArrow}" />
+                    </Grid>
+
+                    <BoxView
+                        HeightRequest="1"
+                        IsVisible="{Binding IsSignedIn}"
+                        Color="{AppThemeBinding Light=#eef0f3, Dark=#242a30}" />
+
                     <Grid Padding="16,15" ColumnDefinitions="Auto,*,Auto,Auto">
                         <Grid.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding OpenFavoritesCommand}" />
                         </Grid.GestureRecognizers>
 
-                        <Label Grid.Column="0" Margin="0,0,12,0" Text="★" TextColor="#e2a03f" />
+                        <Path Grid.Column="0" Margin="0,0,12,0" Data="{StaticResource IconStar}" Fill="#e2a03f" Style="{StaticResource IconRow}" />
                         <Label Grid.Column="1" FontSize="16" Text="Избранное" />
                         <Label Grid.Column="2" FontSize="14" Opacity="0.55" Text="{Binding FavoritesCount}" />
-                        <Label Grid.Column="3" Margin="10,0,0,0" FontSize="18" Opacity="0.35" Text="›" />
+                        <Path Grid.Column="3" Margin="10,0,0,0" Data="{StaticResource IconChevron}" Style="{StaticResource IconArrow}" />
                     </Grid>
 
                     <BoxView HeightRequest="1" Color="{AppThemeBinding Light=#eef0f3, Dark=#242a30}" />
@@ -112,10 +131,10 @@
                             <TapGestureRecognizer Command="{Binding OpenHistoryCommand}" />
                         </Grid.GestureRecognizers>
 
-                        <Label Grid.Column="0" Margin="0,0,12,0" Text="🕘" />
+                        <Path Grid.Column="0" Margin="0,0,12,0" Data="{StaticResource IconClock}" Style="{StaticResource IconRow}" />
                         <Label Grid.Column="1" FontSize="16" Text="Недавно читали" />
                         <Label Grid.Column="2" FontSize="14" Opacity="0.55" Text="{Binding HistoryCount}" />
-                        <Label Grid.Column="3" Margin="10,0,0,0" FontSize="18" Opacity="0.35" Text="›" />
+                        <Path Grid.Column="3" Margin="10,0,0,0" Data="{StaticResource IconChevron}" Style="{StaticResource IconArrow}" />
                     </Grid>
 
                     <BoxView
@@ -132,10 +151,10 @@
                             <TapGestureRecognizer Command="{Binding OpenBestAnswersCommand}" />
                         </Grid.GestureRecognizers>
 
-                        <Label Grid.Column="0" Margin="0,0,12,0" Text="✅" />
+                        <Path Grid.Column="0" Margin="0,0,12,0" Data="{StaticResource IconCheck}" Style="{StaticResource IconRow}" />
                         <Label Grid.Column="1" FontSize="16" Text="Отмеченные ответы" />
                         <Label Grid.Column="2" FontSize="14" Opacity="0.55" Text="{Binding BestAnswersCount}" />
-                        <Label Grid.Column="3" Margin="10,0,0,0" FontSize="18" Opacity="0.35" Text="›" />
+                        <Path Grid.Column="3" Margin="10,0,0,0" Data="{StaticResource IconChevron}" Style="{StaticResource IconArrow}" />
                     </Grid>
 
                     <BoxView
@@ -152,10 +171,10 @@
                             <TapGestureRecognizer Command="{Binding OpenBookmarksCommand}" />
                         </Grid.GestureRecognizers>
 
-                        <Label Grid.Column="0" Margin="0,0,12,0" Text="🔖" />
+                        <Path Grid.Column="0" Margin="0,0,12,0" Data="{StaticResource IconBookmark}" Style="{StaticResource IconRow}" />
                         <Label Grid.Column="1" FontSize="16" Text="Закладки сообщений" />
                         <Label Grid.Column="2" FontSize="14" Opacity="0.55" Text="{Binding BookmarksCount}" />
-                        <Label Grid.Column="3" Margin="10,0,0,0" FontSize="18" Opacity="0.35" Text="›" />
+                        <Path Grid.Column="3" Margin="10,0,0,0" Data="{StaticResource IconChevron}" Style="{StaticResource IconArrow}" />
                     </Grid>
 
                     <BoxView
@@ -172,10 +191,10 @@
                             <TapGestureRecognizer Command="{Binding OpenReputationCommand}" />
                         </Grid.GestureRecognizers>
 
-                        <Label Grid.Column="0" Margin="0,0,12,0" Text="👍" />
+                        <Path Grid.Column="0" Margin="0,0,12,0" Data="{StaticResource IconThumb}" Style="{StaticResource IconRow}" />
                         <Label Grid.Column="1" FontSize="16" Text="Полученные отзывы" />
                         <Label Grid.Column="2" FontSize="14" Opacity="0.55" Text="{Binding ReputationCount}" />
-                        <Label Grid.Column="3" Margin="10,0,0,0" FontSize="18" Opacity="0.35" Text="›" />
+                        <Path Grid.Column="3" Margin="10,0,0,0" Data="{StaticResource IconChevron}" Style="{StaticResource IconArrow}" />
                     </Grid>
                 </VerticalStackLayout>
             </Border>

@@ -53,14 +53,31 @@
                                 WidthRequest="8"
                                 Color="#0092ca" />
 
-                            <Label
+                            <!-- у решённых тем впереди галочка, как на самом форуме -->
+                            <Grid
                                 Grid.Row="0"
                                 Grid.Column="1"
-                                FontAttributes="Bold"
-                                FontSize="16"
-                                LineBreakMode="TailTruncation"
-                                MaxLines="2"
-                                Text="{Binding Title}" />
+                                ColumnDefinitions="Auto,*">
+
+                                <Path
+                                    Grid.Column="0"
+                                    Margin="0,3,6,0"
+                                    Data="{StaticResource IconCheck}"
+                                    Fill="#1f9254"
+                                    HeightRequest="16"
+                                    IsVisible="{Binding IsSolved}"
+                                    Style="{StaticResource IconRow}"
+                                    VerticalOptions="Start"
+                                    WidthRequest="16" />
+
+                                <Label
+                                    Grid.Column="1"
+                                    FontAttributes="Bold"
+                                    FontSize="16"
+                                    LineBreakMode="TailTruncation"
+                                    MaxLines="2"
+                                    Text="{Binding Title}" />
+                            </Grid>
 
                             <Label
                                 Grid.Row="1"

@@ -65,8 +65,26 @@ public sealed partial class ThreadListParser
             IsSticky = row.QuerySelector("img[src*='sticky']") is not null,
             IsClosed = statusIcon.Contains("lock", StringComparison.OrdinalIgnoreCase),
             HasNewPosts = statusIcon.Contains("_new", StringComparison.OrdinalIgnoreCase),
+            BestAnswers = CountBestAnswers(row),
             LastPostAt = ExtractLastPostDate(row),
         };
+    }
+
+    /* Галочка у заголовка значит, что в теме есть отмеченный лучший ответ — считай,
+       вопрос решён. Сколько именно ответов отмечено, форум пишет в подсказке:
+       «Лучшие ответы (2)». Если её нет, а галочка стоит — значит один. */
+    private static int CountBestAnswers(IElement row)
+    {
+        var tick = row.QuerySelector("img[src*='tick']");
+
+        if (tick is null)
+        {
+            return 0;
+        }
+
+        var match = BestAnswersRegex().Match(tick.GetAttribute("title") ?? string.Empty);
+
+        return match.Success && int.TryParse(match.Groups[1].Value, out var count) ? count : 1;
     }
 
     // Счётчики берём из title соседней ячейки («Ответов: 12, просмотров: 4,374») —
@@ -213,6 +231,9 @@ public sealed partial class ThreadListParser
 
     [GeneratedRegex(@"(?<current>\d+)\s+из\s+(?<total>\d+)", RegexOptions.IgnoreCase)]
     private static partial Regex PaginationRegex();
+
+    [GeneratedRegex(@"\((\d+)\)")]
+    private static partial Regex BestAnswersRegex();
 
     [GeneratedRegex(@"[?&]f=(-?\d+)")]
     private static partial Regex ForumIdRegex();

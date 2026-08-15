@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CyberForum.App.Views.MyThreadsPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:CyberForum.Core.Models;assembly=CyberForum.Core"
+    xmlns:vm="clr-namespace:CyberForum.App.ViewModels"
+    x:DataType="vm:MyThreadsViewModel"
+    BackgroundColor="{AppThemeBinding Light=#f2f4f7, Dark=#14171a}"
+    Title="{Binding Title}">
+
+    <Grid RowDefinitions="Auto,*">
+
+        <Label
+            Grid.Row="0"
+            Margin="16,12"
+            IsVisible="{Binding HasError}"
+            Text="{Binding ErrorMessage}"
+            TextColor="{AppThemeBinding Light=#b3261e, Dark=#f2b8b5}" />
+
+        <CollectionView
+            Grid.Row="1"
+            ItemsSource="{Binding Threads}"
+            SelectionMode="None">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:ThreadSummary">
+
+                    <Border
+                        Margin="12,5"
+                        Padding="14,12"
+                        BackgroundColor="{AppThemeBinding Light=#ffffff, Dark=#1c2126}"
+                        Stroke="{AppThemeBinding Light=#e2e5e9, Dark=#2a3037}"
+                        StrokeThickness="1">
+
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="14" />
+                        </Border.StrokeShape>
+
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type vm:MyThreadsViewModel}}, Path=OpenCommand}"
+                                CommandParameter="{Binding .}" />
+                        </Border.GestureRecognizers>
+
+                        <VerticalStackLayout Spacing="6">
+
+                            <!-- решённые темы видно сразу: у них зелёная галочка -->
+                            <Grid ColumnDefinitions="Auto,*">
+
+                                <Path
+                                    Grid.Column="0"
+                                    Margin="0,3,6,0"
+                                    Data="{StaticResource IconCheck}"
+                                    Fill="#1f9254"
+                                    HeightRequest="16"
+                                    IsVisible="{Binding IsSolved}"
+                                    Style="{StaticResource IconRow}"
+                                    VerticalOptions="Start"
+                                    WidthRequest="16" />
+
+                                <Label
+                                    Grid.Column="1"
+                                    FontSize="15"
+                                    LineBreakMode="TailTruncation"
+                                    MaxLines="2"
+                                    Text="{Binding Title}" />
+                            </Grid>
+
+                            <HorizontalStackLayout Spacing="14">
+
+                                <HorizontalStackLayout Spacing="5">
+                                    <Path Data="{StaticResource IconComment}" Style="{StaticResource IconMark}" />
+                                    <Label
+                                        FontSize="12"
+                                        Opacity="0.6"
+                                        Text="{Binding Replies}"
+                                        VerticalOptions="Center" />
+                                </HorizontalStackLayout>
+
+                                <HorizontalStackLayout Spacing="5">
+                                    <Path Data="{StaticResource IconEye}" Style="{StaticResource IconMark}" />
+                                    <Label
+                                        FontSize="12"
+                                        Opacity="0.6"
+                                        Text="{Binding Views}"
+                                        VerticalOptions="Center" />
+                                </HorizontalStackLayout>
+
+                                <Label
+                                    FontSize="12"
+                                    Opacity="0.55"
+                                    Text="{Binding LastPostAt, Converter={StaticResource AgoConverter}}"
+                                    VerticalOptions="Center" />
+                            </HorizontalStackLayout>
+                        </VerticalStackLayout>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <ActivityIndicator
+            Grid.Row="1"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            IsRunning="{Binding IsBusy}"
+            IsVisible="{Binding IsBusy}" />
+    </Grid>
+</ContentPage>

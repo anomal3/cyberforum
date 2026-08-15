@@ -111,5 +111,6 @@ public sealed partial class FeedViewModel(ForumClient client) : BaseViewModel
         PublishedAt = thread.LastPostAt,
         Views = thread.Views,
         Replies = thread.Replies,
+        BestAnswers = thread.BestAnswers,
     };
 }

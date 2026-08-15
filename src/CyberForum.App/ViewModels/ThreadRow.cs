@@ -22,6 +22,9 @@ public sealed class ThreadRow(ThreadSummary thread, ThreadReadState? state)
 
     public bool IsFavorite { get; } = state?.IsFavorite ?? false;
 
+    /// <summary>В теме есть отмеченный лучший ответ — вопрос решён.</summary>
+    public bool IsSolved => Thread.IsSolved;
+
     // У тем, открытых до появления этого счётчика, сохранённых ответов нет —
     // тогда честнее промолчать, чем показать «+368 новых».
     public int FreshReplies { get; } = state is null || state.Replies <= 0

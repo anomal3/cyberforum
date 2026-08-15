@@ -74,4 +74,21 @@ public class ThreadListParserTests
 
         Assert.Equal(12, thread.Replies);
     }
+
+    [Fact]
+    public void Решённые_темы_видно_по_галочке()
+    {
+        var listing = new ThreadListParser().Parse(Fixture.Read("forum-python-auth.html"), "python");
+
+        var solved = listing.Threads.Where(thread => thread.IsSolved).ToList();
+
+        Assert.NotEmpty(solved);
+        Assert.All(solved, thread => Assert.True(thread.BestAnswers >= 1));
+
+        // «Лучшие ответы (2)» в подсказке — значит отмечено два ответа
+        Assert.Contains(solved, thread => thread.BestAnswers == 2);
+
+        // а без галочки счётчик остаётся нулём
+        Assert.Contains(listing.Threads, thread => !thread.IsSolved && thread.BestAnswers == 0);
+    }
 }

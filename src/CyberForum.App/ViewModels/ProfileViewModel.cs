@@ -112,6 +112,10 @@ public sealed partial class ProfileViewModel(
     [RelayCommand]
     private static Task OpenHistoryAsync() => Shell.Current.GoToAsync(Routes.ToLinks("history"));
 
+    // своих тем у форума отдельным списком нет — ищем их поиском по автору
+    [RelayCommand]
+    private static Task OpenMyThreadsAsync() => Shell.Current.GoToAsync(Routes.MyThreads);
+
     [RelayCommand]
     private static Task OpenBestAnswersAsync() => Shell.Current.GoToAsync(Routes.ToLinks("best"));
 

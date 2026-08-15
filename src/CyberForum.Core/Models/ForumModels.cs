@@ -44,6 +44,14 @@ public sealed record ThreadSummary
 
     public bool HasNewPosts { get; init; }
 
+    /// <summary>
+    /// Сколько ответов в теме автор отметил лучшими. Форум показывает это галочкой
+    /// у заголовка — значит, вопрос уже решён и можно смело идти читать.
+    /// </summary>
+    public int BestAnswers { get; init; }
+
+    public bool IsSolved => BestAnswers > 0;
+
     public DateTimeOffset? LastPostAt { get; init; }
 
     public string? LastPostAuthor { get; init; }
@@ -157,13 +165,19 @@ public sealed record FeedItem
 
     public int Replies { get; init; }
 
+    /// <summary>Столько ответов в теме отмечено лучшими — форум ставит за это галочку.</summary>
+    public int BestAnswers { get; init; }
+
+    public bool IsSolved => BestAnswers > 0;
+
     public bool HasCounters => Views > 0 || Replies > 0;
 
-    public string AuthorLine => string.IsNullOrEmpty(Author) ? string.Empty : "✍ " + Author;
+    public bool HasAuthor => !string.IsNullOrEmpty(Author);
 
-    public string ViewsLine => "👁 " + Short(Views);
+    // рядом с числом на карточке стоит значок, поэтому подписи тут не нужны
+    public string ViewsLine => Short(Views);
 
-    public string RepliesLine => "💬 " + Short(Replies);
+    public string RepliesLine => Short(Replies);
 
     // 940, 4к, 4.2к, 1.3м — длинные числа на карточке ни к чему
     private static string Short(int value) => value switch

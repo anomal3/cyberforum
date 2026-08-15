@@ -55,13 +55,28 @@
 
                             <Grid RowDefinitions="Auto,Auto,Auto">
 
-                                <Label
-                                    Grid.Row="0"
-                                    FontAttributes="Bold"
-                                    FontSize="16"
-                                    LineBreakMode="TailTruncation"
-                                    MaxLines="2"
-                                    Text="{Binding Title}" />
+                                <!-- галочка у тем, где автор отметил лучший ответ -->
+                                <Grid Grid.Row="0" ColumnDefinitions="Auto,*">
+
+                                    <Path
+                                        Grid.Column="0"
+                                        Margin="0,3,6,0"
+                                        Data="{StaticResource IconCheck}"
+                                        Fill="#1f9254"
+                                        HeightRequest="16"
+                                        IsVisible="{Binding IsSolved}"
+                                        Style="{StaticResource IconRow}"
+                                        VerticalOptions="Start"
+                                        WidthRequest="16" />
+
+                                    <Label
+                                        Grid.Column="1"
+                                        FontAttributes="Bold"
+                                        FontSize="16"
+                                        LineBreakMode="TailTruncation"
+                                        MaxLines="2"
+                                        Text="{Binding Title}" />
+                                </Grid>
 
                                 <Label
                                     Grid.Row="1"
@@ -100,22 +115,33 @@
                                     </HorizontalStackLayout>
 
                                     <HorizontalStackLayout Spacing="14">
-                                        <Label
-                                            FontSize="12"
-                                            Opacity="0.6"
-                                            Text="{Binding AuthorLine}" />
 
-                                        <Label
-                                            FontSize="12"
-                                            IsVisible="{Binding HasCounters}"
-                                            Opacity="0.6"
-                                            Text="{Binding ViewsLine}" />
+                                        <HorizontalStackLayout IsVisible="{Binding HasAuthor}" Spacing="5">
+                                            <Path Data="{StaticResource IconUser}" Style="{StaticResource IconMark}" />
+                                            <Label
+                                                FontSize="12"
+                                                Opacity="0.6"
+                                                Text="{Binding Author}"
+                                                VerticalOptions="Center" />
+                                        </HorizontalStackLayout>
 
-                                        <Label
-                                            FontSize="12"
-                                            IsVisible="{Binding HasCounters}"
-                                            Opacity="0.6"
-                                            Text="{Binding RepliesLine}" />
+                                        <HorizontalStackLayout IsVisible="{Binding HasCounters}" Spacing="5">
+                                            <Path Data="{StaticResource IconEye}" Style="{StaticResource IconMark}" />
+                                            <Label
+                                                FontSize="12"
+                                                Opacity="0.6"
+                                                Text="{Binding ViewsLine}"
+                                                VerticalOptions="Center" />
+                                        </HorizontalStackLayout>
+
+                                        <HorizontalStackLayout IsVisible="{Binding HasCounters}" Spacing="5">
+                                            <Path Data="{StaticResource IconComment}" Style="{StaticResource IconMark}" />
+                                            <Label
+                                                FontSize="12"
+                                                Opacity="0.6"
+                                                Text="{Binding RepliesLine}"
+                                                VerticalOptions="Center" />
+                                        </HorizontalStackLayout>
                                     </HorizontalStackLayout>
                                 </VerticalStackLayout>
                             </Grid>

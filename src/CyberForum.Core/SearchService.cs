@@ -18,9 +18,26 @@ public sealed class SearchService(ForumHttpClient http)
     public async Task<IReadOnlyList<ThreadSummary>> SearchAsync(
         string query,
         bool titlesOnly = true,
-        CancellationToken token = default)
+        CancellationToken token = default) =>
+        await FindAsync(query, titlesOnly, null, false, token);
+
+    /// <summary>
+    /// Темы, начатые пользователем. Движок ищет это тем же поиском, только вместо
+    /// слов передаём имя автора и просим считать началом темы, а не любым сообщением.
+    /// </summary>
+    public Task<IReadOnlyList<ThreadSummary>> ThreadsByAsync(
+        string author,
+        CancellationToken token = default) =>
+        FindAsync(string.Empty, false, author, true, token);
+
+    private async Task<IReadOnlyList<ThreadSummary>> FindAsync(
+        string query,
+        bool titlesOnly,
+        string? author,
+        bool startedOnly,
+        CancellationToken token)
     {
-        if (string.IsNullOrWhiteSpace(query))
+        if (string.IsNullOrWhiteSpace(query) && string.IsNullOrWhiteSpace(author))
         {
             return [];
         }
@@ -37,6 +54,12 @@ public sealed class SearchService(ForumHttpClient http)
             ["childforums"] = "1",
             ["exactname"] = "1",
         };
+
+        if (!string.IsNullOrWhiteSpace(author))
+        {
+            fields["searchuser"] = author.Trim();
+            fields["starteronly"] = startedOnly ? "1" : "0";
+        }
 
         var body = await http.PostFormAsync(ForumUrls.SearchProcess(), fields, ForumUrls.Search(), token);
 
