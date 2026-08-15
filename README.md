@@ -34,6 +34,21 @@
 как на самом форуме: видно, идти читать или проходить мимо. И есть свой список «Мои темы»:
 форум отдельного такого не держит, он ищет их обычным поиском по автору.
 
+## Как выглядит
+
+<table>
+  <tr>
+    <td align="center"><img src="docs/screens/feed.png" width="230"><br><sub>Лента свежего</sub></td>
+    <td align="center"><img src="docs/screens/thread.png" width="230"><br><sub>Тема с ответами</sub></td>
+    <td align="center"><img src="docs/screens/profile.png" width="230"><br><sub>Профиль и блог</sub></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="docs/screens/favorites.png" width="230"><br><sub>Избранное</sub></td>
+    <td align="center"><img src="docs/screens/notices.png" width="230"><br><sub>Уведомления</sub></td>
+    <td></td>
+  </tr>
+</table>
+
 ## Как это устроено
 
 Три проекта. `CyberForum.Core` — всё, что умеет ходить на форум и разбирать его html;
@@ -123,8 +138,20 @@
 
 ## Сборка
 
-Нужен .NET 10 SDK и workload `android` (для iOS — ещё и Mac, без него дальше Hot Restart
-не уедешь).
+Нужен .NET 10 SDK и workload `android`; для iOS — Mac с Xcode.
+
+Готовые сборки лежат в [релизах](https://github.com/anomal3/cyberforum/releases): apk
+для Android и ссылка на TestFlight для iPhone. Собрать самому — одной командой:
+
+```powershell
+scripts\build-android.bat          :: apk окажется в dist\cyberforum.apk
+```
+
+```bash
+./scripts/build-ios.sh             # ipa для App Store и TestFlight
+```
+
+Всё остальное — обычными командами dotnet:
 
 ```powershell
 dotnet build src\CyberForum.App\CyberForum.App.csproj -f net10.0-android
@@ -138,30 +165,15 @@ dotnet build src\CyberForum.App\CyberForum.App.csproj -f net10.0-android `
   -p:RuntimeIdentifier=android-arm64 -p:AdbTarget="-s <серийник>" -t:Install
 ```
 
-Релизная — обычный самодостаточный apk, его ставят руками:
-
-```powershell
-dotnet build src\CyberForum.App\CyberForum.App.csproj -c Release -f net10.0-android `
-  -p:RuntimeIdentifier=android-arm64 -t:SignAndroidPackage
-adb install -r src\CyberForum.App\bin\Release\net10.0-android\android-arm64\ru.cyberforum.reader-Signed.apk
-```
-
 Проверять лучше на релизной: в ней работает обрезка лишнего кода, и теоретически из сборки
 может пропасть всё, что зовётся только из XAML. Пока не пропадало, но проверял отдельно.
 
-## Про эталонные страницы
-
-В `tests/Fixtures` лежат настоящие страницы форума — на них и держатся тесты парсеров.
-Страницы обезличены: сессионные токены вычищены, имя пользователя, его номер и всё,
-что было в профиле, заменены на выдуманные. Если добавляете свои — пройдитесь по ним
-так же, иначе в репозиторий уедет чужая личная страница.
-
-Качать новые фикстуры с сервера бесполезно — страницы тем оттуда не отдаются (см. выше).
-Сохраняйте из браузера.
-
 ## Что дальше
 
-Личные сообщения. Редактирование профиля пока открывается страницей форума внутри
-приложения — это честный компромисс, переписывать все его формы не хотелось.
-
-iOS собирается, но на устройстве не проверялся: нужен Mac.
+- [ ] Создание новых тем — сейчас можно только отвечать в чужих
+- [ ] Личные сообщения
+- [ ] Правка и удаление своих сообщений в темах (в блоге правка уже есть)
+- [ ] Подписки на темы и разделы
+- [ ] Редактирование профиля своими формами — пока открывается страницей форума
+- [ ] Своя подпись у apk, чтобы Android не ругался на неизвестный источник
+- [ ] Опросы в темах
