@@ -58,11 +58,10 @@
                                             Spacing="2"
                                             VerticalOptions="Center">
 
-                                            <Label
-                                                FontSize="20"
+                                            <Path
+                                                Data="{StaticResource IconTrash}"
                                                 HorizontalOptions="Center"
-                                                Text="🗑"
-                                                TextColor="White" />
+                                                Style="{StaticResource IconButton}" />
 
                                             <Label
                                                 FontSize="11"
@@ -92,12 +91,12 @@
                             </Border.GestureRecognizers>
 
                             <Grid ColumnDefinitions="Auto,*">
-                                <Label
+                                <Path
                                     Grid.Column="0"
-                                    Margin="0,0,10,0"
-                                    FontSize="16"
-                                    Text="★"
-                                    TextColor="#e2a03f"
+                                    Margin="0,2,10,0"
+                                    Data="{StaticResource IconStar}"
+                                    Fill="#e2a03f"
+                                    Style="{StaticResource IconRow}"
                                     VerticalOptions="Start" />
 
                                 <VerticalStackLayout Grid.Column="1" Spacing="4">

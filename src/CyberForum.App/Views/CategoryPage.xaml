@@ -35,11 +35,10 @@
                 Text="Темы самого раздела"
                 TextColor="{AppThemeBinding Light=#0b57a6, Dark=#6ea0ff}" />
 
-            <Label
+            <Path
                 Grid.Column="1"
-                FontSize="18"
-                Opacity="0.4"
-                Text="›" />
+                Data="{StaticResource IconChevron}"
+                Style="{StaticResource IconArrow}" />
         </Grid>
 
         <CollectionView
@@ -77,15 +76,13 @@
                             Text="{Binding Description}" />
 
                         <!-- стрелка у тех, внутри кого лежат ещё разделы -->
-                        <Label
+                        <Path
                             Grid.Row="0"
                             Grid.RowSpan="2"
                             Grid.Column="1"
-                            FontSize="18"
+                            Data="{StaticResource IconChevron}"
                             IsVisible="{Binding HasChildren}"
-                            Opacity="0.4"
-                            Text="›"
-                            VerticalOptions="Center" />
+                            Style="{StaticResource IconArrow}" />
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>

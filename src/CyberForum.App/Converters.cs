@@ -71,11 +71,11 @@ public sealed class AgoConverter : IValueConverter
     }
 }
 
-// Звезда закрашена, когда тема в избранном
+// Звезда в шапке темы: закрашена — тема в избранном, пустая — нет
 public sealed class StarConverter : IValueConverter
 {
     public object Convert(object? value, Type targetType, object? parameter, CultureInfo culture) =>
-        value is true ? "★" : "☆";
+        ImageSource.FromFile(value is true ? "icon_star_on.png" : "icon_star.png");
 
     public object ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture) =>
         throw new NotSupportedException();

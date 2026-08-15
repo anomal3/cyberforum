@@ -56,14 +56,12 @@
                                     Opacity="0.6"
                                     Text="{Binding Counter}" />
 
-                                <Label
+                                <Path
                                     Grid.Row="0"
                                     Grid.RowSpan="2"
                                     Grid.Column="1"
-                                    FontSize="18"
-                                    Opacity="0.4"
-                                    Text="›"
-                                    VerticalOptions="Center" />
+                                    Data="{StaticResource IconChevron}"
+                                    Style="{StaticResource IconArrow}" />
                             </Grid>
 
                             <BoxView
