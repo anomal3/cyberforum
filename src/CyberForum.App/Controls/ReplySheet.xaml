@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<!--
+    Шторка ответа: снизу поверх содержимого. Одна на всё приложение — и для ответа
+    в тему, и для комментария к записи блога, чтобы не было двух похожих, но чуть
+    разных окошек.
+-->
+<ContentView
+    x:Class="CyberForum.App.Controls.ReplySheet"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    IsVisible="False">
+
+    <Grid>
+        <BoxView BackgroundColor="#88000000">
+            <BoxView.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnShadeTapped" />
+            </BoxView.GestureRecognizers>
+        </BoxView>
+
+        <Border
+            Padding="16,14,16,16"
+            BackgroundColor="{AppThemeBinding Light=#ffffff, Dark=#1c2126}"
+            Stroke="Transparent"
+            VerticalOptions="End">
+
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="20,20,0,0" />
+            </Border.StrokeShape>
+
+            <VerticalStackLayout Spacing="12">
+
+                <BoxView
+                    BackgroundColor="{AppThemeBinding Light=#d7dbe0, Dark=#3a424b}"
+                    CornerRadius="2"
+                    HeightRequest="4"
+                    HorizontalOptions="Center"
+                    WidthRequest="40" />
+
+                <!-- кому отвечаем, если ответ на конкретное сообщение -->
+                <Border
+                    x:Name="QuoteMark"
+                    Padding="10,6"
+                    BackgroundColor="{AppThemeBinding Light=#eef4fb, Dark=#22303c}"
+                    IsVisible="False"
+                    Stroke="Transparent">
+
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="10" />
+                    </Border.StrokeShape>
+
+                    <Grid ColumnDefinitions="Auto,*,Auto">
+                        <Path
+                            Grid.Column="0"
+                            Margin="0,0,8,0"
+                            Data="{StaticResource IconQuote}"
+                            Style="{StaticResource IconMark}" />
+
+                        <Label
+                            x:Name="QuoteText"
+                            Grid.Column="1"
+                            FontSize="13"
+                            LineBreakMode="TailTruncation"
+                            VerticalOptions="Center" />
+
+                        <Path
+                            Grid.Column="2"
+                            Data="{StaticResource IconClose}"
+                            Style="{StaticResource IconArrow}">
+                            <Path.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnDropQuoteTapped" />
+                            </Path.GestureRecognizers>
+                        </Path>
+                    </Grid>
+                </Border>
+
+                <Border
+                    Padding="10,2"
+                    BackgroundColor="{AppThemeBinding Light=#f5f6f8, Dark=#22272d}"
+                    Stroke="{AppThemeBinding Light=#e2e5e9, Dark=#2a3037}">
+
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="12" />
+                    </Border.StrokeShape>
+
+                    <Editor
+                        x:Name="Draft"
+                        AutoSize="TextChanges"
+                        BackgroundColor="Transparent"
+                        FontSize="15"
+                        MaximumHeightRequest="220"
+                        MinimumHeightRequest="96"
+                        Placeholder="Ответ по теме" />
+                </Border>
+
+                <Label
+                    x:Name="Hint"
+                    FontSize="12"
+                    IsVisible="False"
+                    TextColor="{AppThemeBinding Light=#b3261e, Dark=#f2b8b5}" />
+
+                <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="10">
+
+                    <Button
+                        x:Name="FullButton"
+                        Grid.Column="0"
+                        Padding="14,0"
+                        BackgroundColor="Transparent"
+                        BorderColor="{AppThemeBinding Light=#d7dbe0, Dark=#3a424b}"
+                        BorderWidth="1"
+                        Clicked="OnFullClicked"
+                        CornerRadius="12"
+                        FontSize="14"
+                        HeightRequest="44"
+                        Text="Все кнопки"
+                        TextColor="{AppThemeBinding Light=#3c4650, Dark=#c7ced6}" />
+
+                    <ActivityIndicator
+                        x:Name="Busy"
+                        Grid.Column="1"
+                        HorizontalOptions="Center"
+                        IsRunning="False"
+                        IsVisible="False"
+                        VerticalOptions="Center" />
+
+                    <Button
+                        x:Name="SendButton"
+                        Grid.Column="2"
+                        Padding="18,0"
+                        BackgroundColor="#0092ca"
+                        Clicked="OnSendClicked"
+                        CornerRadius="12"
+                        FontSize="14"
+                        HeightRequest="44"
+                        Text="Отправить"
+                        TextColor="White" />
+                </Grid>
+            </VerticalStackLayout>
+        </Border>
+    </Grid>
+</ContentView>

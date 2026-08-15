@@ -4,6 +4,7 @@ using CyberForum.App.Views;
 using CyberForum.Core;
 using CyberForum.Core.Http;
 using CyberForum.Core.Parsing;
+using CyberForum.Core.Posting;
 using CyberForum.Core.Rendering;
 using CyberForum.Core.Storage;
 using Microsoft.Extensions.Logging;
@@ -39,6 +40,8 @@ public static class MauiProgram
         builder.Services.AddSingleton<PostContentSanitizer>();
         builder.Services.AddSingleton<BlogDocumentBuilder>();
         builder.Services.AddSingleton<DownloadService>();
+        builder.Services.AddSingleton<PostingService>();
+        builder.Services.AddSingleton<ReplyContext>();
 
         builder.Services.AddSingleton<FeedViewModel>();
         builder.Services.AddSingleton<ForumsViewModel>();
@@ -52,6 +55,7 @@ public static class MauiProgram
         builder.Services.AddTransient<ThreadListViewModel>();
         builder.Services.AddTransient<ThreadViewModel>();
         builder.Services.AddTransient<ProfileViewModel>();
+        builder.Services.AddTransient<MyThreadsViewModel>();
         builder.Services.AddSingleton<SearchViewModel>();
 
         builder.Services.AddSingleton<FeedPage>();
@@ -67,6 +71,8 @@ public static class MauiProgram
         builder.Services.AddTransient<ImageViewerPage>();
         builder.Services.AddTransient<ThreadListPage>();
         builder.Services.AddTransient<ThreadPage>();
+        builder.Services.AddTransient<ComposePage>();
+        builder.Services.AddTransient<MyThreadsPage>();
         builder.Services.AddTransient<ProfilePage>();
         builder.Services.AddTransient<LoginPage>();
         builder.Services.AddSingleton<SearchPage>();

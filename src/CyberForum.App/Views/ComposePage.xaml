@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CyberForum.App.Views.ComposePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:posting="clr-namespace:CyberForum.Core.Posting;assembly=CyberForum.Core"
+    BackgroundColor="{AppThemeBinding Light=#f2f4f7, Dark=#14171a}"
+    HideSoftInputOnTapped="True"
+    Title="Ответ в тему">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Clicked="OnSendClicked" Text="Отправить" />
+    </ContentPage.ToolbarItems>
+
+    <Grid RowDefinitions="Auto,*,Auto">
+
+        <VerticalStackLayout Grid.Row="0" Spacing="0">
+
+            <Label
+                x:Name="ThreadName"
+                Margin="16,10,16,0"
+                FontSize="13"
+                LineBreakMode="TailTruncation"
+                MaxLines="2"
+                Opacity="0.6" />
+
+            <Label
+                x:Name="Hint"
+                Margin="16,8,16,0"
+                FontSize="13"
+                IsVisible="False" />
+        </VerticalStackLayout>
+
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Padding="12,10" Spacing="10">
+
+                <!-- заголовок есть только у записи блога -->
+                <Border
+                    x:Name="TitleBox"
+                    Padding="12,2"
+                    BackgroundColor="{AppThemeBinding Light=#ffffff, Dark=#1c2126}"
+                    IsVisible="False"
+                    Stroke="{AppThemeBinding Light=#e2e5e9, Dark=#2a3037}">
+
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="14" />
+                    </Border.StrokeShape>
+
+                    <Entry
+                        x:Name="EntryTitle"
+                        BackgroundColor="Transparent"
+                        FontSize="16"
+                        Placeholder="Заголовок записи" />
+                </Border>
+
+                <Border
+                    Padding="12,6"
+                    BackgroundColor="{AppThemeBinding Light=#ffffff, Dark=#1c2126}"
+                    Stroke="{AppThemeBinding Light=#e2e5e9, Dark=#2a3037}">
+
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="14" />
+                    </Border.StrokeShape>
+
+                    <Editor
+                        x:Name="Body"
+                        AutoSize="TextChanges"
+                        BackgroundColor="Transparent"
+                        FontSize="15"
+                        MinimumHeightRequest="260"
+                        Placeholder="Пишите ответ. Кнопки внизу вставляют оформление и код." />
+                </Border>
+
+                <!-- что уже прикреплено -->
+                <VerticalStackLayout
+                    x:Name="FilesBox"
+                    IsVisible="False"
+                    Spacing="6">
+
+                    <Label
+                        FontSize="12"
+                        Opacity="0.6"
+                        Text="Прикреплено" />
+
+                    <VerticalStackLayout x:Name="FilesList" Spacing="6" />
+                </VerticalStackLayout>
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- Панель инструментов. На форуме их полсотни мелкими картинками, здесь
+             оставлено то, чем правда пользуются, а языки кода спрятаны за одной кнопкой. -->
+        <VerticalStackLayout
+            Grid.Row="2"
+            BackgroundColor="{AppThemeBinding Light=#ffffff, Dark=#1c2126}"
+            Spacing="0">
+
+            <BoxView HeightRequest="1" Color="{AppThemeBinding Light=#e2e5e9, Dark=#2a3037}" />
+
+            <!-- языки кода: раскрываются по кнопке и прячутся обратно после выбора -->
+            <ScrollView
+                x:Name="LanguageBox"
+                Padding="10,10,10,0"
+                IsVisible="False"
+                Orientation="Horizontal">
+
+                <VerticalStackLayout Spacing="8">
+                    <HorizontalStackLayout x:Name="LanguagesTop" Spacing="8" />
+                    <HorizontalStackLayout x:Name="LanguagesBottom" Spacing="8" />
+                </VerticalStackLayout>
+            </ScrollView>
+
+            <ScrollView Padding="8,8" Orientation="Horizontal">
+                <HorizontalStackLayout Spacing="8">
+
+                    <Button
+                        Clicked="OnCodeClicked"
+                        Style="{StaticResource ToolChip}"
+                        Text="Код" />
+
+                    <Button
+                        Clicked="OnBoldClicked"
+                        FontAttributes="Bold"
+                        Style="{StaticResource ToolChip}"
+                        Text="Ж" />
+
+                    <Button
+                        Clicked="OnItalicClicked"
+                        FontAttributes="Italic"
+                        Style="{StaticResource ToolChip}"
+                        Text="К" />
+
+                    <Button
+                        Clicked="OnQuoteClicked"
+                        Style="{StaticResource ToolChip}"
+                        Text="Цитата" />
+
+                    <Button
+                        Clicked="OnSpoilerClicked"
+                        Style="{StaticResource ToolChip}"
+                        Text="Спойлер" />
+
+                    <Button
+                        Clicked="OnLinkClicked"
+                        Style="{StaticResource ToolChip}"
+                        Text="Ссылка" />
+
+                    <Button
+                        Clicked="OnListClicked"
+                        Style="{StaticResource ToolChip}"
+                        Text="Список" />
+
+                    <Button
+                        x:Name="PhotoButton"
+                        Clicked="OnPhotoClicked"
+                        Style="{StaticResource ToolChip}"
+                        Text="Картинка" />
+
+                    <Button
+                        x:Name="FileButton"
+                        Clicked="OnFileClicked"
+                        Style="{StaticResource ToolChip}"
+                        Text="Файл" />
+                </HorizontalStackLayout>
+            </ScrollView>
+
+            <Grid Padding="12,0,12,12" ColumnDefinitions="*,Auto" ColumnSpacing="10">
+
+                <ActivityIndicator
+                    x:Name="Busy"
+                    Grid.Column="0"
+                    HorizontalOptions="Start"
+                    IsRunning="False"
+                    IsVisible="False"
+                    VerticalOptions="Center" />
+
+                <Button
+                    x:Name="SendButton"
+                    Grid.Column="1"
+                    Padding="20,0"
+                    BackgroundColor="#0092ca"
+                    Clicked="OnSendClicked"
+                    CornerRadius="12"
+                    HeightRequest="46"
+                    Text="Отправить"
+                    TextColor="White" />
+            </Grid>
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

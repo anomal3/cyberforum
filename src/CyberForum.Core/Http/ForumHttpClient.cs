@@ -191,6 +191,62 @@ public sealed class ForumHttpClient : IDisposable
         }
     }
 
+    /// <summary>
+    /// Отправка файла: движок принимает вложения только обычной формой с файлом,
+    /// никакого отдельного пути для них у него нет.
+    /// </summary>
+    public async Task<string> PostMultipartAsync(
+        Uri uri,
+        IReadOnlyDictionary<string, string> fields,
+        string fileField,
+        string fileName,
+        byte[] content,
+        Uri? referer = null,
+        CancellationToken token = default)
+    {
+        await _gate.WaitAsync(token);
+
+        try
+        {
+            await WaitTurnAsync(token);
+
+            using var form = new MultipartFormDataContent();
+
+            foreach (var (name, value) in fields)
+            {
+                form.Add(new StringContent(value, Encoding.UTF8), name);
+            }
+
+            var file = new ByteArrayContent(content);
+            file.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/octet-stream");
+            form.Add(file, fileField, fileName);
+
+            using var request = new HttpRequestMessage(HttpMethod.Post, uri) { Content = form };
+
+            if (referer is not null)
+            {
+                request.Headers.Referrer = referer;
+            }
+
+            // повтор тут ни к чему: файл мог уже загрузиться, и второй заход прицепит его дважды
+            using var response = await _client.SendAsync(request, token);
+
+            return await response.Content.ReadAsStringAsync(token);
+        }
+        catch (HttpRequestException error)
+        {
+            throw new ForumUnavailableException("Не получилось отправить файл на форум.", error);
+        }
+        catch (TaskCanceledException error) when (!token.IsCancellationRequested)
+        {
+            throw new ForumUnavailableException("Форум не принял файл вовремя.", error);
+        }
+        finally
+        {
+            _gate.Release();
+        }
+    }
+
     // Три попытки с нарастающей паузой — на случай, если форум просто моргнул.
     // Повторяем только серверные ошибки: если ответа нет вообще, повтор лишь утроит ожидание.
     private async Task<HttpResponseMessage> SendWithRetryAsync(

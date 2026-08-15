@@ -88,6 +88,12 @@ public static partial class ForumUrls
 
     public static Uri BlogEntry(int userId, int entryId) => new(Base, $"blogs/{userId}/{entryId}.html");
 
+    // Комментарий к записи и правка самой записи. Блог живёт своими скриптами,
+    // с формами тем у него общего только устройство.
+    public static Uri BlogComment(int entryId) => new(Base, $"blog_post.php?do=newcomment&blogid={entryId}");
+
+    public static Uri BlogEdit(int entryId) => new(Base, $"blog_post.php?do=editblog&blogid={entryId}");
+
     // страницы форума, которые мы не переписываем, а показываем как есть
     public static Uri EditProfile() => new(Base, "profile.php?do=editprofile");
 
@@ -100,6 +106,24 @@ public static partial class ForumUrls
 
     // форма поиска постится именно сюда, do=process в адресе, а не только в полях
     public static Uri SearchProcess() => new(Base, "search.php?do=process");
+
+    // Форма ответа. С p= форум сам подставит в неё цитату того сообщения,
+    // поэтому собирать цитату руками не нужно — она приедет готовой.
+    public static Uri NewReply(int threadId) => new(Base, $"newreply.php?do=newreply&t={threadId}");
+
+    public static Uri QuoteReply(int postId) => new(Base, $"newreply.php?do=newreply&p={postId}");
+
+    public static Uri PostReply(int threadId) => new(Base, $"newreply.php?do=postreply&t={threadId}");
+
+    // Окно вложений. Ключи те же, что и в форме ответа: вложение цепляется
+    // к будущему сообщению именно по ним.
+    public static Uri NewAttachment(int threadId, string postHash, string postStartTime) =>
+        new(Base, $"newattachment.php?t={threadId}&poststarttime={postStartTime}&posthash={postHash}");
+
+    // «спасибо» и «лучший ответ» живут в плагинах форума и отвечают маленьким xml
+    public static Uri Thumbs() => new(Base, "thumbs.php");
+
+    public static Uri BestAnswer() => new(Base, "bestanswer.php");
 
     public static Uri PrivateMessages() => new(Base, "private.php");
 

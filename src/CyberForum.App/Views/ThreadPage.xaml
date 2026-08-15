@@ -3,8 +3,10 @@
     x:Class="CyberForum.App.Views.ThreadPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:CyberForum.App.Controls"
     xmlns:vm="clr-namespace:CyberForum.App.ViewModels"
     x:DataType="vm:ThreadViewModel"
+    HideSoftInputOnTapped="True"
     Title="{Binding Title}">
 
     <ContentPage.ToolbarItems>
@@ -12,7 +14,8 @@
 
         <ToolbarItem
             Command="{Binding ToggleFavoriteCommand}"
-            Text="{Binding IsFavorite, Converter={StaticResource StarConverter}}" />
+            IconImageSource="{Binding IsFavorite, Converter={StaticResource StarConverter}}"
+            Text="Избранное" />
         <!-- ссылка нужна редко, пусть живёт в меню и не ест место у заголовка -->
         <ToolbarItem
             Clicked="OnShareClicked"
@@ -84,5 +87,47 @@
                 Navigating="OnNavigating"
                 Source="{Binding Source}" />
         </Grid>
+
+        <!-- Полоска ответа живёт поверх темы и никуда не уезжает при прокрутке:
+             дочитал до нужного места — ответил, не мотая страницу обратно вниз. -->
+        <Border
+            x:Name="ReplyBar"
+            Grid.Row="1"
+            Padding="14,10"
+            BackgroundColor="{AppThemeBinding Light=#ffffff, Dark=#1c2126}"
+            IsVisible="False"
+            Stroke="{AppThemeBinding Light=#e2e5e9, Dark=#2a3037}"
+            StrokeThickness="1"
+            VerticalOptions="End">
+
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="18,18,0,0" />
+            </Border.StrokeShape>
+
+            <Border.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnReplyBarTapped" />
+            </Border.GestureRecognizers>
+
+            <HorizontalStackLayout Spacing="10">
+                <Path Data="{StaticResource IconReply}" Style="{StaticResource IconRow}" />
+
+                <Label
+                    FontSize="15"
+                    Opacity="0.65"
+                    Text="Написать ответ"
+                    VerticalOptions="Center" />
+            </HorizontalStackLayout>
+        </Border>
+
+        <!-- Шторка живёт отдельным контролом: такая же нужна в блоге -->
+        <controls:ReplySheet
+            x:Name="Sheet"
+            Grid.Row="0"
+            Grid.RowSpan="2"
+            Closed="OnSheetClosed"
+            FullEditor="OnFullEditorClicked"
+            QuoteDropped="OnQuoteDropped"
+            Send="OnSendClicked" />
+
     </Grid>
 </ContentPage>

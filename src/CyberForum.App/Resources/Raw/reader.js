@@ -270,7 +270,64 @@
     }
   }
 
+  /* Форму быстрого ответа мы сейчас снесём вместе со всей страницей, а в ней лежат
+     одноразовые posthash и poststarttime — без них форум ответ не примет. Забираем
+     их себе заранее: тогда отвечать можно, ни за чем больше не ходя на сайт. */
+  function saveForm() {
+    var form = document.getElementById('qrform');
+
+    // заодно запоминаем, узнал ли нас форум: без этого ни ответить, ни поблагодарить
+    window.cfSigned = !!document.querySelector('a[href*="do=logout"]');
+
+    if (!form) {
+      window.cfForm = null;
+      return;
+    }
+
+    var fields = {};
+    var inputs = form.querySelectorAll('input[name]');
+
+    for (var i = 0; i < inputs.length; i++) {
+      var input = inputs[i];
+      var type = (input.getAttribute('type') || 'text').toLowerCase();
+
+      if (type === 'submit' || type === 'button' || type === 'file') {
+        continue;
+      }
+
+      if ((type === 'checkbox' || type === 'radio') && !input.checked) {
+        continue;
+      }
+
+      fields[input.getAttribute('name')] = input.value;
+    }
+
+    var attach = document.querySelector('a[href*="newattachment.php"]');
+
+    window.cfForm = {
+      action: form.getAttribute('action'),
+      fields: fields,
+      attach: attach ? attach.getAttribute('href') : null
+    };
+  }
+
   hidePage();
+
+  /* Форма лежит в самом низу страницы, а сообщения появляются гораздо раньше —
+     причесав тему сразу, мы бы снесли разметку до того, как форма доехала, и
+     отвечать стало бы нечем. Поэтому чуть-чуть ждём: секунды хватает, дольше
+     ждать незачем — у гостя формы не будет вовсе. */
+  /* Ждём не саму форму, а её последнее поле: одноразовый posthash дописывается
+     в самом низу, и форма, снятая раньше, приезжает пустой оболочкой. */
+  if (!document.querySelector('#qrform input[name="posthash"]')) {
+    window.cfWait = (window.cfWait || 0) + 1;
+
+    if (window.cfWait < 12 && document.readyState !== 'complete') {
+      return 'ждём форму';
+    }
+  }
+
+  saveForm();
 
   var messages = document.querySelectorAll('div[id^="post_message_"]');
 
@@ -285,7 +342,27 @@
     var id = message.id.replace('post_message_', '');
     var container = document.getElementById('post' + id) || message.parentNode;
 
-    var author = text(container.querySelector('a.bigusername'));
+    /* Обычно имя лежит в a.bigusername, но у только что отправленного сообщения
+       форум отдаёт шапку попроще. Тогда ищем ссылку на профиль сами и пропускаем
+       те, где вместо имени число: рядом такой же ссылкой висит репутация. */
+    // у своего свежего сообщения имя приходит не ссылкой, а простым span
+    var authorLink = container.querySelector('.bigusername');
+
+    if (!authorLink) {
+      var maybe = container.querySelectorAll('a[href*="members/"]');
+
+      for (var m = 0; m < maybe.length; m++) {
+        var label = text(maybe[m]);
+
+        if (label && !/^[\d+\-\s]+$/.test(label)) {
+          authorLink = maybe[m];
+          break;
+        }
+      }
+    }
+    var author = text(authorLink);
+    var authorHref = authorLink ? (authorLink.getAttribute('href') || '') : '';
+    var authorId = (authorHref.match(/members\/(\d+)\.html/) || [])[1] || '';
     var avatar = container.querySelector('img[src*="customavatars"]');
     var when = '';
 
@@ -303,6 +380,7 @@
     posts.push({
       id: id,
       author: author.replace(/^@/, ''),
+      authorId: authorId,
       avatar: avatar ? avatar.getAttribute('src') : null,
       when: when,
       number: text(anchor),
@@ -313,6 +391,56 @@
 
   var title = document.querySelector('h1.content');
   var titleText = text(title) || document.title.split(' - ')[0];
+
+  /* Отвечать может только вошедший, ему форум и рисует форму быстрого ответа.
+     Автору темы вдобавок доступна отметка лучшего ответа — он же её и раздаёт.
+
+     Сравниваем по имени, а не по номеру: у своих сообщений форум показывает имя
+     простым текстом, без ссылки на профиль, и номера там взять негде. */
+  var canPost = !!window.cfForm;
+  var me = '%%ME%%';
+  var threadStarter = posts.length ? posts[0].author : '';
+
+  function icon(path) {
+    return '<svg viewBox="0 0 24 24" aria-hidden="true">' + path + '</svg>';
+  }
+
+  var iconReply = icon('<path d="M10 8V4l-7 7 7 7v-4c5 0 8.5 1.6 11 5-1-5-4-10-11-11z"/>');
+  var iconThanks = icon('<path d="M6 21H3V10h3zm3-11 3.6-5.4c.4-.6 1.2-.7 1.8-.3.4.3.6.8.5 1.3L14 10h5.5c1 0 1.8 1 1.6 2l-1.4 6.5c-.2.9-1 1.5-1.9 1.5H9z"/>');
+  var iconBest = icon('<path d="M12 3l6 3v5c0 4-2.6 7.4-6 8.5C8.6 18.4 6 15 6 11V6z"/><path d="M9.5 11.5l1.8 1.8 3.4-3.4"/>');
+
+  /* Кнопки в самом сообщении, а не в общей шапке: палец уже здесь, и понятно,
+     к какому именно сообщению относится действие. Приложение ловит нажатие
+     по смене адреса на выдуманную схему. */
+  function actionBar(post) {
+    var bar = document.createElement('div');
+    bar.className = 'cf-acts';
+
+    function add(kind, label, drawing, shown) {
+      if (!shown) {
+        return;
+      }
+
+      var button = document.createElement('button');
+      button.className = 'cf-act';
+      button.setAttribute('data-kind', kind);
+      button.innerHTML = drawing + '<span>' + label + '</span>';
+
+      button.addEventListener('click', function () {
+        location.href = 'cfact:' + kind + ':' + post.id + ':' + encodeURIComponent(post.author);
+      });
+
+      bar.appendChild(button);
+    }
+
+    var mine = me !== '' && post.author === me;
+
+    add('quote', 'Ответить', iconReply, true);
+    add('thank', 'Спасибо', iconThanks, me !== '' && !mine);
+    add('best', 'Лучший ответ', iconBest, me !== '' && me === threadStarter && !mine);
+
+    return bar;
+  }
 
   // собираем свою страницу с нуля: так гарантированно уходят шапка, подвал и вставки
   var page = document.createElement('div');
@@ -389,6 +517,11 @@
     catchTaps(body);
 
     article.appendChild(body);
+
+    if (canPost) {
+      article.appendChild(actionBar(post));
+    }
+
     page.appendChild(article);
   }
 
@@ -542,7 +675,7 @@
 
   guard.observe(document.documentElement, { childList: true, subtree: true });
 
-  return 'постов: ' + posts.length;
+  return 'постов: ' + posts.length + ', форма: ' + (canPost ? 'есть' : 'нет');
   } catch (error) {
     return 'ошибка: ' + (error && error.message ? error.message : error);
   }

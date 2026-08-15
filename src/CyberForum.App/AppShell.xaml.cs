@@ -28,6 +28,8 @@ public partial class AppShell : Shell
         Routing.RegisterRoute(Routes.Image, typeof(ImageViewerPage));
         Routing.RegisterRoute(Routes.ThreadList, typeof(ThreadListPage));
         Routing.RegisterRoute(Routes.Thread, typeof(ThreadPage));
+        Routing.RegisterRoute(Routes.Compose, typeof(ComposePage));
+        Routing.RegisterRoute(Routes.MyThreads, typeof(MyThreadsPage));
         Routing.RegisterRoute(Routes.Login, typeof(LoginPage));
     }
 
@@ -74,6 +76,11 @@ public static class Routes
     public const string ThreadList = "threads";
     public const string Thread = "thread";
     public const string Login = "login";
+    public const string Compose = "compose";
+    public const string MyThreads = "mythreads";
+
+    // черновик ответа лежит в общем месте, поэтому редактору ничего передавать не нужно
+    public static string ToCompose() => Compose;
 
     public static string ToCategory(string slug, string title) =>
         $"{Category}?slug={Uri.EscapeDataString(slug)}&title={Uri.EscapeDataString(title)}";

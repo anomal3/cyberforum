@@ -95,6 +95,16 @@ body {
     border-bottom: 1px solid var(--line);
 }
 
+/* «Комментарии» под записью блога — отбивка, чтобы отделить их от самой записи */
+.cf-subtitle {
+    margin: 0;
+    padding: 18px 14px 6px;
+    font-size: 15px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: .04em;
+}
+
 /* страницы темы: внизу лентой, пальцем попасть легко */
 .cf-pages {
     display: flex;
@@ -371,4 +381,50 @@ td, th {
 hr {
     border: 0;
     border-top: 1px solid var(--line);
+}
+
+/* Полоска действий под сообщением. Значки рисуем контуром прямо тут:
+   шрифтовые эмодзи на разных телефонах выглядят по-разному, а это везде одинаково. */
+.cf-acts {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px solid var(--line);
+}
+
+.cf-act {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 10px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--text-dim);
+    font: inherit;
+    font-size: 13px;
+    line-height: 1;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.cf-act:active {
+    background: var(--bg-soft);
+}
+
+.cf-act svg {
+    width: 15px;
+    height: 15px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* сказали спасибо или отметили ответ — кнопка остаётся отмеченной */
+.cf-act.done {
+    color: var(--best);
+    border-color: var(--best);
 }
