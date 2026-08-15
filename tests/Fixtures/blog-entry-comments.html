@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html xmlns="https://www.w3.org/1999/xhtml" dir="ltr" lang="ru">
+<head>
+
+<link rel="canonical" href="https://www.cyberforum.ru/blogs/100500/blog6947.html" />
+
+
+	
+<link rel="alternate" type="application/rss+xml" title="tester42 - Блоги - Форум программистов и сисадминов Киберфорум - RSS лента" href="https://www.cyberforum.ru/blog_external.php?type=RSS2&amp;bloguserid=" />
+	
+<link rel="alternate" type="application/rss+xml" title="Форум программистов и сисадминов Киберфорум - RSS лента блога" href="https://www.cyberforum.ru/blog_external.php?type=RSS2" />
+
+
+
+
+<base href="https://www.cyberforum.ru/" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="keywords" content="C# ~ Ревизор Диска - программа для быстрого просмотра папок и файлов, форум программистов, компьютерный форум, киберфорум, сайберфорум, компьютеры, программирование, софт, электроника" />
+<meta name="description" content="C# ~ Ревизор Диска - программа для быстрого просмотра папок и файлов tester42" />
+
+<meta name="viewport" content="width=device-width">
+
+<link rel="stylesheet" type="text/css" href="//cyberstatic.net/clientscript/vbulletin_css/cyberforum.css" />
+<link rel="stylesheet" type="text/css" href="//cyberstatic.net/clientscript/vbulletin_important.css" />
+
+
+<!-- Editor Styles -->
+<style type="text/css" id="vbulletin_editor_css_dynamic">
+<!--
+@import url("//cyberstatic.net/clientscript/vbulletin_editor.css");
+
+.vBulletin_editor {
+	background: #E1E1E2;
+	padding: 5px;
+}
+.imagebutton {
+	background: #E1E1E2;
+	color: #000000;
+	padding: 1px;
+	border: none;
+}
+.ocolor, .ofont, .osize, .osmilie, .osyscoloar, .smilietitle {
+	background: #FFFFFF;
+	color: #000000;
+	border: 1px solid #FFFFFF;
+}
+.popup_pickbutton {
+	border: 1px solid #FFFFFF;
+}
+.popup_feedback {
+	background: #FFFFFF;
+	color: #000000;
+	border-right: 1px solid #FFFFFF;
+}
+.popupwindow {
+	background: #FFFFFF;
+}
+#fontOut, #sizeOut, .popup_feedback div {
+	background: #FFFFFF;
+	color: #000000;
+}
+.alt_pickbutton {
+	border-left: 1px solid #E1E1E2;
+}
+.popup_feedback input, .popup_feedback div
+{
+	border: 0px solid;
+	padding: 0px 2px 0px 2px;
+	cursor: default;
+	font: 8pt tahoma;
+	overflow: hidden;
+}
+-->
+</style>
+<!-- / Editor Styles -->
+
+
+<script>
+<!--
+var SESSIONURL = "s=&";
+var SECURITYTOKEN = "guest";
+var IMGDIR_MISC = "//cyberstatic.net/images/misc";
+var vb_disable_ajax = parseInt("0", 10);
+// -->
+</script>
+
+<script src="//ajax.googleapis.com/ajax/libs/yui/2.9.0/build/yahoo-dom-event/yahoo-dom-event.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/yui/2.9.0/build/connection/connection-min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cyberstatic.net/clientscript/custom/jquery.browser.min.js"></script>
+
+<script src="//cyberstatic.net/clientscript/vbulletin_global2.js"></script>
+
+
+<script src="//cyberstatic.net/clientscript/vbulletin_vbpost.js"></script>
+
+
+<script src="//cyberstatic.net/clientscript/vbulletin_md5.js"></script>
+
+
+
+	<link rel="alternate" type="application/rss+xml" title="Форум программистов и сисадминов Киберфорум RSS Feed" href="https://www.cyberforum.ru/external.php?type=RSS2" />
+	
+
+<link type="application/opensearchdescription+xml" rel="search" href="https://www.cyberforum.ru/opensearch.xml" title="CyberForum.ru" />
+<link rel="stylesheet" href="//cyberstatic.net/clientscript/vbulletin_css/geshi.css" type="text/css" media="screen" />
+<link rel="stylesheet" type="text/css" href="//cyberstatic.net/clientscript/vbulletin_css/spoiler.css" />
+<script>
+	var IMGDIR_BUTTON = "//cyberstatic.net/images/buttons";
+</script>
+
+
+<script async src="https://statika.mpsuadv.ru/scripts/1191.js"></script>
+
+
+
+<script>window.yaContextCb=window.yaContextCb||[]</script>
+<script src="https://yandex.ru/ads/system/context.js" async></script>
+
+
+<style type="text/css" id="vbulletin_blog_css">
+.cleardiv {
+	clear:both;
+}
+.entryposter {
+	background:#CCFFFF;
+}
+#content_container {
+	width:100%;
+	float:right;
+	margin-left:-236px;
+}
+#content {
+	margin-left:236px;
+}
+#sidebar_container {
+	width:230px;
+	float:left;
+}
+#blog_description {
+	margin-bottom:12px;
+}
+div.block_category_list {
+	overflow:hidden;
+	white-space:nowrap;
+}
+div.sidebar_custom_block {
+	overflow:hidden
+}
+img.blog_home_list_image {
+	max-width:30px;
+	max-height:30px;
+	height:auto !important;
+	width:auto !important;
+	width:30px;
+	height:30px;
+}
+.nobullets, .list_no_decoration {
+	list-style:none;
+	margin:0px;
+	padding:0px;
+}
+ul.recent_visitors_list li {
+	display:inline;
+	margin-right:3px;
+}
+
+	a.tagcloudlink:link, a.tagcloudlink:visited { text-decoration:none; }
+	a.tagcloudlink:hover, a.tagcloudlink:active { text-decoration:underline; }
+	a.taglistlink:link, a.taglistlink:visited { text-decoration:none; display: block; }
+	a.taglistlink:hover, a.taglistlink:active { text-decoration:underline; display: block; }
+
+	a.level1 { font-size: 100%; }
+	a.level2 { font-size: 140%; }
+	a.level3 { font-size: 170%; }
+	a.level4 { font-size: 200%; }
+	a.level5 { font-size: 230%; }
+
+
+
+</style>
+
+
+
+
+
+<script>
+<!--
+	vBulletin.register_control("vB_Blog_Userid", "100500");
+//-->
+</script>
+
+
+<title>C# ~ Ревизор Диска - программа для быстрого просмотра папок и файлов - Форум программистов и сисадминов Киберфорум</title>
+
+</head>
+<body >
+
+
+
+<div style="min-width: 1100px;  margin: 7px 20px 80px 20px;">
+
+
+
+<div>
+	<div class="page" style="text-align: left;">
+		<div style="margin: 0px 3px 0px 3px" align="left">
+
+
+<div class="vbmenu_popup" id="vbbloglinks_menu" style="display:none;margin-top:3px" align="left">
+	<table cellpadding="4" cellspacing="0" border="0">
+	<tr>
+		<td class="thead"><a href="https://www.cyberforum.ru/blogs/">Блоги</a></td>
+	</tr>
+	
+	<tr>
+		<td class="vbmenu_option"><a href="https://www.cyberforum.ru/blogs/recent-entries/">Последние записи</a></td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option"><a href="https://www.cyberforum.ru/blogs/best-entries/">Лучшие записи</a></td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option"><a href="https://www.cyberforum.ru/blogs/best-blogs/">Лучшие блоги</a></td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option"><a href="https://www.cyberforum.ru/blogs/articles/">Статьи</a></td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option"><a href="https://www.cyberforum.ru/blogs/tags/">Облако меток</a></td>
+	</tr>
+
+	</table>
+</div>
+<table class="tborder" cellpadding="5" cellspacing="0" border="0" width="100%" align="center">
+<tr>
+
+	<td class="alt1 notbordered" width="100%" style="padding-left: 10px">
+		<a href="https://www.cyberforum.ru/"  style="display: block; float: left; margin: 5px 25px 10px 0px"><img loading="lazy" decoding="async" border="0" src="//cyberstatic.net/images/cyberforum_logo.png" height="50px" alt="Форум программистов, компьютерный форум, киберфорум" title="Форум программистов, компьютерный форум, киберфорум" /></a>
+		<div class="smallfont" style="float: right; margin: 0px 0px 0px 20px;">
+			<div class="ya-share2" data-services="vkontakte,odnoklassniki" data-image="//cyberstatic.net/images/cyberforum_logo.png"></div>
+		</div>
+		
+			
+				<span class="forumtitle2">tester42</span>
+			
+			<div class="smallfont"><a href="https://www.cyberforum.ru/" accesskey="1">Форум программистов и сисадминов Киберфорум</a>
+	<span class="navbar"> &gt; <a href="https://www.cyberforum.ru/blogs/">Блоги</a></span>
+
+	<span class="navbar"> &gt; <a href="https://www.cyberforum.ru/blogs/100500/">tester42</a></span>
+</div>
+		
+	</td>
+
+	<td class="alt2 notbordered" style="padding: 2px">
+		<table cellpadding="5" cellspacing="3" border="0" width="230px">
+		<tr>
+			<td class="smallfont" style="white-space: nowrap"><b><a href="https://www.cyberforum.ru/auth.php" class="forumtitle2">Войти</a></b></td>
+		</tr>
+		<tr>
+			<td>
+				<b><a href="https://www.cyberforum.ru/register.php">Регистрация</a></b><br/>
+				<a href="https://www.cyberforum.ru/login.php?do=lostpw">Восстановить пароль</a>
+			</td>
+		</tr>
+		</table>
+
+	</td>
+
+</tr>
+</table>
+<div class="tborder" style="padding:0px; border-top-width:0px; margin-bottom: 3px;">
+	<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+	<tr align="center">
+		
+		
+		<td class="vbmenu_control"><a id="vbbloglinks" href="https://www.cyberforum.ru/blogs/">Блоги</a><script>vbmenu_register("vbbloglinks");</script></td>
+		
+			
+			
+				<td class="vbmenu_control"><a href="https://www.cyberforum.ru/groups/">Социальные группы</a></td>
+			
+		
+		
+			
+				<td class="vbmenu_control"><a href="https://www.cyberforum.ru/search.php" accesskey="4">Поиск</a></td>
+				
+				<td class="vbmenu_control"><a href="https://www.cyberforum.ru/search.php?do=getdaily" accesskey="2">Сообщения за день</a></td>
+				
+			
+
+			
+		
+		
+		<td class="vbmenu_control" width="100%">&nbsp;</td>
+		</tr>
+	</table>
+</div>
+
+
+<table id="yatopbanner" cellspacing="0" cellpadding="2" border="0" align="center" width="100%" class="tborder" style="margin: 0px 0px 3px 0px;"><tr>
+<td width="100%" class="alt1" align="center" valign="middle">
+
+
+
+<div id="yandex_rtb_R-A-29317-1"></div>
+<script>window.yaContextCb.push(()=>{
+  Ya.Context.AdvManager.render({
+    renderTo: 'yandex_rtb_R-A-29317-1',
+    blockId: 'R-A-29317-1'
+  })
+})</script>
+
+
+
+</td>
+</tr></table>
+
+<div id="movie_video"></div><script type="text/javascript" src="https://vak345.com/s.js?v=8d94458a2b7741a172956c4b6a86f3a7" async></script>
+
+
+
+
+
+
+
+
+<div id="usercss">
+	
+	<div class="cleardiv"></div>
+	<div id="content_container">
+		<div id="content">
+	
+			
+
+			<!-- Description -->
+			
+			<!-- End Description -->
+
+			<!-- main content -->
+			
+<div class="tborder notbordered" style="padding:0px">
+	
+	<div class="alt1" style="padding:5px" id="entry6947">
+		<div style="clear:both"></div>
+		
+		<h1 id="blog_title" class="content" style="margin-bottom: 10px">
+			C# ~ Ревизор Диска - программа для быстрого просмотра папок и файлов
+			
+		</h1>
+		
+		<div class="smallfont shade">
+			<span class="shade">Запись от <a href="https://www.cyberforum.ru/blogs/100500/">tester42</a> размещена 28.01.2021 в 07:26</span>
+		</div>
+		<div class="smallfont shade">
+			Показов 3644
+			<a href="https://www.cyberforum.ru/blogs/100500/6947.html#comments" class="shade">Комментарии</a></span> <span id="commentcount1">4
+		</div>
+		
+		<div style="clear:both; margin-top:4px"></div>
+		<hr class=thin" />
+		<table id="blog_message" style="margin-bottom:10px"><tr><td>
+			Дано:<br />
+Большой диск забитый под завязку папками и файлами.<br />
+<br />
+Задача:<br />
+Быстро и качественно узнать какие папки и файлы больше всего занимают пространства.<br />
+<br />
+Решение:<br />
+1. Обход всех папок и файлов заданного размещения с последующим подсчетом занимаемого места.<br />
+2. Сохранение собранных данных (п.1) в подготовленный массив.<br />
+3. Вывод данных из массива (п.2) в таблицу.<br />
+<br />
+Программа написана в среде MS Visual Studio C#.<br />
+<br />
+Попробовать программу и ознакомится с кодом можно по ссылке:<br />
+<a href="https://www.cyberforum.ru/blog_attachment.php?attachmentid=6738&amp;d=1611807239" >DiskRevizor1.0.0.28.zip</a><br />
+<br />
+Скринфоты:<br />
+<a href="https://www.cyberforum.ru/blog_attachment.php?attachmentid=6739&amp;d=1611807864" rel="Lightbox" id="attachment6739" ><img src="https://www.cyberforum.ru/blog_attachment.php?attachmentid=6739&amp;thumb=1&amp;d=1611807864" class="thumbnail" border="0" alt="Нажмите на изображение для увеличения
+Название: DiskRevizor.jpg
+Просмотров: 274
+Размер:	82.1 Кб
+ID:	6739" style="margin: 5px" /></a>
+			
+		</td></tr></table>
+		
+	</div>
+	<div class="alt2 smallfont notbordered" style="height: 30px; text-align:right; padding:5px; margin-top:0px">
+		
+			<div style="float:left; text-align:left">
+				
+				<div><span class="shade" style="margin-bottom: 5px">Размещено в</span> <a href="https://www.cyberforum.ru/blogs/100500/category476/">Авторские программы</a></div>
+			</div>
+		
+
+		
+		
+		
+		
+		
+		
+		
+	</div>
+</div>
+
+<div class="tborder" style="padding:0px; border-top:0px">
+	<div class="tfoot smallfont" style="padding:5px; text-align:center">
+				
+					
+						&laquo; <a href="https://www.cyberforum.ru/blogs/100500/5552.html">C# Добавить ToolStripSplitButton на MenuStrip</a>
+						&nbsp;&nbsp;&nbsp;
+					
+				
+				<a href="https://www.cyberforum.ru/blogs/100500/">Главная страница</a>
+				
+					
+						&nbsp;&nbsp;&nbsp;
+						<a href="https://www.cyberforum.ru/blogs/100500/7010.html">Еще один японско-русский словарь</a> &raquo;
+					
+				
+	</div>
+</div>
+
+
+<div style="background-color: #FFFACD; border: 1px solid #0B198C; margin: 3px 0px 3px 0px; padding: 7px; text-align:center; font-size: 10pt">
+<b>Надоела реклама? <a href="https://www.cyberforum.ru/register.php">Зарегистрируйтесь</a> и она исчезнет полностью.</b>
+</div>
+
+
+
+
+
+	<!-- Editor Scripts -->
+<script src="//cyberstatic.net/clientscript/vbulletin_textedit.js"></script>
+<script>
+<!--
+var fontoptions = new Array("Arial", "Arial Black", "Arial Narrow", "Book Antiqua", "Century Gothic", "Comic Sans MS", "Courier New", "Fixedsys", "Franklin Gothic Medium", "Garamond", "Georgia", "Impact", "Lucida Console", "Lucida Sans Unicode", "Microsoft Sans Serif", "Palatino Linotype", "System", "Tahoma", "Times New Roman", "Trebuchet MS", "Verdana");
+var sizeoptions = new Array(1, 2, 3, 4, 5, 6, 7);
+var smilieoptions = {  };
+
+var istyles = { "pi_button_down" : [ "#98B5E2", "#000000", "0px", "1px solid #316AC5" ], "pi_button_hover" : [ "#C1D2EE", "#000000", "0px", "1px solid #316AC5" ], "pi_button_normal" : [ "#E1E1E2", "#000000", "1px", "none" ], "pi_button_selected" : [ "#F1F6F8", "#000000", "0px", "1px solid #316AC5" ], "pi_menu_down" : [ "#98B5E2", "#316AC5", "0px", "1px solid #316AC5" ], "pi_menu_hover" : [ "#C1D2EE", "#316AC5", "0px", "1px solid #316AC5" ], "pi_menu_normal" : [ "#FFFFFF", "#000000", "0px", "1px solid #FFFFFF" ], "pi_popup_down" : [ "#98B5E2", "#000000", "0px", "1px solid #316AC5" ] };
+var ltr = 'left';
+
+var smiliewindow_x = 240;
+var smiliewindow_y = 280;
+
+var ignorequotechars = 1;
+var allowbasicbbcode = false;
+
+// vB Phrases
+vbphrase["wysiwyg_please_wait"]          = "Пожалуйста, подождите, пока загрузится визуальный редактор...";
+vbphrase["wysiwyg_initialized"]          = "Визуальный редактор запущен для %1$s за %2$s сек.";
+vbphrase["wysiwyg_command_invalid"]      = "Неверная или нереализуемая команда.";
+vbphrase["moz_must_select_text"]         = "В Mozilla вам необходимо выделить часть текста, чтобы данная функция заработала.";
+vbphrase["moz_edit_config_file"]         = "Вам необходимо изменить файл настроек Mozilla, чтобы выполнить это действие.";
+vbphrase["enter_tag_option"]             = "Пожалуйста, введите опцию для BB кода %1$s:";
+vbphrase["must_select_text_to_use"]      = "Вам необходимо выделить часть текста, чтобы данная функция заработала.";
+vbphrase["browser_is_safari_no_wysiwyg"] = "Браузер Safari не поддерживает визуальный редактор.";
+vbphrase["enter_option_x_tag"]           = "Введите опцию для BB кода [%1$s]:";
+vbphrase["enter_text_to_be_formatted"]   = "Введите форматируемый текст";
+vbphrase["enter_link_text"]              = "Введите текст отображаемый как ссылка (не обязательно):";
+vbphrase["enter_list_type"]              = "Какой вид списка вы хотите создать? Введите '1', для создания нумерованного списка, введите 'a', для алфавитного списка, или оставьте пустым, для маркированного списка:";
+vbphrase["enter_list_item"]              = "Введите элемент\r\n(оставьте список пустым или нажмите 'Отмена', чтобы завершить ввод):";
+vbphrase["must_enter_subject"]           = "Вы должны ввести заголовок/название темы! Название не должно быть короче 10 символов.";
+vbphrase["message_too_short"]            = "Ваше сообщение слишком короткое. Оно должно быть не менее %1$s символов.";
+vbphrase["enter_link_url"]               = "Введите URL для данной ссылки:";
+vbphrase["enter_image_url"]              = "Укажите URL вашего изображения:";
+vbphrase["enter_email_link"]             = "Введите адрес электронной почты для данной ссылки:";
+vbphrase["complete_image_verification"]  = "Вы не прошли проверку ввода текста с изображения";
+vbphrase["iespell_not_installed"]        = "ieSpell - инструмент проверки орфографии для Internet Explorer.\r\n\r\nЕсли вы хотели бы загрузить ieSpell, нажмите OK; в противном случае нажмите Отмена.\r\n\r\nieSpell может быть загружен с http://www.iespell.com]";
+vbphrase["click_quick_reply_icon"]       = "";
+vbphrase["insert_all"]                   = "Вставить все";
+
+//-->
+</script>
+<!-- / Editor Scripts -->
+
+
+
+	
+
+	<div class="cleardiv" style="margin-top:24px"></div>
+	
+		<div style="float:right" class="smallfont"><span class="shade">Всего комментариев</span> <span id="commentcount2">4</span></div>
+	
+	<span id="comments_heading" style="margin-bottom:5px; font-size:12pt; font-weight: bold"><a name="comments"></a>Комментарии</span>
+
+	
+	
+	
+	<ol id="message_list" class="list_no_decoration">
+		<li id="comment27071">
+
+	<table class="tborder" cellpadding="5" cellspacing="0" border="0" style="margin-bottom:5px; clear:both" width="100%">
+	<tr>
+		<td class="thead" align="center" valign="top"  rowspan="2">
+			<a name="comment27071" href="https://www.cyberforum.ru/blogs/100500/6947.html#comment27071" rel="nofollow"><img loading="lazy" decoding="async" class="inlineimg" src="//cyberstatic.net/images/statusicon/post_old.gif" alt="Старый комментарий" border="0" /></a>
+		</td>
+		<td class="alt1 notbordered_right" style="padding:0px" width="100%">
+			<div id="td_comment_27071" style="padding: 10px 10px 10px 15px; min-height: 30px">
+				
+					<div class="tborder" style="border-style:dotted; float:right; margin-left:5px">
+						<div class="alt2" style="padding:5px">
+							<a href="https://www.cyberforum.ru/blogs/100600/"><img loading="lazy" decoding="async" src="https://www.cyberforum.ru/customavatars/avatar100600_18.gif" width="41" height="41" alt="Аватар для komment1" border="0" /></a>
+						</div>
+					</div>
+				
+	
+				<!-- this condition is activated when this template is being called from do=comments, which just lists comments -->
+				
+	
+				
+	
+				<div id="comment_text_27071">Гитхаб?</div>
+				<div class="cleardiv" style="height:0; line-height:0; font-size:0"></div>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		
+		<td class="alt2 smallfont notbordered_top notbordered_right">
+
+				
+
+				
+
+				
+					<span class="shade">Запись от <a href="https://www.cyberforum.ru/members/100600.html">komment1</a> размещена 28.01.2021 в 20:47</span>
+					
+							<img loading="lazy" decoding="async" class="inlineimg" src="//cyberstatic.net/images/misc/blog/status_offline.gif" alt="komment1 вне форума" border="0" />
+					
+				
+				
+		</td>
+	</tr>
+	</table>
+<script>
+<!--
+	vBulletin.register_control("vB_QuickEdit", "27071");
+//-->
+</script>
+</li><li id="comment27084">
+
+	<table class="tborder" cellpadding="5" cellspacing="0" border="0" style="margin-bottom:5px; clear:both" width="100%">
+	<tr>
+		<td class="thead" align="center" valign="top"  rowspan="2">
+			<a name="comment27084" href="https://www.cyberforum.ru/blogs/100500/6947.html#comment27084" rel="nofollow"><img loading="lazy" decoding="async" class="inlineimg" src="//cyberstatic.net/images/statusicon/post_old.gif" alt="Старый комментарий" border="0" /></a>
+		</td>
+		<td class="entryposter alt1 notbordered_right" style="padding:0px" width="100%">
+			<div id="td_comment_27084" style="padding: 10px 10px 10px 15px; min-height: 30px">
+				
+					<div class="tborder" style="border-style:dotted; float:right; margin-left:5px">
+						<div class="alt2" style="padding:5px">
+							<a href="https://www.cyberforum.ru/blogs/100500/"><img loading="lazy" decoding="async" src="https://www.cyberforum.ru/customavatars/avatar100500_1.gif" width="80" height="80" alt="Аватар для tester42" border="0" /></a>
+						</div>
+					</div>
+				
+	
+				<!-- this condition is activated when this template is being called from do=comments, which just lists comments -->
+				
+	
+				
+	
+				<div id="comment_text_27084">
+<table width="70%" class="bbcode_maincontainer_blog"><tr><td>
+	<div class="bbcode_container">
+	  <div class="bbcode_quote">
+	    <div class="btbtbt">
+		<div class="quote_container">
+	      	<div class="bbcode_quote_container"></div>
+	       	<div class="bbcode_postedby">
+	         	
+				<img loading="lazy" decoding="async" title="Цитата" src="//cyberstatic.net/images/buttons/quote_icon.png" alt="Цитата" />
+				Сообщение от <strong>komment1</strong>
+				
+	         	
+	        </div>
+	        <div class="message">Гитхаб?</div>
+	      </div>
+			</div> 
+		</div>
+	</div>
+</td></tr></table>А что за &quot;Гитхаб&quot; то? Я на какойто заходил github, но там все не по русски, я не нашел где у них русский включить.</div>
+				<div class="cleardiv" style="height:0; line-height:0; font-size:0"></div>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		
+		<td class="alt2 smallfont notbordered_top notbordered_right">
+
+				
+
+				
+
+				
+					<span class="shade">Запись от <a href="https://www.cyberforum.ru/members/100500.html">tester42</a> размещена 01.02.2021 в 13:40</span>
+					
+							<img loading="lazy" decoding="async" class="inlineimg" src="//cyberstatic.net/images/misc/blog/status_offline.gif" alt="tester42 вне форума" border="0" />
+					
+				
+				
+		</td>
+	</tr>
+	</table>
+<script>
+<!--
+	vBulletin.register_control("vB_QuickEdit", "27084");
+//-->
+</script>
+</li><li id="comment29813">
+
+	<table class="tborder" cellpadding="5" cellspacing="0" border="0" style="margin-bottom:5px; clear:both" width="100%">
+	<tr>
+		<td class="thead" align="center" valign="top"  rowspan="2">
+			<a name="comment29813" href="https://www.cyberforum.ru/blogs/100500/6947.html#comment29813" rel="nofollow"><img loading="lazy" decoding="async" class="inlineimg" src="//cyberstatic.net/images/statusicon/post_old.gif" alt="Старый комментарий" border="0" /></a>
+		</td>
+		<td class="alt1 notbordered_right" style="padding:0px" width="100%">
+			<div id="td_comment_29813" style="padding: 10px 10px 10px 15px; min-height: 30px">
+				
+	
+				<!-- this condition is activated when this template is being called from do=comments, which just lists comments -->
+				
+	
+				
+	
+				<div id="comment_text_29813">
+<table width="70%" class="bbcode_maincontainer_blog"><tr><td>
+	<div class="bbcode_container">
+	  <div class="bbcode_quote">
+	    <div class="btbtbt">
+		<div class="quote_container">
+	      	<div class="bbcode_quote_container"></div>
+	       	<div class="bbcode_postedby">
+	         	
+				<img loading="lazy" decoding="async" title="Цитата" src="//cyberstatic.net/images/buttons/quote_icon.png" alt="Цитата" />
+				Сообщение от <strong>tester42</strong>
+				
+	         	
+	        </div>
+	        <div class="message">А что за &quot;Гитхаб&quot; то? Я на какойто заходил github, но там все не по русски, я не нашел где у них русский включить.</div>
+	      </div>
+			</div> 
+		</div>
+	</div>
+</td></tr></table>в Crome правый клик -&gt; выбрать в меню &quot;Перевести на русский&quot;<br />
+<br />
+Откуда программа? Сами написали?</div>
+				<div class="cleardiv" style="height:0; line-height:0; font-size:0"></div>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		
+		<td class="alt2 smallfont notbordered_top notbordered_right">
+
+				
+
+				
+
+				
+					<span class="shade">Запись от <a href="https://www.cyberforum.ru/members/100700.html">komment2</a> размещена 05.02.2022 в 20:15</span>
+					
+							<img loading="lazy" decoding="async" class="inlineimg" src="//cyberstatic.net/images/misc/blog/status_offline.gif" alt="komment2 вне форума" border="0" />
+					
+				
+				
+		</td>
+	</tr>
+	</table>
+<script>
+<!--
+	vBulletin.register_control("vB_QuickEdit", "29813");
+//-->
+</script>
+</li><li id="comment29814">
+
+	<table class="tborder" cellpadding="5" cellspacing="0" border="0" style="margin-bottom:5px; clear:both" width="100%">
+	<tr>
+		<td class="thead" align="center" valign="top"  rowspan="2">
+			<a name="comment29814" href="https://www.cyberforum.ru/blogs/100500/6947.html#comment29814" rel="nofollow"><img loading="lazy" decoding="async" class="inlineimg" src="//cyberstatic.net/images/statusicon/post_old.gif" alt="Старый комментарий" border="0" /></a>
+		</td>
+		<td class="entryposter alt1 notbordered_right" style="padding:0px" width="100%">
+			<div id="td_comment_29814" style="padding: 10px 10px 10px 15px; min-height: 30px">
+				
+					<div class="tborder" style="border-style:dotted; float:right; margin-left:5px">
+						<div class="alt2" style="padding:5px">
+							<a href="https://www.cyberforum.ru/blogs/100500/"><img loading="lazy" decoding="async" src="https://www.cyberforum.ru/customavatars/avatar100500_1.gif" width="80" height="80" alt="Аватар для tester42" border="0" /></a>
+						</div>
+					</div>
+				
+	
+				<!-- this condition is activated when this template is being called from do=comments, which just lists comments -->
+				
+	
+				
+	
+				<div id="comment_text_29814">
+<table width="70%" class="bbcode_maincontainer_blog"><tr><td>
+	<div class="bbcode_container">
+	  <div class="bbcode_quote">
+	    <div class="btbtbt">
+		<div class="quote_container">
+	      	<div class="bbcode_quote_container"></div>
+	       	<div class="bbcode_postedby">
+	         	
+				<img loading="lazy" decoding="async" title="Цитата" src="//cyberstatic.net/images/buttons/quote_icon.png" alt="Цитата" />
+				Сообщение от <strong>komment2</strong>
+				
+	         	
+	        </div>
+	        <div class="message">Откуда программа? Сами написали?</div>
+	      </div>
+			</div> 
+		</div>
+	</div>
+</td></tr></table>Да, моя собственная.</div>
+				<div class="cleardiv" style="height:0; line-height:0; font-size:0"></div>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		
+		<td class="alt2 smallfont notbordered_top notbordered_right">
+
+				
+
+				
+
+				
+					<span class="shade">Запись от <a href="https://www.cyberforum.ru/members/100500.html">tester42</a> размещена 05.02.2022 в 20:51</span>
+					
+							<img loading="lazy" decoding="async" class="inlineimg" src="//cyberstatic.net/images/misc/blog/status_offline.gif" alt="tester42 вне форума" border="0" />
+					
+				
+				
+		</td>
+	</tr>
+	</table>
+<script>
+<!--
+	vBulletin.register_control("vB_QuickEdit", "29814");
+//-->
+</script>
+</li>
+	</ol>
+	
+	<table cellpadding="1" cellspacing="0" border="0" width="100%">
+	<tr valign="top">
+		<td class="smallfont">
+			
+				&nbsp;
+			
+		</td>
+		
+	</tr>
+	</table>
+	
+	
+
+
+	<table class="tborder" cellpadding="5" cellspacing="0" border="0" style="display:none; position:absolute" id="ajax_post_errors">
+	<tr>
+		<td class="thead">
+			<span style="float:right"><input type="button" class="button" value=" X "  id="quick_edit_errors_hide" /></span>
+			Сообщение форума
+		</td>
+	</tr>
+	<tr>
+		<td class="alt2" colspan="2" id="ajax_post_errors_message">&nbsp;</td>
+	</tr>
+	<tr>
+		<td class="tfoot" colspan="2" align="center"><a href="https://www.cyberforum.ru/blogs/100500/6947.html#" id="quick_edit_errors_cancel">Отменить изменения</a></td>
+	</tr>
+	</table>
+	<script src="//cyberstatic.net/clientscript/blog_quick_edit.js"></script>
+
+
+
+
+<script>
+<!--
+	vBulletin.register_control("vB_Blog_Tag", "6947");
+//-->
+</script>
+			<!-- End main content -->
+		</div>
+	</div>
+	
+	<div id="sidebar_container"><div id="blog_user_sidebar">
+	
+	<div class="tborder" style="padding:0px">
+		<div class="tcat" style="padding:5px" id="blogusermenu">
+				<a rel="author" href="https://www.cyberforum.ru/members/100500.html">tester42</a>
+
+				
+						<img loading="lazy" decoding="async" class="inlineimg" src="//cyberstatic.net/images/misc/blog/status_offline.gif" alt="tester42 вне форума" border="0" />
+				
+		</div>
+		<script>vBmenu.register("blogusermenu", true);</script>
+		<div class="alt1 notbordered" style="padding:5px; margin-top:0px">
+			
+				
+					<div style="text-align:center; margin-bottom:5px">
+						<a href="https://www.cyberforum.ru/members/100500.html"><img loading="lazy" decoding="async" src="https://www.cyberforum.ru/customavatars/avatar100500_1.gif" width="80" height="80" alt="Аватар для tester42" border="0" class="alt2" style="display:inline" /></a>
+					</div>
+				
+			
+
+			<div class="smallfont">
+				<ul class="list_no_decoration">
+					<li class="smallfont"><span class="shade">Регистрация</span> 28.11.2016</li>
+					<li class="smallfont"><span class="shade">Адрес</span> Екатеринград</li>
+					
+					<li class="smallfont"><span class="shade">Сообщений</span> 69</li>
+					<li class="smallfont"><span class="shade">Записей в блоге</span> 11</li>
+				</ul>
+				
+				
+				
+				
+				
+			</div>
+
+			
+		</div>
+	</div>
+
+	
+
+	
+	
+	
+
+	
+
+	
+
+	<ul id="moveable_blocks" class="list_no_decoration">
+		
+		
+		
+		
+		
+		
+		
+		
+<li id="block_search">
+	<div class="tborder" style="margin-top:5px; padding:0px" id="block_search_div">
+		<form action="https://www.cyberforum.ru/blog_search.php?do=dosearch" method="post">
+		<div class="thead" style="padding:5px" id="block_search_handle">
+			<a style="float:right" href="https://www.cyberforum.ru/blogs/100500/6947.html#top" onclick="return toggle_collapse('blog_search')"><img loading="lazy" decoding="async" id="collapseimg_blog_search" src="//cyberstatic.net/images/buttons/collapse_generic.gif" alt="" border="0" /></a>
+			Поиск в блоге tester42
+		</div>
+		<div style="" id="collapseobj_blog_search">
+			<div class="alt1 smallfont notbordered" style="padding:5px; margin:0px 0px 0px 0px">
+				<label for="quicksearch_blog_text" class="smallfont" style="display:block; margin-top:5px">Содержит текст:</label>
+				<input type="text" class="bginput" style="width:95%" tabindex="51" name="text" id="quicksearch_blog_text" />
+				<label class="smallfont" style="display:block; margin-top:5px" for="cb_titleonly"><input class="inlineimg" type="checkbox" tabindex="52" name="titleonly" id="cb_titleonly" value="1" />Искать только в заголовках</label>
+			</div>
+			<div class="alt2 smallfont notbordered" style="padding:5px">
+				<input type="submit" class="button" style="font-size:10px; float:right" value="Поиск" tabindex="53" />
+				<a href="https://www.cyberforum.ru/blog_search.php?do=search">Расширенный поиск</a>
+			</div>
+		</div>
+		<input type="hidden" name="quicksearch" value="1" />
+		<input type="hidden" name="searchuserid" value="100500" />
+		<input type="hidden" name="s" value="486bb33336983bc88491c1b8986b91f0" />
+		<input type="hidden" name="securitytoken" value="guest" />
+		<input type="hidden" name="do" value="dosearch" />
+	</form>
+	</div>
+</li>
+
+	<li id="block_category">
+		<div class="tborder" style="margin-top:5px; padding:0px" id="block_category_div">
+			<div class="thead" style="padding:5px" id="block_category_handle">
+				<a style="float:right; padding-left:0px" href="https://www.cyberforum.ru/blogs/100500/6947.html#top" onclick="return toggle_collapse('blog_categories')"><img loading="lazy" decoding="async" id="collapseimg_blog_categories" src="//cyberstatic.net/images/buttons/collapse_generic.gif" alt="" border="0" /></a>
+				
+				Категории блога
+			</div>
+			<div class="alt1 smallfont notbordered" style="padding:5px; margin-top:0px; " id="collapseobj_blog_categories">
+				
+				
+					<div class="alt2" style="margin-bottom:4px; margin-top:4px" align="center">Локальные категории</div>
+					<div class="block_category_list">
+						<ul class="list_no_decoration">
+							
+<li class="smallfont" style="margin-bottom:2px">
+	<img loading="lazy" decoding="async" src="//cyberstatic.net/images/misc/blog/folder.gif" class="inlineimg" alt="Авторские программы" border="0" />
+	
+		<a href="https://www.cyberforum.ru/blogs/100500/category476/" title="Авторские программы">Авторские программы</a>
+	</li>
+<li class="smallfont" style="margin-bottom:2px">
+	<img loading="lazy" decoding="async" src="//cyberstatic.net/images/misc/blog/folder.gif" class="inlineimg" alt="Устройства на микроконтроллерах AVR" border="0" />
+	
+		<a href="https://www.cyberforum.ru/blogs/100500/category487/" title="Устройства на микроконтроллерах AVR">Устройства на микроконтроллерах AVR</a>
+	</li>
+<li class="smallfont" style="margin-bottom:2px">
+	<img loading="lazy" decoding="async" src="//cyberstatic.net/images/misc/blog/folder.gif" class="inlineimg" alt="Без категории" border="0" />
+	
+		<a href="https://www.cyberforum.ru/blogs/100500/category0/" title="Без категории">Без категории</a>
+	</li>
+						</ul>
+					</div>
+								
+			</div>
+		</div>
+	</li>
+
+<li id="block_entries">
+		<div class="tborder" style="margin-top:5px; padding:0px"  id="block_entries_div">
+			<div class="thead" style="padding:5px" id="block_entries_handle">
+				<a style="float:right" href="https://www.cyberforum.ru/blogs/100500/6947.html#top" onclick="return toggle_collapse('blog_entries')"><img loading="lazy" decoding="async" id="collapseimg_blog_entries" src="//cyberstatic.net/images/buttons/collapse_generic.gif" alt="" border="0" /></a>
+				<a href="https://www.cyberforum.ru/blogs/100500/">Последние записи</a>
+			</div>
+			<div class="alt1 notbordered" style="padding:5px; margin-top:0px; " id="collapseobj_blog_entries">
+				<ul style="list-style:none; padding:0px; margin:0px"><li class="smallfont" style="margin-bottom:5px">
+	
+	<a href="https://www.cyberforum.ru/blogs/100500/10438.html">Хак домофона или как открыть дверь по номеру</a>
+</li><li class="smallfont" style="margin-bottom:5px">
+	
+	<a href="https://www.cyberforum.ru/blogs/100500/8256.html">Измерение емкости на ATMEGA8</a>
+</li><li class="smallfont" style="margin-bottom:5px">
+	
+	<a href="https://www.cyberforum.ru/blogs/100500/7945.html">2-x канальный графический уровень аудио с защитой АС от постоянки</a>
+</li><li class="smallfont" style="margin-bottom:5px">
+	
+	<a href="https://www.cyberforum.ru/blogs/100500/7196.html">USB-Программатор для AVR без паяльника</a>
+</li><li class="smallfont" style="margin-bottom:5px">
+	
+	<a href="https://www.cyberforum.ru/blogs/100500/7076.html">Игра Сёги на Visual Studio</a>
+</li><li class="smallfont" style="margin-bottom:5px">
+	
+	<a href="https://www.cyberforum.ru/blogs/100500/7010.html">Еще один японско-русский словарь</a>
+</li><li class="smallfont" style="margin-bottom:5px">
+	
+	<a href="https://www.cyberforum.ru/blogs/100500/6947.html">C# ~ Ревизор Диска - программа для быстрого просмотра папок и файлов</a>
+</li><li class="smallfont" style="margin-bottom:5px">
+	
+	<a href="https://www.cyberforum.ru/blogs/100500/5552.html">C# Добавить ToolStripSplitButton на MenuStrip</a>
+</li><li class="smallfont" style="margin-bottom:5px">
+	
+	<a href="https://www.cyberforum.ru/blogs/100500/4551.html">Собираем эксклюзивные часы на микроконтроллере AVR</a>
+</li><li class="smallfont" style="margin-bottom:5px">
+	
+	<a href="https://www.cyberforum.ru/blogs/100500/4540.html">Игра Шашки на Питоне</a>
+</li></ul>
+			</div>
+		</div>
+</li>
+
+<li id="block_tagcloud">
+		<div class="tborder" style="margin-top:5px; padding:0px" id="block_tagcloud_div">
+			<div class="thead" style="padding:5px" id="block_tagcloud_handle">
+				<a style="float:right; padding-left:0px" href="https://www.cyberforum.ru/blogs/100500/6947.html#top" onclick="return toggle_collapse('blog_cloud')"><img loading="lazy" decoding="async" id="collapseimg_blog_cloud" src="//cyberstatic.net/images/buttons/collapse_generic.gif" alt="" border="0" /></a>
+				Облако меток
+			</div>
+			<div style="" id="collapseobj_blog_cloud">
+				<div class="alt1 smallfont notbordered" style="padding:5px; margin:0px 0px 0px 0px">
+					<div id="tags_cloud_list" style="overflow:hidden">
+						<a href="https://www.cyberforum.ru/blogs/tags/.net.html" class="tagcloudlink level1" title=".net">.net</a>  <a href="https://www.cyberforum.ru/blogs/tags/1%D1%81.html" class="tagcloudlink level5" title="1с">1с</a>  <a href="https://www.cyberforum.ru/blogs/tags/administration.html" class="tagcloudlink level1" title="administration">administration</a>  <a href="https://www.cyberforum.ru/blogs/tags/algorithms.html" class="tagcloudlink level1" title="algorithms">algorithms</a>  <a href="https://www.cyberforum.ru/blogs/tags/alt%20linux.html" class="tagcloudlink level1" title="alt linux">alt linux</a>  <a href="https://www.cyberforum.ru/blogs/tags/android.html" class="tagcloudlink level1" title="android">android</a>  <a href="https://www.cyberforum.ru/blogs/tags/arduino.html" class="tagcloudlink level1" title="arduino">arduino</a>  <a href="https://www.cyberforum.ru/blogs/tags/array%20best%20practices.html" class="tagcloudlink level1" title="array best practices">array best practices</a>  <a href="https://www.cyberforum.ru/blogs/tags/bash.html" class="tagcloudlink level1" title="bash">bash</a>  <a href="https://www.cyberforum.ru/blogs/tags/bash%20debug.html" class="tagcloudlink level1" title="bash debug">bash debug</a>  <a href="https://www.cyberforum.ru/blogs/tags/bash%20scripting.html" class="tagcloudlink level1" title="bash scripting">bash scripting</a>  <a href="https://www.cyberforum.ru/blogs/tags/blkid.html" class="tagcloudlink level1" title="blkid">blkid</a>  <a href="https://www.cyberforum.ru/blogs/tags/box2d.html" class="tagcloudlink level1" title="box2d">box2d</a>  <a href="https://www.cyberforum.ru/blogs/tags/c.html" class="tagcloudlink level2" title="c">c</a>  <a href="https://www.cyberforum.ru/blogs/tags/c%23.html" class="tagcloudlink level1" title="c#">c#</a>  <a href="https://www.cyberforum.ru/blogs/tags/c%2B%2B.html" class="tagcloudlink level2" title="c++">c++</a>  <a href="https://www.cyberforum.ru/blogs/tags/c%2B%2B%20arrays.html" class="tagcloudlink level1" title="c++ arrays">c++ arrays</a>  <a href="https://www.cyberforum.ru/blogs/tags/c%2B%2B%20matrix.html" class="tagcloudlink level1" title="c++ matrix">c++ matrix</a>  <a href="https://www.cyberforum.ru/blogs/tags/call%20to%20action.html" class="tagcloudlink level1" title="call to action">call to action</a>  <a href="https://www.cyberforum.ru/blogs/tags/canbus.html" class="tagcloudlink level1" title="canbus">canbus</a>  <a href="https://www.cyberforum.ru/blogs/tags/cdc.html" class="tagcloudlink level1" title="cdc">cdc</a>  <a href="https://www.cyberforum.ru/blogs/tags/claude.html" class="tagcloudlink level1" title="claude">claude</a>  <a href="https://www.cyberforum.ru/blogs/tags/cmake.html" class="tagcloudlink level2" title="cmake">cmake</a>  <a href="https://www.cyberforum.ru/blogs/tags/com-%D0%BF%D0%BE%D1%80%D1%82.html" class="tagcloudlink level1" title="com-порт">com-порт</a>  <a href="https://www.cyberforum.ru/blogs/tags/console.html" class="tagcloudlink level1" title="console">console</a>  <a href="https://www.cyberforum.ru/blogs/tags/cookie%20certain%20site.html" class="tagcloudlink level1" title="cookie certain site">cookie certain site</a>  <a href="https://www.cyberforum.ru/blogs/tags/cpp%20sorting.html" class="tagcloudlink level1" title="cpp sorting">cpp sorting</a>  <a href="https://www.cyberforum.ru/blogs/tags/curl.html" class="tagcloudlink level1" title="curl">curl</a>  <a href="https://www.cyberforum.ru/blogs/tags/datastructure.html" class="tagcloudlink level1" title="datastructure">datastructure</a>  <a href="https://www.cyberforum.ru/blogs/tags/domain.html" class="tagcloudlink level1" title="domain">domain</a>  <a href="https://www.cyberforum.ru/blogs/tags/dos.html" class="tagcloudlink level1" title="dos">dos</a>  <a href="https://www.cyberforum.ru/blogs/tags/electronics.html" class="tagcloudlink level1" title="electronics">electronics</a>  <a href="https://www.cyberforum.ru/blogs/tags/f%23.html" class="tagcloudlink level1" title="f#">f#</a>  <a href="https://www.cyberforum.ru/blogs/tags/fshap%20module.html" class="tagcloudlink level1" title="fshap module">fshap module</a>  <a href="https://www.cyberforum.ru/blogs/tags/fsharp.html" class="tagcloudlink level1" title="fsharp">fsharp</a>  <a href="https://www.cyberforum.ru/blogs/tags/game.html" class="tagcloudlink level1" title="game">game</a>  <a href="https://www.cyberforum.ru/blogs/tags/gamedev.html" class="tagcloudlink level2" title="gamedev">gamedev</a>  <a href="https://www.cyberforum.ru/blogs/tags/git.html" class="tagcloudlink level1" title="git">git</a>  <a href="https://www.cyberforum.ru/blogs/tags/github.html" class="tagcloudlink level1" title="github">github</a>  <a href="https://www.cyberforum.ru/blogs/tags/go.html" class="tagcloudlink level1" title="go">go</a>  <a href="https://www.cyberforum.ru/blogs/tags/golang.html" class="tagcloudlink level2" title="golang">golang</a>  <a href="https://www.cyberforum.ru/blogs/tags/gpio.html" class="tagcloudlink level1" title="gpio">gpio</a>  <a href="https://www.cyberforum.ru/blogs/tags/graph.html" class="tagcloudlink level1" title="graph">graph</a>  <a href="https://www.cyberforum.ru/blogs/tags/holywar.html" class="tagcloudlink level1" title="holywar">holywar</a>  <a href="https://www.cyberforum.ru/blogs/tags/http.html" class="tagcloudlink level1" title="http">http</a>  <a href="https://www.cyberforum.ru/blogs/tags/infinity-world.html" class="tagcloudlink level1" title="infinity-world">infinity-world</a>  <a href="https://www.cyberforum.ru/blogs/tags/java.html" class="tagcloudlink level1" title="java">java</a>  <a href="https://www.cyberforum.ru/blogs/tags/javascript.html" class="tagcloudlink level1" title="javascript">javascript</a>  <a href="https://www.cyberforum.ru/blogs/tags/js.html" class="tagcloudlink level1" title="js">js</a>  <a href="https://www.cyberforum.ru/blogs/tags/js%20html%20base64%20gif%20favicon.html" class="tagcloudlink level1" title="js html base64 gif favicon">js html base64 gif favicon</a>  <a href="https://www.cyberforum.ru/blogs/tags/js%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0.html" class="tagcloudlink level1" title="js программа">js программа</a>  <a href="https://www.cyberforum.ru/blogs/tags/kubernetes%20networks.html" class="tagcloudlink level1" title="kubernetes networks">kubernetes networks</a>  <a href="https://www.cyberforum.ru/blogs/tags/lazarus.html" class="tagcloudlink level1" title="lazarus">lazarus</a>  <a href="https://www.cyberforum.ru/blogs/tags/learning.html" class="tagcloudlink level1" title="learning">learning</a>  <a href="https://www.cyberforum.ru/blogs/tags/leetcode.html" class="tagcloudlink level1" title="leetcode">leetcode</a>  <a href="https://www.cyberforum.ru/blogs/tags/linux.html" class="tagcloudlink level1" title="linux">linux</a>  <a href="https://www.cyberforum.ru/blogs/tags/linux%20command%20line.html" class="tagcloudlink level1" title="linux command line">linux command line</a>  <a href="https://www.cyberforum.ru/blogs/tags/linux%20solids.html" class="tagcloudlink level1" title="linux solids">linux solids</a>  <a href="https://www.cyberforum.ru/blogs/tags/matrix%20input.html" class="tagcloudlink level1" title="matrix input">matrix input</a>  <a href="https://www.cyberforum.ru/blogs/tags/matrix%20output.html" class="tagcloudlink level1" title="matrix output">matrix output</a>  <a href="https://www.cyberforum.ru/blogs/tags/microcontroller.html" class="tagcloudlink level1" title="microcontroller">microcontroller</a>  <a href="https://www.cyberforum.ru/blogs/tags/mingw.html" class="tagcloudlink level1" title="mingw">mingw</a>  <a href="https://www.cyberforum.ru/blogs/tags/mobiledev.html" class="tagcloudlink level1" title="mobiledev">mobiledev</a>  <a href="https://www.cyberforum.ru/blogs/tags/ms-dos.html" class="tagcloudlink level1" title="ms-dos">ms-dos</a>  <a href="https://www.cyberforum.ru/blogs/tags/native%20aot.html" class="tagcloudlink level1" title="native aot">native aot</a>  <a href="https://www.cyberforum.ru/blogs/tags/nc.html" class="tagcloudlink level1" title="nc">nc</a>  <a href="https://www.cyberforum.ru/blogs/tags/ncurses.html" class="tagcloudlink level1" title="ncurses">ncurses</a>  <a href="https://www.cyberforum.ru/blogs/tags/netcat.html" class="tagcloudlink level1" title="netcat">netcat</a>  <a href="https://www.cyberforum.ru/blogs/tags/nuget.html" class="tagcloudlink level1" title="nuget">nuget</a>  <a href="https://www.cyberforum.ru/blogs/tags/osi%20model.html" class="tagcloudlink level1" title="osi model">osi model</a>  <a href="https://www.cyberforum.ru/blogs/tags/owenlogic.html" class="tagcloudlink level1" title="owenlogic">owenlogic</a>  <a href="https://www.cyberforum.ru/blogs/tags/parallel.html" class="tagcloudlink level1" title="parallel">parallel</a>  <a href="https://www.cyberforum.ru/blogs/tags/pattern.html" class="tagcloudlink level1" title="pattern">pattern</a>  <a href="https://www.cyberforum.ru/blogs/tags/player.html" class="tagcloudlink level1" title="player">player</a>  <a href="https://www.cyberforum.ru/blogs/tags/posgresql.html" class="tagcloudlink level1" title="posgresql">posgresql</a>  <a href="https://www.cyberforum.ru/blogs/tags/postgres.html" class="tagcloudlink level1" title="postgres">postgres</a>  <a href="https://www.cyberforum.ru/blogs/tags/postgresql.html" class="tagcloudlink level1" title="postgresql">postgresql</a>  <a href="https://www.cyberforum.ru/blogs/tags/powershell.html" class="tagcloudlink level1" title="powershell">powershell</a>  <a href="https://www.cyberforum.ru/blogs/tags/problem.html" class="tagcloudlink level1" title="problem">problem</a>  <a href="https://www.cyberforum.ru/blogs/tags/proxy.html" class="tagcloudlink level1" title="proxy">proxy</a>  <a href="https://www.cyberforum.ru/blogs/tags/qlcdnumber.html" class="tagcloudlink level1" title="qlcdnumber">qlcdnumber</a>  <a href="https://www.cyberforum.ru/blogs/tags/qtcreator.html" class="tagcloudlink level1" title="qtcreator">qtcreator</a>  <a href="https://www.cyberforum.ru/blogs/tags/race%20condition.html" class="tagcloudlink level1" title="race condition">race condition</a>  <a href="https://www.cyberforum.ru/blogs/tags/sdl.html" class="tagcloudlink level1" title="sdl">sdl</a>  <a href="https://www.cyberforum.ru/blogs/tags/sdl3.html" class="tagcloudlink level1" title="sdl3">sdl3</a>  <a href="https://www.cyberforum.ru/blogs/tags/sdl3_image.html" class="tagcloudlink level1" title="sdl3_image">sdl3_image</a>  <a href="https://www.cyberforum.ru/blogs/tags/sdl3_mixer.html" class="tagcloudlink level1" title="sdl3_mixer">sdl3_mixer</a>  <a href="https://www.cyberforum.ru/blogs/tags/sdl3_ttf.html" class="tagcloudlink level1" title="sdl3_ttf">sdl3_ttf</a>  <a href="https://www.cyberforum.ru/blogs/tags/seo.html" class="tagcloudlink level1" title="seo">seo</a>  <a href="https://www.cyberforum.ru/blogs/tags/seo-%D0%BF%D1%80%D0%BE%D0%B4%D0%B2%D0%B8%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5.html" class="tagcloudlink level1" title="seo-продвижение">seo-продвижение</a>  <a href="https://www.cyberforum.ru/blogs/tags/server.html" class="tagcloudlink level1" title="server">server</a>  <a href="https://www.cyberforum.ru/blogs/tags/setsettingsrestoredonclose.html" class="tagcloudlink level1" title="setsettingsrestoredonclose">setsettingsrestoredonclose</a>  <a href="https://www.cyberforum.ru/blogs/tags/sorting.html" class="tagcloudlink level1" title="sorting">sorting</a>  <a href="https://www.cyberforum.ru/blogs/tags/sorting%20algorythms.html" class="tagcloudlink level1" title="sorting algorythms">sorting algorythms</a>  <a href="https://www.cyberforum.ru/blogs/tags/stability.html" class="tagcloudlink level1" title="stability">stability</a>  <a href="https://www.cyberforum.ru/blogs/tags/stm32.html" class="tagcloudlink level1" title="stm32">stm32</a>  <a href="https://www.cyberforum.ru/blogs/tags/suave.html" class="tagcloudlink level1" title="suave">suave</a>  <a href="https://www.cyberforum.ru/blogs/tags/tcp.html" class="tagcloudlink level1" title="tcp">tcp</a>  <a href="https://www.cyberforum.ru/blogs/tags/tcp%20network%20traffic.html" class="tagcloudlink level1" title="tcp network traffic">tcp network traffic</a>  <a href="https://www.cyberforum.ru/blogs/tags/telnet.html" class="tagcloudlink level1" title="telnet">telnet</a>  <a href="https://www.cyberforum.ru/blogs/tags/ttf.html" class="tagcloudlink level1" title="ttf">ttf</a>  <a href="https://www.cyberforum.ru/blogs/tags/tthread.html" class="tagcloudlink level1" title="tthread">tthread</a>  <a href="https://www.cyberforum.ru/blogs/tags/ui.html" class="tagcloudlink level1" title="ui">ui</a>  <a href="https://www.cyberforum.ru/blogs/tags/usb%20kernel%20messages.html" class="tagcloudlink level1" title="usb kernel messages">usb kernel messages</a>  <a href="https://www.cyberforum.ru/blogs/tags/usb%20mount%20history.html" class="tagcloudlink level1" title="usb mount history">usb mount history</a>  <a href="https://www.cyberforum.ru/blogs/tags/usb%20mounting.html" class="tagcloudlink level1" title="usb mounting">usb mounting</a>  <a href="https://www.cyberforum.ru/blogs/tags/users.html" class="tagcloudlink level1" title="users">users</a>  <a href="https://www.cyberforum.ru/blogs/tags/uuid.html" class="tagcloudlink level1" title="uuid">uuid</a>  <a href="https://www.cyberforum.ru/blogs/tags/ux.html" class="tagcloudlink level1" title="ux">ux</a>  <a href="https://www.cyberforum.ru/blogs/tags/vb%206.0.html" class="tagcloudlink level1" title="vb 6.0">vb 6.0</a>  <a href="https://www.cyberforum.ru/blogs/tags/virtual.html" class="tagcloudlink level1" title="virtual">virtual</a>  <a href="https://www.cyberforum.ru/blogs/tags/wasm.html" class="tagcloudlink level1" title="wasm">wasm</a>  <a href="https://www.cyberforum.ru/blogs/tags/web.html" class="tagcloudlink level1" title="web">web</a>  <a href="https://www.cyberforum.ru/blogs/tags/webassembly.html" class="tagcloudlink level1" title="webassembly">webassembly</a>  <a href="https://www.cyberforum.ru/blogs/tags/whisper.html" class="tagcloudlink level1" title="whisper">whisper</a>  <a href="https://www.cyberforum.ru/blogs/tags/windows.html" class="tagcloudlink level1" title="windows">windows</a>  <a href="https://www.cyberforum.ru/blogs/tags/windows%2010.html" class="tagcloudlink level1" title="windows 10">windows 10</a>  <a href="https://www.cyberforum.ru/blogs/tags/wow.html" class="tagcloudlink level1" title="wow">wow</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D0%B0%D0%B2%D1%82%D0%BE%D0%B7%D0%B0%D0%BF%D0%BE%D0%BB%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5.html" class="tagcloudlink level1" title="автозаполнение">автозаполнение</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D1%82%D0%B8%D0%BA%D0%B0.html" class="tagcloudlink level1" title="аналитика">аналитика</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D0%B0%D1%81%D1%83%20%D1%82%D0%BF.html" class="tagcloudlink level1" title="асу тп">асу тп</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BA%D0%B0.html" class="tagcloudlink level1" title="блокировка">блокировка</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D0%B1%D0%BF3.html" class="tagcloudlink level1" title="бп3">бп3</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D0%B1%D1%81%D0%BF.html" class="tagcloudlink level2" title="бсп">бсп</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D0%B1%D1%83%D0%B4%D0%B8%D0%BB%D1%8C%D0%BD%D0%B8%D0%BA.html" class="tagcloudlink level1" title="будильник">будильник</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D0%B2%D0%B5%D0%B1.html" class="tagcloudlink level1" title="веб">веб</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D0%B3%D1%80%D0%B8%D0%B1.html" class="tagcloudlink level1" title="гриб">гриб</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D0%B4%D0%B0%D1%82%D1%8B.html" class="tagcloudlink level1" title="даты">даты</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D0%B4%D0%B8%D0%B0%D0%BB%D0%BE%D0%B3%D0%BE%D0%B2%D0%BE%D0%B5%20%D0%BE%D0%BA%D0%BD%D0%BE.html" class="tagcloudlink level1" title="диалоговое окно">диалоговое окно</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D0%B4%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD.html" class="tagcloudlink level1" title="дизайн">дизайн</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D0%B4%D0%B8%D0%BD%D0%B0%D0%BC%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9%20%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA.html" class="tagcloudlink level1" title="динамический список">динамический список</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82.html" class="tagcloudlink level2" title="документ">документ</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D0%BE%D1%81%D1%82%D1%8C.html" class="tagcloudlink level1" title="доступность">доступность</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D0%B7%D0%B0%D0%B2%D0%BE%D0%B4%D1%81%D0%BA%D0%BE%D0%B9%20%D0%BD%D0%BE%D0%BC%D0%B5%D1%80.html" class="tagcloudlink level1" title="заводской номер">заводской номер</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D0%B7%D0%B0%D0%BF%D0%BE%D0%BB%D0%BD%D0%B8%D1%82%D1%8C.html" class="tagcloudlink level1" title="заполнить">заполнить</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D0%B7%D0%B0%D0%BF%D1%80%D0%B5%D1%82%20%D1%80%D0%B5%D0%B4%D0%B0%D0%BA%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F%20%D0%B4%D0%B0%D1%82%D1%8B.html" class="tagcloudlink level1" title="запрет редактирования даты">запрет редактирования даты</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D0%B7%D0%B0%D0%BF%D1%80%D0%BE%D1%81.html" class="tagcloudlink level1" title="запрос">запрос</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D0%BA%D0%B02.html" class="tagcloudlink level3" title="ка2">ка2</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D0%BA%D0%B0%D0%BB%D1%8C%D0%BA%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80.html" class="tagcloudlink level1" title="калькулятор">калькулятор</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D0%BA%D0%B0%D1%82%D0%B0%D1%81%D1%82%D1%80%D0%BE%D1%84%D0%B0.html" class="tagcloudlink level1" title="катастрофа">катастрофа</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D0%BA%D0%BE%D0%BB%D0%BE%D0%BD%D0%BA%D0%B8.html" class="tagcloudlink level1" title="колонки">колонки</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%D0%B0%20%D1%84%D0%BE%D1%80%D0%BC%D1%8B.html" class="tagcloudlink level1" title="команда формы">команда формы</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D0%BA%D0%BE%D0%BD%D1%82%D0%B5%D0%BD%D1%82.html" class="tagcloudlink level1" title="контент">контент</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D0%BA%D0%BE%D0%BD%D1%82%D1%80%D0%BE%D0%BB%D1%8C.html" class="tagcloudlink level1" title="контроль">контроль</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D0%BA%D0%BE%D0%BD%D1%82%D1%80%D0%BE%D0%BB%D1%8C%20%D1%83%D0%BD%D0%B8%D0%BA%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D1%81%D1%82%D0%B8.html" class="tagcloudlink level1" title="контроль уникальности">контроль уникальности</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D0%BA%D0%BE%D0%BF%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5.html" class="tagcloudlink level1" title="копирование">копирование</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D0%BA%D1%80%D0%B5%D0%B4%D0%B8%D1%82%D0%BD%D1%8B%D0%B9%20%D0%BA%D0%B0%D0%BB%D1%8C%D0%BA%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80.html" class="tagcloudlink level1" title="кредитный калькулятор">кредитный калькулятор</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D0%BC%D0%B0%D0%BA%D0%B5%D1%82.html" class="tagcloudlink level1" title="макет">макет</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D0%BC%D0%B0%D1%81%D1%81%D0%B8%D0%B2%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85.html" class="tagcloudlink level1" title="массив данных">массив данных</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D0%BC%D0%BE%D0%B4%D1%83%D0%BB%D1%8C%20%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D0%B0.html" class="tagcloudlink level1" title="модуль объекта">модуль объекта</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D0%BC%D0%BE%D0%B4%D1%83%D0%BB%D1%8C%20%D1%84%D0%BE%D1%80%D0%BC%D1%8B.html" class="tagcloudlink level1" title="модуль формы">модуль формы</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D0%BD%D0%B5%D0%B9%D1%80%D0%BE%D0%BD%D0%BD%D1%8B%D0%B5%20%D1%81%D0%B5%D1%82%D0%B8.html" class="tagcloudlink level1" title="нейронные сети">нейронные сети</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D0%BD%D0%BE%D0%BC%D0%B5%D0%BA%D0%BB%D0%B0%D1%82%D1%83%D1%80%D0%B0.html" class="tagcloudlink level1" title="номеклатура">номеклатура</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D0%BE%D0%B1%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0.html" class="tagcloudlink level1" title="обработка">обработка</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D0%BE%D0%BF%D1%82%D0%B8%D0%BC%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F.html" class="tagcloudlink level1" title="оптимизация">оптимизация</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D0%BE%D1%82%D0%B1%D0%BE%D1%80.html" class="tagcloudlink level1" title="отбор">отбор</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D0%BE%D1%82%D1%87%D0%B5%D1%82.html" class="tagcloudlink level1" title="отчет">отчет</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D0%BE%D1%87%D0%B8%D1%81%D1%82%D0%B8%D1%82%D1%8C.html" class="tagcloudlink level1" title="очистить">очистить</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D0%BE%D1%87%D0%B8%D1%81%D1%82%D0%BA%D0%B0.html" class="tagcloudlink level1" title="очистка">очистка</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D0%BF%D0%B5%D1%80%D0%B5%D0%BC%D0%B5%D1%89%D0%B5%D0%BD%D0%B8%D0%B5.html" class="tagcloudlink level1" title="перемещение">перемещение</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D0%BF%D0%B5%D1%80%D0%B5%D1%87%D0%B8%D1%81%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F.html" class="tagcloudlink level1" title="перечисления">перечисления</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%B0%D1%8F%20%D1%84%D0%BE%D1%80%D0%BC%D0%B0.html" class="tagcloudlink level1" title="печатная форма">печатная форма</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D0%BF%D0%BE%D0%B7%D0%B8%D1%86%D0%B8%D0%B8.html" class="tagcloudlink level1" title="позиции">позиции</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8C.html" class="tagcloudlink level1" title="пользователь">пользователь</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D0%BF%D1%80%D0%B0%D0%B2%D0%B0%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%B0.html" class="tagcloudlink level1" title="права доступа">права доступа</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D0%BF%D1%80%D0%B8%D0%B5%D0%BC%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85.html" class="tagcloudlink level1" title="прием данных">прием данных</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D0%BF%D1%80%D0%B8%D0%BA%D0%BB%D0%B0%D0%B4%D0%BD%D0%B0%D1%8F%20%D0%B8%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%82%D0%B8%D0%BA%D0%B0.html" class="tagcloudlink level2" title="прикладная информатика">прикладная информатика</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D0%BF%D1%80%D0%BE%D0%B1%D0%B5%D0%B3.html" class="tagcloudlink level1" title="пробег">пробег</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D0%BF%D1%80%D0%BE%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5.html" class="tagcloudlink level1" title="проведение">проведение</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D0%BF%D1%80%D0%BE%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B0.html" class="tagcloudlink level1" title="проведение документа">проведение документа</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0%20%D1%81%D0%B0%D0%B9%D1%82%D0%BE%D0%B2.html" class="tagcloudlink level1" title="разработка сайтов">разработка сайтов</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D1%80%D0%B0%D1%81%D1%88%D0%B8%D1%80%D0%B5%D0%BD%D0%B8%D0%B5.html" class="tagcloudlink level1" title="расширение">расширение</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D1%80%D0%B0%D1%81%D1%88%D0%B8%D1%80%D0%B5%D0%BD%D0%B8%D1%8F.html" class="tagcloudlink level1" title="расширения">расширения</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D1%80%D0%B5%D0%B3%D0%B8%D1%81%D1%82%D1%80%20%D0%BD%D0%B0%D0%BA%D0%BE%D0%BF%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F.html" class="tagcloudlink level1" title="регистр накопления">регистр накопления</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D1%80%D0%B5%D0%B3%D0%B8%D1%81%D1%82%D1%80%20%D1%81%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B9.html" class="tagcloudlink level1" title="регистр сведений">регистр сведений</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D1%80%D0%B5%D0%BA%D0%B2%D0%B8%D0%B7%D0%B8%D1%82.html" class="tagcloudlink level2" title="реквизит">реквизит</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D1%80%D0%B5%D0%BA%D0%B2%D0%B8%D0%B7%D0%B8%D1%82%20%D1%84%D0%BE%D1%80%D0%BC%D1%8B.html" class="tagcloudlink level1" title="реквизит формы">реквизит формы</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D1%80%D0%B5%D0%BA%D0%B2%D0%B8%D0%B7%D0%B8%D1%82%D1%8B.html" class="tagcloudlink level1" title="реквизиты">реквизиты</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87.html" class="tagcloudlink level1" title="решение задач">решение задач</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D1%81%D0%B0%D0%B9%D1%82%D1%8B.html" class="tagcloudlink level1" title="сайты">сайты</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D1%81%D0%B5%D0%BC%D0%B0%D0%BD%D1%82%D0%B8%D0%BA%D0%B0.html" class="tagcloudlink level1" title="семантика">семантика</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80.html" class="tagcloudlink level1" title="сервер">сервер</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D1%81%D0%B5%D1%80%D0%B8%D0%B9%D0%BD%D1%8B%D0%B9%20%D0%BD%D0%BE%D0%BC%D0%B5%D1%80.html" class="tagcloudlink level1" title="серийный номер">серийный номер</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D1%81%D0%B8.html" class="tagcloudlink level2" title="си">си</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D1%81%D0%BA%D0%B4.html" class="tagcloudlink level1" title="скд">скд</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D1%81%D0%BB%D0%B0%D0%B9%D0%B4%D0%B5%D1%80.html" class="tagcloudlink level1" title="слайдер">слайдер</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B0.html" class="tagcloudlink level1" title="создание документа">создание документа</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2.html" class="tagcloudlink level1" title="создание документов">создание документов</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5%20%D1%81%D0%B0%D0%B9%D1%82%D0%BE%D0%B2.html" class="tagcloudlink level1" title="создание сайтов">создание сайтов</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D1%81%D0%BE%D0%BA%D0%B5%D1%82.html" class="tagcloudlink level1" title="сокет">сокет</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D1%81%D0%BF%D0%B5%D1%86%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D0%BA%D0%B0.html" class="tagcloudlink level1" title="спецтехника">спецтехника</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D1%81%D0%BF%D1%80%D0%B0%D0%B2%D0%BE%D1%87%D0%BD%D0%B8%D0%BA.html" class="tagcloudlink level2" title="справочник">справочник</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D1%81%D1%82%D0%B0%D1%82%D1%83%D1%81.html" class="tagcloudlink level1" title="статус">статус</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D1%82%D0%B0%D0%B1%D0%BB%D0%B8%D1%86%D0%B0.html" class="tagcloudlink level1" title="таблица">таблица</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D1%82%D0%B0%D0%B1%D0%BB%D0%B8%D1%87%D0%BD%D0%B0%D1%8F%20%D1%87%D0%B0%D1%81%D1%82%D1%8C.html" class="tagcloudlink level1" title="табличная часть">табличная часть</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D1%82%D0%B0%D0%B9%D0%BC%D0%B5%D1%80.html" class="tagcloudlink level1" title="таймер">таймер</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9%20%D0%B0%D1%83%D0%B4%D0%B8%D1%82.html" class="tagcloudlink level1" title="технический аудит">технический аудит</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D1%83%D0%B2%D0%B5%D0%B4%D0%BE%D0%BC%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5.html" class="tagcloudlink level1" title="уведомление">уведомление</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D1%83%D0%B4%D0%B0%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5.html" class="tagcloudlink level1" title="удаление">удаление</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D1%84%D0%BE%D1%81%D1%84%D0%BE%D1%80.html" class="tagcloudlink level1" title="фосфор">фосфор</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%8F.html" class="tagcloudlink level1" title="функция">функция</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D1%87%D0%B0%D1%81%D1%8B.html" class="tagcloudlink level1" title="часы">часы</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D1%8D%D0%BA%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F.html" class="tagcloudlink level1" title="экология">экология</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D1%8D%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%BE%D0%BD%D0%BD%D0%B0%D1%8F%20%D0%BF%D0%BE%D1%87%D1%82%D0%B0.html" class="tagcloudlink level1" title="электронная почта">электронная почта</a>  <a href="https://www.cyberforum.ru/blogs/tags/%D1%8F%D0%B4%D0%B5%D1%80%D0%BD%D0%BE%D0%B5%20%D1%82%D0%BE%D0%BF%D0%BB%D0%B8%D0%B2.html" class="tagcloudlink level1" title="ядерное топлив">ядерное топлив</a>  
+					</div>
+				</div>
+				<div class="alt2 smallfont notbordered" style="padding:5px">
+					<a href="https://www.cyberforum.ru/blogs/tags/">Поиск по метке</a>
+				</div>
+			</div>
+		</div>
+</li>
+<li id="block_archive">
+	<div id="vb_blogcalendar">
+	
+	</div>
+	<script src="//cyberstatic.net/clientscript/blog_ajax_calendar.js"></script>
+	<script>
+	<!--
+		blogCalendar = new vB_AJAX_BlogCalendar('blogCalendar', 'vb_blogcalendar', 0, 0, 100500);
+	//-->
+	</script>
+</li>
+	</ul>
+
+	
+
+	
+
+</div>
+
+
+<!-- 6947 popup menu -->
+
+<!-- / 6947 popup menu -->
+</div>
+	<div class="cleardiv"></div>
+	
+</div>
+
+
+<table cellspacing="0" cellpadding="2" border="0" align="center" width="100%" class="tborder" style="margin: 3px 0px 3px 0px;"><tr>
+<td width="100%" class="alt1" align="center" valign="middle">
+
+
+<div id="yandex_rtb_R-A-29317-4"></div>
+<script>
+window.yaContextCb.push(() => {
+    Ya.Context.AdvManager.render({
+        "blockId": "R-A-29317-4",
+        "renderTo": "yandex_rtb_R-A-29317-4"
+    })
+})
+</script>
+
+
+</td>
+</tr></table>
+
+
+
+<table class="tborder" cellpadding="5" cellspacing="0" border="0" width="100%" align="center" style="margin: 5px 0px 0px 0px">
+<thead>
+	<tr>
+		<td class="tcat" colspan="4">
+      			Новые блоги и статьи
+			<a style="float:right" href="https://www.cyberforum.ru/blogs/100500/6947.html#top" onclick="return toggle_collapse('latest_blogs')"><img loading="lazy" decoding="async" id="collapseimg_latest_blogs" src="//cyberstatic.net/images/buttons/collapse_tcat.gif" alt="" border="0" /></a>
+			
+			<div style="float: right"><a href="https://www.cyberforum.ru/blogs/articles/"><strong>Все статьи</strong></a>&nbsp;&nbsp;</div>
+			<div style="float: right"><a href="https://www.cyberforum.ru/blogs/recent-entries/"><strong>Все блоги</strong></a>&nbsp;/&nbsp;</div>
+			
+		</td>
+	</tr>
+</thead>
+<tbody id="collapseobj_latest_blogs" style="">
+	<tr>
+				<td class="alt1" valign="top" width="25%">
+					<b><a href="https://www.cyberforum.ru/blogs/223907/11074.html">Саморегулирующийся социальный контракт для сервера cross-section.</a></b>
+					<div class="smallfont shade" style="margin: 5px 0px 5px 0px">Hrethgir 14.08.2026</div>
+					<div class="smallfont">С кодом конечно таких глубоких размышлений пока не было, впрочем я уже привык к алгоритмизации.  Суть предмета записи: снова в диалоге с нейросетью (я взял пока себе ник для учётки админа  - Rector). . . . </div>
+				</td>
+				<td class="alt2" valign="top" width="25%">
+					<b><a href="https://www.cyberforum.ru/blogs/2406489/11072.html">Часы электронные</a></b>
+					<div class="smallfont shade" style="margin: 5px 0px 5px 0px">Uhbif79 12.08.2026</div>
+					<div class="smallfont">Выкладываю программу часов.  Программа позволяет: 
+1.  Использовать системное время и дату, 
+2.  Есть возможность вводить время и дату вручную.  
+3.  Реализованы 2 будильника: начало и конец рабочего дня. . . . </div>
+				</td>
+				<td class="alt1" valign="top" width="25%">
+					<b><a href="https://www.cyberforum.ru/blogs/2406489/11071.html">Часы с будильником на основе класса QLCDNumber</a></b>
+					<div class="smallfont shade" style="margin: 5px 0px 5px 0px">Uhbif79 12.08.2026</div>
+					<div class="smallfont">Всем добрый день, выкладываю программу часов с будильником на основе класса QLCDNumber.  
+Здесь я пробовал самостоятельно создавал классы, впервые столкнулся с видимостью переменной одного класса из. . . </div>
+				</td>
+				<td class="alt2" valign="top" width="25%">
+					<b><a href="https://www.cyberforum.ru/blogs/416874/11070.html">Установка MinGW GCC 16.2 и CMake</a></b>
+					<div class="smallfont shade" style="margin: 5px 0px 5px 0px">8Observer8 10.08.2026</div>
+					<div class="smallfont">VK Видео: 
+ 
+https:/ / vkvideo. ru/ video-240781534_456239017 
+ 
+YouTube: 
+ 
+eY5-5PyI9NM 
+ 
+Текстовая версия</div>
+				</td><tr>
+				<td class="alt1" valign="top" width="25%">
+					<b><a href="https://www.cyberforum.ru/blogs/713657/11069.html">Неделя из жизни имитационной модели склада: мои кривые руки растут, откуда надо</a></b>
+					<div class="smallfont shade" style="margin: 5px 0px 5px 0px">anaschu 10.08.2026</div>
+					<div class="smallfont">Неделя из жизни имитационной модели склада: как я почти написал неправильную логику и что с этим делать 
+ 
+Работаю сейчас над учебно-рабочим проектом: строю в AnyLogic имитационную модель процессов. . . </div>
+				</td>
+				<td class="alt2" valign="top" width="25%">
+					<b><a href="https://www.cyberforum.ru/blogs/1851672/11067.html">Калькулятор для расчета родства</a></b>
+					<div class="smallfont shade" style="margin: 5px 0px 5px 0px">russiannick 07.08.2026</div>
+					<div class="smallfont">1.  Задача: Создать калькулятор для расчета родства.   
+Родственных связей существует 8 ступеней, такие как: 
+p - отец 
+P - мать 
+q - муж 
+Q - жена 
+b - брат 
+B - сестра 
+s - сын 
+S - дочь</div>
+				</td>
+				<td class="alt1" valign="top" width="25%">
+					<b><a href="https://www.cyberforum.ru/blogs/911218/11066.html">Мир по моей воле</a></b>
+					<div class="smallfont shade" style="margin: 5px 0px 5px 0px">kumehtar 07.08.2026</div>
+					<div class="smallfont">Когда-то кажется, что всё просто.  Ты весь такой светлый.  Причиняешь добро.  Борешься за справедливость в этом тёмном мире.  
+ 
+Потом начинаешь замечать одну неприятную вещь.  Почти каждый хороший. . . </div>
+				</td>
+				<td class="alt2" valign="top" width="25%">
+					<b><a href="https://www.cyberforum.ru/blogs/359708/11062.html">Кредитный калькулятор</a></b>
+					<div class="smallfont shade" style="margin: 5px 0px 5px 0px">Maks 05.08.2026</div>
+					<div class="smallfont">Решение задачи по прикладной информатике средствами 1С.  
+ 
+Задача:  
+Напишите приложение-калькулятор, которое помогает рассчитывать параметры кредита для аннуитетного и дифференцированного видов. . . </div>
+				</td></tr>
+</tbody>
+</table>
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div style="margin: 5px 3px 0px 3px">
+<form action="https://www.cyberforum.ru/index.php" method="get" style="clear:left">
+<table cellpadding="5" cellspacing="0" border="0" class="tborder" align="center" style="width: 100%;">
+<tr>
+	
+	
+		<td class="tfoot">
+			<span class="smallfont">КиберФорум - форум программистов, компьютерный форум, программирование</span>
+		</td>
+	<td class="tfoot" align="right" colspan="2">
+		<div class="smallfont">
+			<strong>
+				<a href="https://www.cyberforum.ru/donate.php">Поддержать</a> -
+				
+				<a href="https://www.cyberforum.ru/advert.php">Реклама</a> -
+				
+				
+				
+				
+				
+				
+				<a href="https://www.cyberforum.ru/announcement.php?a=3">Условия использования</a> -
+				<a href="https://www.cyberforum.ru/sendmessage.php" accesskey="9">Обратная связь</a>
+			</strong>
+		</div>
+	</td>
+</tr>
+</table>
+<table cellpadding="5" cellspacing="0" border="0" class="tborder" align="center" style="width: 100%;">
+<tr class="alt1" align="right">
+	<td align="left" class="smallfont">
+		Powered by vBulletin<br />Copyright &copy;2000 - 2026, CyberForum.ru
+	</td>
+	<td align="right">
+
+<img id="licnt3981" width="88" height="31" style="border:0" 
+title="LiveInternet: number of pageviews for 24 hours, of visitors for 24 hours and for today is shown"
+src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP/yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+alt=""/><script>(function(d,s){d.getElementById("licnt3981").src=
+"//counter.yadro.ru/hit?t12.2;r"+escape(d.referrer)+
+((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+(s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+";h"+escape(d.title.substring(0,150))+";"+Math.random()})
+(document,screen)</script>
+
+	</td>
+</tr>
+</table>
+</form>
+
+
+<table cellspacing="0" cellpadding="2" border="0" align="center" width="100%" class="tborder" style="margin: 3px 0px 3px 0px;"><tr>
+<td width="100%" class="alt1" align="center" valign="middle">
+
+<div id="yandex_rtb_R-A-29317-24"></div>
+<script>
+window.yaContextCb.push(() => {
+    Ya.Context.AdvManager.render({
+        "blockId": "R-A-29317-24",
+        "renderTo": "yandex_rtb_R-A-29317-24",
+        "type": "feed"
+    })
+})
+</script>
+
+</td>
+</tr></table>
+
+
+</div>
+
+<script>
+var krtsts = {
+   "bburl": "https://www.cyberforum.ru"
+};
+</script>
+<script async src="//cyberstatic.net/clientscript/kr_scripts/tests/addedit.js"></script>
+<script async src="//cyberstatic.net/clientscript/kr_scripts/bestanswer/bestanswer.js"></script>
+<script>
+      var krba_options = {
+          img_is_answer: '//cyberstatic.net/images/buttons/is_answer.png',
+          img_is_not_answer: '//cyberstatic.net/images/buttons/is_not_answer.png'
+      },
+      KRBA = new AJAX_KRBA(krba_options);
+</script>
+
+<link rel="stylesheet" type="text/css" href="//cyberstatic.net/clientscript/kr_scripts/thumbsup/thumbs.css" />
+<script>
+var krthumbs = {
+  confirm_delete_pos: 'Вы действительно хотите удалить все положительные оценки?',
+  confirm_delete_neg: 'Вы действительно хотите удалить все отрицательные оценки?'
+}
+</script>
+<script async src="//cyberstatic.net/clientscript/kr_scripts/thumbsup/thumbsup.js"></script>
+
+<script>
+var krtsts = new krtsts_ctrl();
+</script>
+
+<style type="text/css">
+	span.sortarrow {position:absolute;}
+	span.sortarrow img {border:0;}
+	a.sortheader {text-decoration:none; display:block; width:100%;}
+</style>
+
+<script async src="//cyberstatic.net/clientscript/vbulletin_autosave.js"></script>
+<script async src="//cyberstatic.net/clientscript/custom/CtrlPagenav.js"></script>
+<script async src="//cyberstatic.net/clientscript/custom/spoiler.js"></script>
+<script async src="//cyberstatic.net/clientscript/custom/topbutton.js"></script>
+<script async src="//cyberstatic.net/clientscript/sorttable.js"></script>
+
+<script async src="//cyberstatic.net/clientscript/custom/codeblock_controls.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9SNPZSB2SN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9SNPZSB2SN');
+</script>
+
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(50312308, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/50312308" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+
+<script async>
+<!--
+	// Main vBulletin Javascript Initialization
+	vBulletin_init();
+//-->
+</script>
+
+<div id="top-link">
+	<span id="topicon" title="Наверх"></span><span id="toptext">Наверх</span>
+</div>
+
+<script async src="//yastatic.net/share2/share.js"></script>
+</div>
+
+</body>
+</html>

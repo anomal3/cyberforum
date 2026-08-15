@@ -19,7 +19,10 @@ public sealed class BlogDocumentBuilder(PostContentSanitizer sanitizer)
 
         html.Append("<!doctype html><html lang=\"ru\"><head><meta charset=\"utf-8\">")
             .Append("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, viewport-fit=cover\">")
-            .Append("<style>").Append(styles).Append("</style></head><body><div id=\"cf-reader\">");
+            .Append("<style>").Append(styles)
+            // снизу поверх записи висит полоска комментария — освобождаем под неё место
+            .Append("body{padding-bottom:84px}")
+            .Append("</style></head><body><div id=\"cf-reader\">");
 
         html.Append("<h1 class=\"cf-title\">").Append(Escape(post.Title)).Append("</h1>");
 
@@ -42,7 +45,36 @@ public sealed class BlogDocumentBuilder(PostContentSanitizer sanitizer)
             html.Append("</div>");
         }
 
-        html.Append("</article></div>");
+        html.Append("</article>");
+
+        // комментарии форум отдаёт на той же странице, поэтому показываем их сразу
+        if (post.CommentList.Count > 0)
+        {
+            html.Append("<h2 class=\"cf-subtitle\">Комментарии</h2>");
+
+            foreach (var comment in post.CommentList)
+            {
+                html.Append("<article class=\"cf-post\" id=\"comment-").Append(comment.CommentId).Append("\">")
+                    .Append("<div class=\"cf-head\">");
+
+                if (string.IsNullOrEmpty(comment.AvatarUrl))
+                {
+                    html.Append("<div class=\"cf-avatar\"></div>");
+                }
+                else
+                {
+                    html.Append("<img class=\"cf-avatar\" src=\"").Append(Escape(comment.AvatarUrl)).Append("\">");
+                }
+
+                html.Append("<div class=\"cf-who\"><span class=\"cf-author\">").Append(Escape(comment.Author))
+                    .Append("</span><span class=\"cf-when\">").Append(Escape(comment.When ?? string.Empty))
+                    .Append("</span></div></div>")
+                    .Append("<div class=\"cf-body\">").Append(sanitizer.Sanitize(comment.BodyHtml)).Append("</div>")
+                    .Append("</article>");
+            }
+        }
+
+        html.Append("</div>");
 
         // тот же уговор, что и в читалке тем: по картинке зовём просмотрщик,
         // по вложению — качалку. Своими силами webview ни то, ни другое не умеет.

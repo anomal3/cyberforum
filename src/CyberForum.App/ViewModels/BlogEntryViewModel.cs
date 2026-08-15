@@ -1,4 +1,5 @@
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using CyberForum.Core;
 using CyberForum.Core.Rendering;
 
@@ -7,7 +8,10 @@ namespace CyberForum.App.ViewModels;
 /// <summary>
 /// Одна запись блога, собранная в наш читаемый документ.
 /// </summary>
-public sealed partial class BlogEntryViewModel(ForumClient client, BlogDocumentBuilder builder)
+public sealed partial class BlogEntryViewModel(
+    ForumClient client,
+    BlogDocumentBuilder builder,
+    CyberForum.App.Services.SessionService session)
     : BaseViewModel, IQueryAttributable
 {
     [ObservableProperty]
@@ -19,6 +23,10 @@ public sealed partial class BlogEntryViewModel(ForumClient client, BlogDocumentB
     [ObservableProperty]
     public partial int EntryId { get; set; }
 
+    /// <summary>Своя запись — её можно переписать, чужую только читать.</summary>
+    [ObservableProperty]
+    public partial bool IsMine { get; set; }
+
     public async void ApplyQueryAttributes(IDictionary<string, object> query)
     {
         UserId = Number(query, "user");
@@ -28,7 +36,11 @@ public sealed partial class BlogEntryViewModel(ForumClient client, BlogDocumentB
         await LoadAsync();
     }
 
-    private Task LoadAsync() => RunAsync(async token =>
+    // после комментария или правки запись надо перечитать, минуя кэш
+    [RelayCommand]
+    private Task ReloadAsync() => LoadAsync(fresh: true);
+
+    private Task LoadAsync(bool fresh = false) => RunAsync(async token =>
     {
         if (UserId <= 0 || EntryId <= 0)
         {
@@ -36,7 +48,10 @@ public sealed partial class BlogEntryViewModel(ForumClient client, BlogDocumentB
             return;
         }
 
-        var post = await client.GetBlogEntryAsync(UserId, EntryId, token);
+        // своя запись — её можно переписать; сравниваем, когда номер уже известен
+        IsMine = session.Current.UserId is { } me && me == UserId;
+
+        var post = await client.GetBlogEntryAsync(UserId, EntryId, fresh, token);
 
         if (post is null)
         {

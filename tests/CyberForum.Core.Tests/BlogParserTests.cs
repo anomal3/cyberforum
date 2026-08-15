@@ -36,4 +36,31 @@ public class BlogParserTests
         Assert.Contains("MAUI", post.BodyHtml!);
         Assert.Contains("winforms", post.Tags);
     }
+
+    [Fact]
+    public void Комментарии_под_записью_читаются()
+    {
+        var post = new BlogParser().ParseEntry(Fixture.Read("blog-entry-comments.html"));
+
+        Assert.NotNull(post);
+        Assert.Equal(4, post.CommentList.Count);
+
+        var first = post.CommentList[0];
+
+        Assert.Equal(27071, first.CommentId);
+        Assert.Equal("komment1", first.Author);
+        Assert.Equal(100600, first.AuthorId);
+        Assert.Equal("28.01.2021 в 20:47", first.When);
+        Assert.Contains("Гитхаб", first.BodyHtml);
+        Assert.NotNull(first.AvatarUrl);
+    }
+
+    [Fact]
+    public void У_записи_без_комментариев_список_пустой()
+    {
+        var post = new BlogParser().ParseEntry(Fixture.Read("blog-entry.html"));
+
+        Assert.NotNull(post);
+        Assert.Empty(post.CommentList);
+    }
 }

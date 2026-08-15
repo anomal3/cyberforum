@@ -119,9 +119,28 @@ public sealed record BlogPost
 
     public IReadOnlyList<string> Tags { get; init; } = [];
 
+    /// <summary>Что написали под записью. Форум отдаёт комментарии на той же странице.</summary>
+    public IReadOnlyList<BlogComment> CommentList { get; init; } = [];
+
     public string Counters => Comments > 0
         ? $"{Views} просмотров   ·   {Comments} комментариев"
         : $"{Views} просмотров";
 }
 
 public sealed record BlogEntry(string Title, string Url, string? When);
+
+// Комментарий под записью блога
+public sealed record BlogComment
+{
+    public int CommentId { get; init; }
+
+    public required string Author { get; init; }
+
+    public int AuthorId { get; init; }
+
+    public string? AvatarUrl { get; init; }
+
+    public string? When { get; init; }
+
+    public required string BodyHtml { get; init; }
+}

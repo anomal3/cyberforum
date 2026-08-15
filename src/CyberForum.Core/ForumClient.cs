@@ -108,9 +108,18 @@ public sealed class ForumClient(ForumHttpClient http, CacheStore? cache = null)
         return _blogParser.ParseList(html);
     }
 
-    public async Task<BlogPost?> GetBlogEntryAsync(int userId, int entryId, CancellationToken token = default)
+    /// <summary>
+    /// Запись блога. После своего же комментария её надо перечитать заново —
+    /// иначе из кэша приедет та же страница, только без него.
+    /// </summary>
+    public async Task<BlogPost?> GetBlogEntryAsync(
+        int userId,
+        int entryId,
+        bool fresh = false,
+        CancellationToken token = default)
     {
-        var html = await LoadAsync(ForumUrls.BlogEntry(userId, entryId), ForumUrls.Blog(userId), TimeSpan.FromHours(1), token);
+        var age = fresh ? TimeSpan.Zero : TimeSpan.FromHours(1);
+        var html = await LoadAsync(ForumUrls.BlogEntry(userId, entryId), ForumUrls.Blog(userId), age, token);
 
         return _blogParser.ParseEntry(html);
     }

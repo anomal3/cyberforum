@@ -97,7 +97,49 @@ public sealed partial class BlogParser
             When = When(head),
             BodyHtml = body.InnerHtml,
             Tags = Tags(document.Body),
+            CommentList = Comments(document),
         };
+    }
+
+    /* Комментарии форум кладёт на ту же страницу, отдельным списком внизу.
+       Автор и дата у них не рядом с текстом, а строчкой ниже — «Запись от Имя
+       размещена дата», так же как у самой записи. */
+    private static IReadOnlyList<BlogComment> Comments(IDocument document)
+    {
+        var list = new List<BlogComment>();
+
+        foreach (var item in document.QuerySelectorAll("#message_list li[id^='comment']"))
+        {
+            var id = ParsingHelpers.IdSuffix(item.Id) ?? 0;
+            var body = item.QuerySelector($"#comment_text_{id}") ?? item.QuerySelector("div[id^='comment_text_']");
+
+            if (body is null)
+            {
+                continue;
+            }
+
+            var head = item.QuerySelector("td.alt2 span.shade").CleanText();
+            var author = item.QuerySelector("a[href*='/members/']");
+
+            list.Add(new BlogComment
+            {
+                CommentId = id,
+                Author = Author(head) ?? author.CleanText(),
+                AuthorId = author is null ? 0 : MemberNumber(author.GetAttribute("href")),
+                AvatarUrl = item.QuerySelector("img[src*='customavatars']")?.GetAttribute("src"),
+                When = When(head),
+                BodyHtml = body.InnerHtml,
+            });
+        }
+
+        return list;
+    }
+
+    private static int MemberNumber(string? href)
+    {
+        var match = MemberPattern().Match(href ?? string.Empty);
+
+        return match.Success && int.TryParse(match.Groups[1].Value, out var value) ? value : 0;
     }
 
     private static IReadOnlyList<string> Tags(IElement? root)
@@ -170,4 +212,7 @@ public sealed partial class BlogParser
 
     [GeneratedRegex(@"[\d\s]+")]
     private static partial Regex NumberPattern();
+
+    [GeneratedRegex(@"/members/(\d+)\.html")]
+    private static partial Regex MemberPattern();
 }
