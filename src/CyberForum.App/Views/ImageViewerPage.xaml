@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CyberForum.App.Views.ImageViewerPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundColor="#e0000000"
+    Shell.NavBarIsVisible="False"
+    Shell.PresentationMode="ModalAnimated"
+    Shell.TabBarIsVisible="False">
+
+    <!-- Всплывающее окно поверх страницы: фон затемнён и просвечивает, картинка
+         лежит карточкой по центру. Тап мимо картинки — закрыть. -->
+    <Grid>
+        <Grid.GestureRecognizers>
+            <TapGestureRecognizer Tapped="OnCloseTapped" />
+        </Grid.GestureRecognizers>
+        <!-- Картинка тянется пальцами, а если её не увеличивали — смахивание вниз
+             закрывает просмотр. -->
+        <Border
+            Margin="10,64"
+            Padding="4"
+            BackgroundColor="#12161a"
+            Stroke="#2a3037"
+            StrokeThickness="1">
+
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="18" />
+            </Border.StrokeShape>
+
+            <Image
+            x:Name="Picture"
+            Aspect="AspectFit"
+            HorizontalOptions="Fill"
+            VerticalOptions="Fill">
+
+            <Image.GestureRecognizers>
+                <PinchGestureRecognizer PinchUpdated="OnPinch" />
+                <PanGestureRecognizer PanUpdated="OnPan" />
+                <TapGestureRecognizer NumberOfTapsRequired="2" Tapped="OnDoubleTap" />
+            </Image.GestureRecognizers>
+            </Image>
+        </Border>
+
+        <ActivityIndicator
+            x:Name="Spinner"
+            HorizontalOptions="Center"
+            IsRunning="True"
+            VerticalOptions="Center"
+            Color="#ffffff" />
+
+        <Label
+            x:Name="Note"
+            Margin="24"
+            HorizontalOptions="Center"
+            IsVisible="False"
+            TextColor="#e6e9ec"
+            VerticalOptions="Center" />
+
+        <!-- кнопки поверх картинки -->
+        <HorizontalStackLayout
+            Margin="0,0,0,26"
+            HorizontalOptions="Center"
+            Spacing="12"
+            VerticalOptions="End">
+
+            <Border
+                BackgroundColor="#1f2429"
+                Stroke="#2f363d"
+                StrokeThickness="1">
+
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="22" />
+                </Border.StrokeShape>
+
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnSaveTapped" />
+                </Border.GestureRecognizers>
+
+                <Label
+                    x:Name="SaveLabel"
+                    Padding="22,11"
+                    FontSize="14"
+                    Text="Сохранить"
+                    TextColor="#e6e9ec" />
+            </Border>
+
+            <Border
+                BackgroundColor="#1f2429"
+                Stroke="#2f363d"
+                StrokeThickness="1">
+
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="22" />
+                </Border.StrokeShape>
+
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnCloseTapped" />
+                </Border.GestureRecognizers>
+
+                <Label
+                    Padding="22,11"
+                    FontSize="14"
+                    Text="Закрыть"
+                    TextColor="#e6e9ec" />
+            </Border>
+        </HorizontalStackLayout>
+    </Grid>
+</ContentPage>

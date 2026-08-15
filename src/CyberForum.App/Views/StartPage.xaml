@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CyberForum.App.Views.StartPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundColor="{AppThemeBinding Light=#ffffff, Dark=#15171a}"
+    Shell.NavBarIsVisible="False">
+
+    <!-- Своя заставка: системную Android рисует крохотной, размер там не задать. -->
+    <Grid x:Name="Root" RowDefinitions="*,Auto,Auto,*">
+
+        <Image
+            x:Name="Mark"
+            Grid.Row="1"
+            Margin="24,0"
+            Aspect="AspectFit"
+            HorizontalOptions="Fill"
+            Source="mark.svg" />
+
+        <VerticalStackLayout
+            x:Name="Words"
+            Grid.Row="2"
+            Margin="0,18,0,0"
+            HorizontalOptions="Center"
+            Spacing="0">
+
+            <Label
+                CharacterSpacing="10"
+                FontAttributes="Bold"
+                FontSize="46"
+                HorizontalOptions="Center"
+                Text="CYBER"
+                TextColor="#0b57a6" />
+
+            <Label
+                CharacterSpacing="10"
+                FontAttributes="Bold"
+                FontSize="46"
+                HorizontalOptions="Center"
+                Text="FORUM"
+                TextColor="{AppThemeBinding Light=#9aa0a6, Dark=#9aa0a6}" />
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

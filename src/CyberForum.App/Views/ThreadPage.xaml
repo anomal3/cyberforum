@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CyberForum.App.Views.ThreadPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:CyberForum.App.ViewModels"
+    x:DataType="vm:ThreadViewModel"
+    Title="{Binding Title}">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Clicked="OnFontClicked" Text="Аа" />
+
+        <ToolbarItem
+            Command="{Binding ToggleFavoriteCommand}"
+            Text="{Binding IsFavorite, Converter={StaticResource StarConverter}}" />
+        <!-- ссылка нужна редко, пусть живёт в меню и не ест место у заголовка -->
+        <ToolbarItem
+            Clicked="OnShareClicked"
+            Order="Secondary"
+            Text="Поделиться ссылкой" />
+    </ContentPage.ToolbarItems>
+
+    <Grid RowDefinitions="Auto,*">
+
+        <Label
+            Grid.Row="0"
+            Margin="16,12"
+            IsVisible="{Binding HasError}"
+            Text="{Binding ErrorMessage}"
+            TextColor="{AppThemeBinding Light=#b3261e, Dark=#f2b8b5}" />
+
+        <!-- Заставка лежит ПОД webview: поверх него нативное на Android не видно.
+             Сам webview прозрачный, а страница до готовности спрятана скриптом,
+             так что пока идёт разбор — видно заставку, а не вёрстку форума. -->
+        <Grid Grid.Row="1" BackgroundColor="{AppThemeBinding Light=#ffffff, Dark=#15171a}">
+
+            <VerticalStackLayout
+                x:Name="Curtain"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Spacing="2">
+
+                <Label
+                    CharacterSpacing="8"
+                    FontAttributes="Bold"
+                    FontSize="40"
+                    HorizontalOptions="Center"
+                    Text="CYBER"
+                    TextColor="#0092ca" />
+
+                <Label
+                    CharacterSpacing="8"
+                    FontAttributes="Bold"
+                    FontSize="40"
+                    HorizontalOptions="Center"
+                    Text="FORUM"
+                    TextColor="{AppThemeBinding Light=#8a8f94, Dark=#9aa0a6}" />
+
+                <Grid
+                    Margin="0,26,0,0"
+                    BackgroundColor="{AppThemeBinding Light=#e3e6e8, Dark=#2a2d31}"
+                    HeightRequest="3"
+                    HorizontalOptions="Center"
+                    WidthRequest="190">
+
+                    <BoxView
+                        x:Name="Runner"
+                        Color="#0092ca"
+                        HorizontalOptions="Start"
+                        WidthRequest="64" />
+                </Grid>
+
+                <Label
+                    Margin="0,16,0,0"
+                    FontSize="13"
+                    HorizontalOptions="Center"
+                    Text="Приводим тему в читаемый вид"
+                    TextColor="{AppThemeBinding Light=#7a7f84, Dark=#80868b}" />
+            </VerticalStackLayout>
+
+            <WebView
+                x:Name="Posts"
+                Navigated="OnNavigated"
+                Navigating="OnNavigating"
+                Source="{Binding Source}" />
+        </Grid>
+    </Grid>
+</ContentPage>

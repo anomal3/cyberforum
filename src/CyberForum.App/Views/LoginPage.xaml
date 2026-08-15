@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CyberForum.App.Views.LoginPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Вход на форум">
+
+    <Grid RowDefinitions="*,Auto">
+
+        <!-- Обычная форма: капчу форум рисует, но при входе не спрашивает.
+             Если вдруг спросит — рядом лежит запасной ход через его страницу. -->
+        <VerticalStackLayout
+            x:Name="Form"
+            Grid.Row="0"
+            Padding="20,28"
+            Spacing="14"
+            VerticalOptions="Start">
+
+            <Label
+                FontAttributes="Bold"
+                FontSize="20"
+                Text="Вход" />
+
+            <Label
+                FontSize="13"
+                Opacity="0.7"
+                Text="Имя пользователя и пароль от cyberforum.ru. Пароль никуда не сохраняется — только сессия." />
+
+            <Entry
+                x:Name="UserBox"
+                Keyboard="Text"
+                Placeholder="Имя пользователя"
+                ReturnType="Next" />
+
+            <Entry
+                x:Name="PasswordBox"
+                Completed="OnSignInClicked"
+                IsPassword="True"
+                Placeholder="Пароль"
+                ReturnType="Go" />
+
+            <Button
+                x:Name="SignInButton"
+                Clicked="OnSignInClicked"
+                ContentLayout="Left,10"
+                HorizontalOptions="Fill"
+                ImageSource="icon_signin.png"
+                Text="Войти" />
+
+            <Label
+                x:Name="Hint"
+                FontSize="13"
+                IsVisible="False"
+                TextColor="{AppThemeBinding Light=#b3261e, Dark=#f2b8b5}" />
+
+            <ActivityIndicator
+                x:Name="Spinner"
+                HorizontalOptions="Center"
+                IsRunning="False"
+                IsVisible="False" />
+
+            <Label
+                Margin="0,10,0,0"
+                FontSize="14"
+                HorizontalOptions="Center"
+                Text="Войти на странице форума"
+                TextColor="{AppThemeBinding Light=#0b57a6, Dark=#6ea0ff}"
+                TextDecorations="Underline">
+
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnPageLoginTapped" />
+                </Label.GestureRecognizers>
+            </Label>
+        </VerticalStackLayout>
+
+        <!-- запасной путь: живая страница форума с его же капчей -->
+        <Grid
+            x:Name="PageLogin"
+            Grid.Row="0"
+            Grid.RowSpan="2"
+            IsVisible="False"
+            RowDefinitions="Auto,*">
+
+            <Label
+                Grid.Row="0"
+                Padding="16,10"
+                FontSize="13"
+                Opacity="0.7"
+                Text="Это страница форума. Войди на ней и нажми «Готово»." />
+
+            <WebView
+                x:Name="Login"
+                Grid.Row="1"
+                Navigated="OnNavigated" />
+        </Grid>
+    </Grid>
+</ContentPage>

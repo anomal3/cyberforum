@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CyberForum.App.Views.ReputationPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:CyberForum.Core.Models;assembly=CyberForum.Core"
+    xmlns:vm="clr-namespace:CyberForum.App.ViewModels"
+    x:DataType="vm:ReputationViewModel"
+    BackgroundColor="{AppThemeBinding Light=#f2f4f7, Dark=#14171a}"
+    Title="{Binding Title}">
+
+    <Grid RowDefinitions="Auto,*">
+
+        <Label
+            Grid.Row="0"
+            Margin="16,12"
+            IsVisible="{Binding HasError}"
+            Text="{Binding ErrorMessage}"
+            TextColor="{AppThemeBinding Light=#b3261e, Dark=#f2b8b5}" />
+
+        <CollectionView
+            Grid.Row="1"
+            ItemsSource="{Binding Notes}"
+            SelectionMode="None">
+
+            <CollectionView.EmptyView>
+                <Label
+                    Margin="24"
+                    HorizontalTextAlignment="Center"
+                    Opacity="0.7"
+                    Text="Отзывов пока нет." />
+            </CollectionView.EmptyView>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:ReputationNote">
+                    <Border
+                        Margin="12,5"
+                        Padding="14,12"
+                        BackgroundColor="{AppThemeBinding Light=#ffffff, Dark=#1c2126}"
+                        Stroke="{AppThemeBinding Light=#e2e5e9, Dark=#2a3037}"
+                        StrokeThickness="1">
+
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="14" />
+                        </Border.StrokeShape>
+
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type vm:ReputationViewModel}}, Path=OpenCommand}"
+                                CommandParameter="{Binding .}" />
+                        </Border.GestureRecognizers>
+
+                        <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto">
+
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="3"
+                                Grid.Column="0"
+                                Margin="0,0,12,0"
+                                Padding="8,4"
+                                BackgroundColor="{AppThemeBinding Light=#e8f5ec, Dark=#1e3326}"
+                                Stroke="Transparent"
+                                VerticalOptions="Start">
+
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="8" />
+                                </Border.StrokeShape>
+
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="13"
+                                    Text="{Binding Points}"
+                                    TextColor="{AppThemeBinding Light=#1f9254, Dark=#47c586}" />
+                            </Border>
+
+                            <Label
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                FontSize="15"
+                                LineBreakMode="TailTruncation"
+                                MaxLines="2"
+                                Text="{Binding ThreadTitle}" />
+
+                            <Label
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Margin="0,4,0,0"
+                                FontSize="13"
+                                Opacity="0.8"
+                                Text="{Binding Comment}" />
+
+                            <Label
+                                Grid.Row="2"
+                                Grid.Column="1"
+                                Margin="0,6,0,0"
+                                FontSize="12"
+                                Opacity="0.55">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="{Binding Author}" />
+                                        <Span Text="   ·   " />
+                                        <Span Text="{Binding At, Converter={StaticResource AgoConverter}}" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <ActivityIndicator
+            Grid.Row="1"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            IsRunning="{Binding IsBusy}"
+            IsVisible="{Binding IsBusy}" />
+    </Grid>
+</ContentPage>

@@ -1,0 +1,22 @@
+# сборка
+bin/
+obj/
+[Dd]ebug/
+[Rr]elease/
+*.user
+*.suo
+*.apk
+*.aab
+*.keystore
+*.jks
+
+# среды
+.vs/
+.idea/
+.vscode/
+*.DotSettings.user
+
+# всякое временное
+*.log
+*.tmp
+thread-preview.html

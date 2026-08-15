@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CyberForum.App.Views.FeedPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:CyberForum.Core.Models;assembly=CyberForum.Core"
+    xmlns:vm="clr-namespace:CyberForum.App.ViewModels"
+    x:DataType="vm:FeedViewModel"
+    BackgroundColor="{AppThemeBinding Light=#f2f4f7, Dark=#14171a}"
+    Title="Свежее">
+
+    <Grid RowDefinitions="Auto,*">
+
+        <Label
+            Grid.Row="0"
+            Margin="16,12"
+            IsVisible="{Binding HasError}"
+            Text="{Binding ErrorMessage}"
+            TextColor="{AppThemeBinding Light=#b3261e, Dark=#f2b8b5}" />
+
+        <RefreshView
+            Grid.Row="1"
+            Command="{Binding RefreshCommand}"
+            IsRefreshing="{Binding IsRefreshing}">
+
+            <CollectionView ItemsSource="{Binding Items}" SelectionMode="None">
+                <CollectionView.EmptyView>
+                    <Label
+                        Margin="24"
+                        HorizontalTextAlignment="Center"
+                        Text="Пока пусто. Потяни вниз, чтобы обновить." />
+                </CollectionView.EmptyView>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:FeedItem">
+
+                        <!-- Каждая тема — отдельная карточка: сплошной лентой они
+                             сливались в одно полотно, и глазу не за что зацепиться. -->
+                        <Border
+                            Margin="12,6"
+                            Padding="14,12"
+                            BackgroundColor="{AppThemeBinding Light=#ffffff, Dark=#1c2126}"
+                            Stroke="{AppThemeBinding Light=#e2e5e9, Dark=#2a3037}"
+                            StrokeThickness="1">
+
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="14" />
+                            </Border.StrokeShape>
+
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type vm:FeedViewModel}}, Path=OpenCommand}"
+                                    CommandParameter="{Binding .}" />
+                            </Border.GestureRecognizers>
+
+                            <Grid RowDefinitions="Auto,Auto,Auto">
+
+                                <Label
+                                    Grid.Row="0"
+                                    FontAttributes="Bold"
+                                    FontSize="16"
+                                    LineBreakMode="TailTruncation"
+                                    MaxLines="2"
+                                    Text="{Binding Title}" />
+
+                                <Label
+                                    Grid.Row="1"
+                                    Margin="0,6,0,0"
+                                    FontSize="14"
+                                    LineBreakMode="TailTruncation"
+                                    MaxLines="2"
+                                    Opacity="0.75"
+                                    Text="{Binding Summary}" />
+
+                                <!-- подвал карточки: раздел плашкой, а рядом кто, когда
+                                     и сколько народу тему смотрело -->
+                                <VerticalStackLayout Grid.Row="2" Margin="0,10,0,0" Spacing="7">
+
+                                    <HorizontalStackLayout Spacing="8">
+                                        <Border
+                                            Padding="8,3"
+                                            BackgroundColor="{AppThemeBinding Light=#eef4fb, Dark=#22303c}"
+                                            Stroke="Transparent">
+
+                                            <Border.StrokeShape>
+                                                <RoundRectangle CornerRadius="8" />
+                                            </Border.StrokeShape>
+
+                                            <Label
+                                                FontSize="11"
+                                                Text="{Binding ForumTitle}"
+                                                TextColor="{AppThemeBinding Light=#0b57a6, Dark=#7fb0ff}" />
+                                        </Border>
+
+                                        <Label
+                                            FontSize="12"
+                                            Opacity="0.55"
+                                            Text="{Binding PublishedAt, Converter={StaticResource AgoConverter}}"
+                                            VerticalOptions="Center" />
+                                    </HorizontalStackLayout>
+
+                                    <HorizontalStackLayout Spacing="14">
+                                        <Label
+                                            FontSize="12"
+                                            Opacity="0.6"
+                                            Text="{Binding AuthorLine}" />
+
+                                        <Label
+                                            FontSize="12"
+                                            IsVisible="{Binding HasCounters}"
+                                            Opacity="0.6"
+                                            Text="{Binding ViewsLine}" />
+
+                                        <Label
+                                            FontSize="12"
+                                            IsVisible="{Binding HasCounters}"
+                                            Opacity="0.6"
+                                            Text="{Binding RepliesLine}" />
+                                    </HorizontalStackLayout>
+                                </VerticalStackLayout>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+
+        <ActivityIndicator
+            Grid.Row="1"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            IsRunning="{Binding IsBusy}"
+            IsVisible="{Binding IsBusy}" />
+    </Grid>
+</ContentPage>

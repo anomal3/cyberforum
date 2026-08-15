@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AngleSharp" Version="1.7.1" />
+  </ItemGroup>
+
+  <!-- стили ленты сообщений держим рядом со сборщиком документа, чтобы источник был один -->
+  <ItemGroup>
+    <EmbeddedResource Include="Rendering\thread.css" />
+  </ItemGroup>
+
+</Project>

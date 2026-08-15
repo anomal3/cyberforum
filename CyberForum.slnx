@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/CyberForum.App/CyberForum.App.csproj" />
+    <Project Path="src/CyberForum.Core/CyberForum.Core.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/CyberForum.Core.Tests/CyberForum.Core.Tests.csproj" />
+  </Folder>
+</Solution>

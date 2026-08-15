@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CyberForum.App.Views.CategoryPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:CyberForum.Core.Models;assembly=CyberForum.Core"
+    xmlns:vm="clr-namespace:CyberForum.App.ViewModels"
+    x:DataType="vm:CategoryViewModel"
+    Title="{Binding Title}">
+
+    <Grid RowDefinitions="Auto,Auto,*">
+
+        <Label
+            Grid.Row="0"
+            Margin="16,12"
+            IsVisible="{Binding HasError}"
+            Text="{Binding ErrorMessage}"
+            TextColor="{AppThemeBinding Light=#b3261e, Dark=#f2b8b5}" />
+
+        <!-- у раздела кроме подразделов есть и свои темы, до них тоже нужен ход -->
+        <Grid
+            Grid.Row="1"
+            Padding="16,14"
+            BackgroundColor="Transparent"
+            ColumnDefinitions="*,Auto"
+            IsVisible="{Binding HasOwnThreads}">
+
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding OpenOwnCommand}" />
+            </Grid.GestureRecognizers>
+
+            <Label
+                Grid.Column="0"
+                FontSize="16"
+                Text="Темы самого раздела"
+                TextColor="{AppThemeBinding Light=#0b57a6, Dark=#6ea0ff}" />
+
+            <Label
+                Grid.Column="1"
+                FontSize="18"
+                Opacity="0.4"
+                Text="›" />
+        </Grid>
+
+        <CollectionView
+            Grid.Row="2"
+            ItemsSource="{Binding Sections}"
+            SelectionMode="None">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:ForumNode">
+                    <Grid
+                        Padding="16,14"
+                        BackgroundColor="Transparent"
+                        ColumnDefinitions="*,Auto"
+                        RowDefinitions="Auto,Auto">
+
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type vm:CategoryViewModel}}, Path=OpenCommand}"
+                                CommandParameter="{Binding .}" />
+                        </Grid.GestureRecognizers>
+
+                        <Label
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            FontSize="16"
+                            Text="{Binding Title}" />
+
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            FontSize="12"
+                            LineBreakMode="TailTruncation"
+                            MaxLines="2"
+                            Opacity="0.6"
+                            Text="{Binding Description}" />
+
+                        <!-- стрелка у тех, внутри кого лежат ещё разделы -->
+                        <Label
+                            Grid.Row="0"
+                            Grid.RowSpan="2"
+                            Grid.Column="1"
+                            FontSize="18"
+                            IsVisible="{Binding HasChildren}"
+                            Opacity="0.4"
+                            Text="›"
+                            VerticalOptions="Center" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>

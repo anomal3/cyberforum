@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="CyberForum.App.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:CyberForum.App.Views"
+    Title="Киберфорум"
+    FlyoutBehavior="Disabled">
+
+    <TabBar>
+        <ShellContent
+            Title="Свежее"
+            Icon="tab_feed.png"
+            ContentTemplate="{DataTemplate views:FeedPage}"
+            Route="feed" />
+
+        <ShellContent
+            Title="Разделы"
+            Icon="tab_forums.png"
+            ContentTemplate="{DataTemplate views:ForumsPage}"
+            Route="forums" />
+
+        <ShellContent
+            Title="Поиск"
+            Icon="tab_search.png"
+            ContentTemplate="{DataTemplate views:SearchPage}"
+            Route="search" />
+
+        <!-- колокольчик показываем только когда форуму есть что сказать -->
+        <ShellContent
+            x:Name="BellTab"
+            Title="Уведомления"
+            Icon="tab_bell.png"
+            ContentTemplate="{DataTemplate views:NoticesPage}"
+            IsVisible="False"
+            Route="notices" />
+
+        <ShellContent
+            Title="Профиль"
+            Icon="tab_profile.png"
+            ContentTemplate="{DataTemplate views:ProfilePage}"
+            Route="profile" />
+    </TabBar>
+
+</Shell>

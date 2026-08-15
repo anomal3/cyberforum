@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+	<channel>
+		<title>Python - Форум программистов и сисадминов Киберфорум</title>
+		<link>https://www.cyberforum.ru/</link>
+		<description>Форум программистов Python. Программирование с использованием Python. Помощь в решении задач.</description>
+		<language>ru</language>
+		<lastBuildDate>Fri, 14 Aug 2026 18:48:36 GMT</lastBuildDate>
+		<generator>vBulletin</generator>
+		<ttl>60</ttl>
+		<image>
+			<url>https://www.cyberforum.ru//cyberstatic.net/images/misc/rss.jpg</url>
+			<title>Python - Форум программистов и сисадминов Киберфорум</title>
+			<link>https://www.cyberforum.ru/</link>
+		</image>
+		<item>
+			<title>Сортировка строк матрицы - Python: Решение задач</title>
+			<link>https://www.cyberforum.ru/python-tasks/thread3225030.html</link>
+			<pubDate>Wed, 12 Aug 2026 11:10:09 GMT</pubDate>
+			<description>Переставьте строки матрицы так, чтобы значения в столбце K шли в порядке возрастания. Строки, у...</description>
+			<content:encoded><![CDATA[<div>Переставьте строки матрицы так, чтобы значения в столбце K шли в порядке возрастания. Строки, у которых значения в столбце K равны, должны быть выведены в том же порядке, в котором они стояли в исходной матрице.<br />
+<br />
+Формат входных данных<br />
+В первой строке записаны через пробел размеры матрицы: количество строк N и количество столбцов M (1&lt;=N,M&lt;=100). В следующих N строках записаны строки матрицы, в каждой – по M натуральных чисел, разделённых пробелами. Числа не превосходят 1000.<br />
+<br />
+В последней строке вводится номер столбца K.<br />
+<br />
+Формат результата<br />
+Выведите искомую матрицу.<br />
+<br />
+<br />
+Вот мой код и он не работает и я не могу найти ошибку<br />
+<br />
+<div class="printablecode">
+	<div class="smallfont">:</div>
+	<hr /><code dir="ltr">n, m = map(int, input().split())<br />
+matrix =&#91;list(map(int, input().split()&#91;:m&#93;)) for _ in range(n)&#93;<br />
+k = int(input())<br />
+k = k-1<br />
+<br />
+sorted_m = &#91;&#93;<br />
+<br />
+for i in range(n):<br />
+&nbsp; &nbsp; for j in range(i+1, n):<br />
+&nbsp; &nbsp; &nbsp; &nbsp; if matrix&#91;j&#93;&#91;k&#93;&lt;matrix&#91;i&#93;&#91;k&#93;:<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; matrix.insert(i, matrix&#91;j&#93;)<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; matrix.pop(j+1)<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; break<br />
+<br />
+for i in range(n):<br />
+&nbsp; &nbsp; for j in range(m):<br />
+&nbsp; &nbsp; &nbsp; &nbsp; print(matrix&#91;i&#93;&#91;j&#93;, end=&quot; &quot;)<br />
+&nbsp; &nbsp; print()</code><hr />
+</div></div>
+
+]]></content:encoded>
+			<category domain="https://www.cyberforum.ru/python-tasks/">Python: Решение задач</category>
+			<dc:creator>SHALUN433</dc:creator>
+			<guid isPermaLink="true">https://www.cyberforum.ru/python-tasks/thread3225030.html</guid>
+		</item>
+		<item>
+			<title>Поиск текстовых файлов с похожим содержимым (нечеткие дубликаты от 90%) + Apache Tika - Python</title>
+			<link>https://www.cyberforum.ru/python/thread3224978.html</link>
+			<pubDate>Sat, 08 Aug 2026 14:44:49 GMT</pubDate>
+			<description>Приветствую всех форумчан! 
+ 
+Столкнулся с задачей очистки архива и прошу помощи у специалистов....</description>
+			<content:encoded><![CDATA[<div>Приветствую всех форумчан!<br />
+<br />
+Столкнулся с задачей очистки архива и прошу помощи у специалистов. Есть огромная папка с большим количеством документов. Многие из них — это практически одинаковые версии одного и того же документа (совпадение текста внутри доходит до 90% и более). Нужно найти все такие похожие файлы, чтобы определить лишние и удалить неактуальные.<br />
+<br />
+Технические детали и стек:<br />
+Входные данные: Файлы в папке изначально разного и часто «нестандартного» формата.<br />
+Предварительная обработка (Tika): Для извлечения чистого текста планируется использовать инструмент tika-app.jar (Apache Tika). Он будет автоматически переводить все входящие файлы в текстовый формат (*.TXT), попутно решая проблемы с разными кодировками (UTF-8, ANSI/Windows-1251 и т.д.), приводя всё к единому стандарту.<br />
+<br />
+Что требуется от алгоритма: Программа должна сравнивать уже извлеченный текст внутри документов и выводить результаты (например, в виде таблицы или списка), где наглядно показан процент сходства между файлами.<br />
+<br />
+Важный нюанс: Я обычный пользователь, в программировании не силен. Буду очень благодарен, если вы поможете собрать готовое решение:<br />
+1. Подскажете готовый бесплатный софт под Windows, который можно подружить с Apache Tika для такой потоковой обработки.<br />
+2. Или поможете написать скрипт (желательно на Python, например, через библиотеку python-tika или прямой вызов .jar), но с подробной инструкцией для новичка — как его запустить, куда нажать, и как передать ему мою папку. В идеале — скомпилированный в .exe или с простейшим графическим интерфейсом.<br />
+<br />
+Заранее огромное спасибо за любые наводки, готовые скрипты или советы!<br />
+<br />
+<font size="1"><font color="grey"><i>Добавлено через 1 час 0 минут</i></font></font><br />
+Вот нейросеть дала какой-то код и он вроде даже работает, но не уверен, что правильно отрабатывает и отображение сравнения в браузере не удобное...<br />
+Хотелось бы отдельное приложение.</div>
+
+]]></content:encoded>
+			<category domain="https://www.cyberforum.ru/python/">Python</category>
+			<dc:creator>hinafir575</dc:creator>
+			<guid isPermaLink="true">https://www.cyberforum.ru/python/thread3224978.html</guid>
+		</item>
+	</channel>
+</rss>

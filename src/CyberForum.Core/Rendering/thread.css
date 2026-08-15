@@ -1,0 +1,374 @@
+:root {
+    --bg: #ffffff;
+    --bg-soft: #f3f4f6;
+    --bg-code: #f6f8fa;
+    --text: #14171a;
+    --text-dim: #626b75;
+    --line: #e2e5e9;
+    --accent: #2f6feb;
+    --quote-line: #b9c3d0;
+    --best: #1f9254;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #14171a;
+        --bg-soft: #1c2126;
+        --bg-code: #10141a;
+        --text: #e6e9ec;
+        --text-dim: #98a2ad;
+        --line: #262c33;
+        --accent: #6ea0ff;
+        --quote-line: #3a444f;
+        --best: #47c586;
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0 0 32px;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.55 -apple-system, "Segoe UI", Roboto, sans-serif;
+    word-wrap: break-word;
+    overflow-wrap: anywhere;
+}
+
+/* заставка на время, пока страница ещё не приведена в читаемый вид */
+#cf-loading {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    background: var(--bg);
+    animation: cf-appear .18s ease-out;
+}
+
+.cf-loading-spinner {
+    width: 34px;
+    height: 34px;
+    border: 3px solid var(--line);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: cf-spin .8s linear infinite;
+}
+
+.cf-loading-text {
+    color: var(--text-dim);
+    font-size: 15px;
+}
+
+@keyframes cf-spin {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes cf-appear {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.cf-post, .cf-title {
+    animation: cf-appear .22s ease-out;
+}
+
+.cf-title {
+    margin: 0;
+    padding: 16px 14px 10px;
+    font-size: 20px;
+    line-height: 1.3;
+}
+
+.cf-post {
+    padding: 14px 14px 18px;
+    border-bottom: 1px solid var(--line);
+}
+
+/* страницы темы: внизу лентой, пальцем попасть легко */
+.cf-pages {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 16px 14px 28px;
+}
+
+.cf-pages {
+    justify-content: center;
+    align-items: center;
+}
+
+.cf-pages a {
+    min-width: 42px;
+    padding: 9px 12px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--bg-soft);
+    color: var(--accent);
+    text-align: center;
+    text-decoration: none;
+}
+
+/* текущая страница не ссылка, а метка «ты здесь» */
+.cf-pages a.here {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+    font-weight: 600;
+}
+
+/* края листалки бледнее, чтобы взгляд цеплялся за соседние страницы */
+.cf-pages a.weak {
+    opacity: 0.75;
+}
+
+.cf-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 14px;
+}
+
+.cf-tag {
+    padding: 4px 10px;
+    border-radius: 8px;
+    background: var(--bg-soft);
+    color: var(--text-dim);
+    font-size: 12px;
+}
+
+.cf-jump {
+    position: fixed;
+    right: 14px;
+    bottom: 22px;
+    width: 46px;
+    height: 46px;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    background: var(--bg-soft);
+    color: var(--accent);
+    font-size: 20px;
+    line-height: 1;
+    opacity: 0.9;
+    transition: opacity .2s ease;
+    z-index: 50;
+}
+
+.cf-spoiler {
+    margin: 12px 0;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--bg-soft);
+    overflow: hidden;
+}
+
+.cf-spoiler > summary {
+    padding: 10px 14px;
+    color: var(--accent);
+    cursor: pointer;
+    font-size: 15px;
+    list-style: none;
+}
+
+.cf-spoiler > summary::before {
+    content: "▸ ";
+}
+
+.cf-spoiler[open] > summary::before {
+    content: "▾ ";
+}
+
+.cf-spoiler > div {
+    padding: 0 14px 12px;
+}
+
+.cf-post.best {
+    border-left: 3px solid var(--best);
+}
+
+.cf-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.cf-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: var(--bg-soft);
+    flex: 0 0 auto;
+}
+
+.cf-who {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.cf-author {
+    font-weight: 600;
+    color: var(--accent);
+}
+
+.cf-when {
+    font-size: 13px;
+    color: var(--text-dim);
+}
+
+.cf-num {
+    margin-left: auto;
+    font-size: 13px;
+    color: var(--text-dim);
+}
+
+.cf-badge {
+    display: inline-block;
+    margin-bottom: 8px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    background: var(--best);
+    color: #fff;
+    font-size: 12px;
+}
+
+.cf-body img.cf-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+}
+
+.cf-body img.cf-smiley {
+    height: 18px;
+    vertical-align: text-bottom;
+}
+
+.cf-body a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+/* Код — главная боль на телефоне: пусть едет вбок сам, не таща за собой страницу */
+.cf-code {
+    margin: 12px 0;
+    padding: 0;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--bg-code);
+    overflow: hidden;
+}
+
+.cf-code-bar {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 10px;
+    background: var(--bg-soft);
+    border-bottom: 1px solid var(--line);
+    font-size: 12px;
+    color: var(--text-dim);
+}
+
+.cf-copy {
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 3px 10px;
+    background: transparent;
+    color: var(--accent);
+    font-size: 12px;
+}
+
+/* Простыню на триста строк целиком показывать нельзя — она вытеснит всю тему.
+   Даём окошко на пол-экрана со своей прокруткой, как это делал и сам форум. */
+.cf-code pre {
+    margin: 0;
+    padding: 10px 12px;
+    max-height: 55vh;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+}
+
+.cf-code code {
+    font: 13px/1.45 ui-monospace, "SF Mono", Consolas, monospace;
+    white-space: pre;
+    tab-size: 4;
+}
+
+/* раскраска от GeSHi — классы форума, цвета наши */
+.cf-code .kw1, .cf-code .kw2 { color: #c678dd; }
+.cf-code .kw3 { color: #61afef; }
+.cf-code .co1, .cf-code .co2, .cf-code .coMULTI { color: var(--text-dim); font-style: italic; }
+.cf-code .st0, .cf-code .st_h { color: #98c379; }
+.cf-code .nu0 { color: #d19a66; }
+.cf-code .sy0, .cf-code .br0 { color: var(--text-dim); }
+.cf-code .me1, .cf-code .me2 { color: #56b6c2; }
+
+.cf-quote {
+    margin: 12px 0;
+    padding: 8px 12px;
+    border-left: 3px solid var(--quote-line);
+    background: var(--bg-soft);
+    border-radius: 0 8px 8px 0;
+}
+
+.cf-quote-author {
+    font-size: 13px;
+    color: var(--text-dim);
+    margin-bottom: 4px;
+}
+
+.cf-quote-body {
+    font-size: 15px;
+}
+
+.cf-quote details summary {
+    list-style: none;
+    cursor: pointer;
+}
+
+.cf-quote details summary::-webkit-details-marker {
+    display: none;
+}
+
+.cf-quote details summary::after {
+    content: " — развернуть";
+    font-size: 13px;
+    color: var(--accent);
+}
+
+.cf-quote details[open] summary::after {
+    content: " — свернуть";
+}
+
+table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    border-collapse: collapse;
+}
+
+td, th {
+    padding: 4px 8px;
+    border: 1px solid var(--line);
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid var(--line);
+}

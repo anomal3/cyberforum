@@ -1,0 +1,709 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+	<channel>
+		<title>Форум программистов и сисадминов Киберфорум</title>
+		<link>https://www.cyberforum.ru/</link>
+		<description>КиберФорум - форум программистов, системных администраторов, администраторов баз данных, компьютерный форум, форум по электронике и бытовой технике, обсуждение софта. Бесплатная помощь в решении задач по программированию и наукам, решение проблем с компьютером, операционными системам</description>
+		<language>ru</language>
+		<lastBuildDate>Fri, 14 Aug 2026 18:54:25 GMT</lastBuildDate>
+		<generator>vBulletin</generator>
+		<ttl>60</ttl>
+		<image>
+			<url>https://www.cyberforum.ru//cyberstatic.net/images/misc/rss.jpg</url>
+			<title>Форум программистов и сисадминов Киберфорум</title>
+			<link>https://www.cyberforum.ru/</link>
+		</image>
+		<item>
+			<title>ПММ Bosch SMV50E30RU/93  Не греет, программы отрабатывает - Ремонт посудомоечных машин</title>
+			<link>https://www.cyberforum.ru/dishwashers/thread3225082.html</link>
+			<pubDate>Fri, 14 Aug 2026 17:51:03 GMT</pubDate>
+			<description>Супруга говорит что такое уже было, мытьё холодной водой. Но после нескольких перезапусков...</description>
+			<content:encoded><![CDATA[<div>Супруга говорит что такое уже было, мытьё холодной водой. Но после нескольких перезапусков &quot;самовостановилась&quot;.Какие индикаторы мигали не помнит.  Теперь, так-же запускается и моет холодной, если открыть во время мойки мигает щётка. Сразу почистил фильтры, снял насос и прозвонил ТЭН и NTC норм...  Вынул блок управления проверил релюшки, тоже норм, проверил геркон. Давление с разбрызгивателей  по звуку норм... Никаких подтёков в поддон и дефектов на плате управления... По темам тут в моей ПММ никаких прессостатов и датчиков давления нет, всё идёт от нагрузки на насосе, видимо и у меня  люфт в насосе... Сейчас снова сниму, проверю.  Не нашёл как на моей ПММ без цифрового индикатора, запустить тест самодиагностики. Что подскажите?<br />
+Да, люфт есть, наверное с миллиметр... Под замену? Или можно как то отремонтировать?</div>
+
+]]></content:encoded>
+			<category domain="https://www.cyberforum.ru/dishwashers/">Ремонт посудомоечных машин</category>
+			<dc:creator>KapitanRTV</dc:creator>
+			<guid isPermaLink="true">https://www.cyberforum.ru/dishwashers/thread3225082.html</guid>
+		</item>
+		<item>
+			<title>Энергетики vs алкоголь - О здоровье</title>
+			<link>https://www.cyberforum.ru/health/thread3225080.html</link>
+			<pubDate>Fri, 14 Aug 2026 12:22:28 GMT</pubDate>
+			<description>Такая тема - иногда употребляю энергетики, так по настроению вместо кофе, кофе три раза в день. Так...</description>
+			<content:encoded><![CDATA[<div>Такая тема - иногда употребляю энергетики, так по настроению вместо кофе, кофе три раза в день. Так вот в обиходе бытует мнение, что энергетики  - плохо, причём это вполне можно услышать от тех, кто ничуть не реже употребляет алкоголь. Ну так это - 1-2 раза в неделю и в норму вроде как. Так вот, на очередную критику я ответил вопросом -  а ведь вы крепкие спиртные напитки употребляете? Мне ответили - ну да. Ну и соответственно я спросил - наверное с салатиком или ещё чем, где растительное масло есть? Отвечают - ну конечно, с рыбкой жареной на таковом, или с салатиком. Ну вот я им и сказал, что 200 грамм спирта при перемешивании с литром растительного масла делают из того ДТ (дизельное топливо), вот и думайте что вреднее. Ну литрами масло они конечно не потребляют, но я думаю, что вот маслице быстрее  в ДТ превратится, чем переварится.  Ну так вот, наверное они подумали обо мне после услышанного плохо, теперь им будет не так спокойно потребляться.</div>
+
+]]></content:encoded>
+			<category domain="https://www.cyberforum.ru/health/">О здоровье</category>
+			<dc:creator>Hrethgir</dc:creator>
+			<guid isPermaLink="true">https://www.cyberforum.ru/health/thread3225080.html</guid>
+		</item>
+		<item>
+			<title>Количество вхождений слов в строку - PostgreSQL</title>
+			<link>https://www.cyberforum.ru/postgresql/thread3225079.html</link>
+			<pubDate>Fri, 14 Aug 2026 12:03:32 GMT</pubDate>
+			<description>Написать функцию получающую на вход текстовую строку и возвращающую таблицу из слов, которые...</description>
+			<content:encoded><![CDATA[<div>Написать функцию получающую на вход текстовую строку и возвращающую таблицу из слов, которые встречаются в этой строке, с указанием количества вхождений. Например:<br />
+<div class="printablecode">
+	<div class="smallfont">:</div>
+	<hr /><code dir="ltr">SELECT * FROM words_count('the best of the best');</code><hr />
+</div><div class="printablecode">
+	<div class="smallfont">:</div>
+	<hr /><code dir="ltr">the - 2<br />
+of - 1<br />
+best - 2</code><hr />
+</div></div>
+
+]]></content:encoded>
+			<category domain="https://www.cyberforum.ru/postgresql/">PostgreSQL</category>
+			<dc:creator>Whitecolor</dc:creator>
+			<guid isPermaLink="true">https://www.cyberforum.ru/postgresql/thread3225079.html</guid>
+		</item>
+		<item>
+			<title>CPM - Блоки питания и аккумуляторы</title>
+			<link>https://www.cyberforum.ru/power-supply/thread3225078.html</link>
+			<pubDate>Fri, 14 Aug 2026 11:47:22 GMT</pubDate>
+			<description>Предлагаю создать замену VOOC, Mi HC, PD. *CPM (ComProMise)* 
+ 
+*Суть идеи:* Один чип, который...</description>
+			<content:encoded><![CDATA[<div><h2>Предлагаю создать замену VOOC, Mi HC, PD. <b>CPM (ComProMise)</b></h2><br />
+<br />
+<b>Суть идеи:</b> Один чип, который смотрит на мощность блока питания (V_bus, I_max) и, анализируя температуру батареи, разъема и текущее напряжение, <u>автоматически</u> выбирает оптимальный МАКСИМУМ для каждого момента времени. Никаких жестких ступенек (как в PD) или фиксированных токов (как в VOOC) — только реальная физика и состояние аккумулятора.<br />
+<br />
+<b>Ключевое отличие от существующих протоколов:</b><ul><li><b>PD</b> — тупо режет по напряжению (ступеньки 5/9/15/20В), не смотрит на нагрев разъема.</li>
+<li><b>VOOC/Mi HC</b> — долбят фиксированным током (до 7.5А), плавят контакты при грязи.</li>
+<li><b>CPM</b> — динамически пересчитывает V и I каждые 100 мс, исходя из <i>текущего</i> теплового запаса.</li>
+</ul><br />
+<b>Пример логики на ASM (псевдокод для ARM/AVR):</b><br />
+<br />
+<div class="printablecode">
+	<div class="smallfont">:</div>
+	<hr /><code dir="ltr">; ============================================================<br />
+; ГЛАВНЫЙ ЦИКЛ УПРАВЛЕНИЯ (вызов по таймеру, каждые 100 мс)<br />
+; ============================================================<br />
+CPM_CHIP_MAIN_LOOP:<br />
+&nbsp; &nbsp; ; 1. Читаем все сенсоры (АЦП + I2C от INA219)<br />
+&nbsp; &nbsp; CALL&nbsp; &nbsp; ADC_Read_All&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ; V_bat, I_charge, T_bat, T_conn, V_bus<br />
+&nbsp; &nbsp; <br />
+&nbsp; &nbsp; ; 2. Аварийные защиты (железобетонные)<br />
+&nbsp; &nbsp; CMP&nbsp; &nbsp;  T_bat, MAX_TEMP_BAT&nbsp;  ; 45°C для Li-ion<br />
+&nbsp; &nbsp; JGT&nbsp; &nbsp;  EMERGENCY_SHUTDOWN<br />
+&nbsp; &nbsp; <br />
+&nbsp; &nbsp; CMP&nbsp; &nbsp;  T_conn, MAX_TEMP_CONN ; 60°C на разъеме USB<br />
+&nbsp; &nbsp; JGT&nbsp; &nbsp;  EMERGENCY_SHUTDOWN<br />
+&nbsp; &nbsp; <br />
+&nbsp; &nbsp; CMP&nbsp; &nbsp;  V_bat, V_BAT_FULL&nbsp; &nbsp;  ; 4.2В на ячейку (или 4.35 для LiHV)<br />
+&nbsp; &nbsp; JGE&nbsp; &nbsp;  STOP_CHARGING<br />
+&nbsp; &nbsp; <br />
+&nbsp; &nbsp; ; 3. Считаем тепловой бюджет (чем холоднее — тем больше можно дать)<br />
+&nbsp; &nbsp; MOV&nbsp; &nbsp;  R0, MAX_TEMP_BAT<br />
+&nbsp; &nbsp; SUB&nbsp; &nbsp;  R0, T_bat&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  ; R0 = запас до перегрева<br />
+&nbsp; &nbsp; MUL&nbsp; &nbsp;  R0, HEAT_COEFF&nbsp; &nbsp; &nbsp; &nbsp; ; R0 = допустимая мощность нагрева (Вт*10)<br />
+&nbsp; &nbsp; <br />
+&nbsp; &nbsp; ; 4. Оптимальное напряжение = текущее V_bat * 1.1 (для Li-ion)<br />
+&nbsp; &nbsp; ;&nbsp; &nbsp; Это дает max ток при min нагреве DC-DC<br />
+&nbsp; &nbsp; MOV&nbsp; &nbsp;  R1, V_bat<br />
+&nbsp; &nbsp; MUL&nbsp; &nbsp;  R1, 11&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ; *11/10 = *1.1<br />
+&nbsp; &nbsp; DIV&nbsp; &nbsp;  R1, 10<br />
+&nbsp; &nbsp; STORE&nbsp;  V_opt, R1<br />
+&nbsp; &nbsp; <br />
+&nbsp; &nbsp; ; 5. Не просим больше, чем может дать зарядка (V_bus от блока)<br />
+&nbsp; &nbsp; CMP&nbsp; &nbsp;  R1, V_bus<br />
+&nbsp; &nbsp; JLE&nbsp; &nbsp;  V_OPT_OK<br />
+&nbsp; &nbsp; MOV&nbsp; &nbsp;  R1, V_bus&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  ; Ограничиваем сверху<br />
+V_OPT_OK:<br />
+&nbsp; &nbsp; STORE&nbsp;  V_target, R1<br />
+&nbsp; &nbsp; <br />
+&nbsp; &nbsp; ; 6. Считаем целевой ток из теплового бюджета<br />
+&nbsp; &nbsp; ;&nbsp; &nbsp; I_target = (тепло_бюджет) / (V_target * R_внутр + потери)<br />
+&nbsp; &nbsp; MOV&nbsp; &nbsp;  R2, R0&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ; R2 = тепловой бюджет<br />
+&nbsp; &nbsp; MOV&nbsp; &nbsp;  R3, V_target<br />
+&nbsp; &nbsp; MUL&nbsp; &nbsp;  R3, R_INTERNAL&nbsp; &nbsp; &nbsp; &nbsp; ; Падение на проводе/контактах (~0.05 Ом)<br />
+&nbsp; &nbsp; ADD&nbsp; &nbsp;  R3, CONST_OFFSET&nbsp; &nbsp; &nbsp; ; Потери на преобразователе (~0.5В*I)<br />
+&nbsp; &nbsp; DIV&nbsp; &nbsp;  R2, R3&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ; R2 = целевой ток (в мА)<br />
+&nbsp; &nbsp; <br />
+&nbsp; &nbsp; ; 7. Ограничение тока — физический потолок разъема (6.5А для USB-C)<br />
+&nbsp; &nbsp; CMP&nbsp; &nbsp;  R2, MAX_CURRENT<br />
+&nbsp; &nbsp; JLE&nbsp; &nbsp;  I_TARGET_OK<br />
+&nbsp; &nbsp; MOV&nbsp; &nbsp;  R2, MAX_CURRENT&nbsp; &nbsp; &nbsp;  ; 6500 мА<br />
+I_TARGET_OK:<br />
+&nbsp; &nbsp; STORE&nbsp;  I_target, R2<br />
+&nbsp; &nbsp; <br />
+&nbsp; &nbsp; ; 8. Отправляем команды на силовую часть<br />
+&nbsp; &nbsp; CALL&nbsp; &nbsp; PWM_Set_Voltage, V_target&nbsp;  ; Меняем ШИМ на DC-DC<br />
+&nbsp; &nbsp; CALL&nbsp; &nbsp; Current_Limit_Set, I_target ; Ограничиваем ток (если есть)<br />
+&nbsp; &nbsp; <br />
+&nbsp; &nbsp; ; 9. Задержка на стабилизацию DC-DC<br />
+&nbsp; &nbsp; CALL&nbsp; &nbsp; Delay_100ms<br />
+&nbsp; &nbsp; <br />
+&nbsp; &nbsp; ; 10. Проверяем, не просел ли блок питания<br />
+&nbsp; &nbsp; ;&nbsp; &nbsp;  Если V_target - V_bat &gt; 0.5В — блок не тянет, снижаем аппетит<br />
+&nbsp; &nbsp; MOV&nbsp; &nbsp;  R4, V_bat<br />
+&nbsp; &nbsp; SUB&nbsp; &nbsp;  R4, V_target<br />
+&nbsp; &nbsp; CMP&nbsp; &nbsp;  R4, -500&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ; -500 = 0.5В в милливольтах<br />
+&nbsp; &nbsp; JLT&nbsp; &nbsp;  REDUCE_DEMAND<br />
+&nbsp; &nbsp; <br />
+&nbsp; &nbsp; JMP&nbsp; &nbsp;  CPM_CHIP_MAIN_LOOP&nbsp; &nbsp; ; Бесконечный цикл<br />
+<br />
+; ============================================================<br />
+; АДАПТИВНОЕ СНИЖЕНИЕ (если блок не тянет)<br />
+; ============================================================<br />
+REDUCE_DEMAND:<br />
+&nbsp; &nbsp; MOV&nbsp; &nbsp;  R5, V_target<br />
+&nbsp; &nbsp; MUL&nbsp; &nbsp;  R5, 9<br />
+&nbsp; &nbsp; DIV&nbsp; &nbsp;  R5, 10&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ; Снижаем на 10%<br />
+&nbsp; &nbsp; STORE&nbsp;  V_target, R5<br />
+&nbsp; &nbsp; JMP&nbsp; &nbsp;  PWM_Set_Voltage&nbsp; &nbsp; &nbsp;  ; Применить новое значение<br />
+<br />
+; ============================================================<br />
+; АВАРИЙНОЕ ОТКЛЮЧЕНИЕ (перегрев)<br />
+; ============================================================<br />
+EMERGENCY_SHUTDOWN:<br />
+&nbsp; &nbsp; CALL&nbsp; &nbsp; PWM_Set_Voltage, 0&nbsp; &nbsp; ; 0В на выход<br />
+&nbsp; &nbsp; CALL&nbsp; &nbsp; Current_Limit_Set, 0&nbsp; ; 0А<br />
+&nbsp; &nbsp; JMP&nbsp; &nbsp;  $&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  ; Бесконечный цикл (зависли)<br />
+<br />
+; ============================================================<br />
+; ЗАРЯДКА ЗАВЕРШЕНА (CV-режим)<br />
+; ============================================================<br />
+STOP_CHARGING:<br />
+&nbsp; &nbsp; CALL&nbsp; &nbsp; PWM_Set_Voltage, V_FLOAT&nbsp; ; 4.15В (поддержка)<br />
+&nbsp; &nbsp; CALL&nbsp; &nbsp; Current_Limit_Set, 50&nbsp; &nbsp;  ; 50 мА (дозаряд)<br />
+&nbsp; &nbsp; JMP&nbsp; &nbsp;  $&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  ; Останов</code><hr />
+</div><b>Вопрос к сообществу:</b><ol style="list-style-type: decimal"><li>Есть ли готовые DC-DC контроллеры с ШИМ-управлением, которые потянут 5-7А и управляются от 3.3В логики (ESP/STM32)?</li>
+<li>Кто-то пробовал сделать нечто подобное на базе <b>XL4016</b> или <b>LM2577</b> с цифровым потенциометром?</li>
+<li>Какой МК лучше взять для прототипа — STM32F0 (с 12-битным АЦП) или ESP32 (для удаленного мониторинга)?</li>
+</ol><br />
+Идея не для продажи, а для души и науки. Если есть желание — можем собрать прототип на коленке.</div>
+
+]]></content:encoded>
+			<category domain="https://www.cyberforum.ru/power-supply/">Блоки питания и аккумуляторы</category>
+			<dc:creator>варшощыгя</dc:creator>
+			<guid isPermaLink="true">https://www.cyberforum.ru/power-supply/thread3225078.html</guid>
+		</item>
+		<item>
+			<title>Подключение с S6730 на S5735 по stelnet (ssh) - Huawei</title>
+			<link>https://www.cyberforum.ru/huawei/thread3225077.html</link>
+			<pubDate>Fri, 14 Aug 2026 10:47:43 GMT</pubDate>
+			<description>Здравствуйте. На обоих коммутаторах поднят stelnet server. При обращении с S6730 на S5735 получаю...</description>
+			<content:encoded><![CDATA[<div>Здравствуйте. На обоих коммутаторах поднят stelnet server. При обращении с S6730 на S5735 получаю следующую ошибку:  <br />
+Please input the username:sshadmin<br />
+Trying 10.170.1.5 ...<br />
+Press CTRL+K to abort<br />
+Connected to 10.170.1.5 ...<br />
+Info: The connection is closed.<br />
+<br />
+При этом настройки: пользователь sshadmin с разрешением подключения по ssh создан; на S5735 поднят ssh server.</div>
+
+]]></content:encoded>
+			<category domain="https://www.cyberforum.ru/huawei/">Huawei</category>
+			<dc:creator>Danilov</dc:creator>
+			<guid isPermaLink="true">https://www.cyberforum.ru/huawei/thread3225077.html</guid>
+		</item>
+		<item>
+			<title>Поиск обрыва в последовательности маршрутизаторов - Сетевое оборудование</title>
+			<link>https://www.cyberforum.ru/networking-equipment/thread3225076.html</link>
+			<pubDate>Fri, 14 Aug 2026 09:35:36 GMT</pubDate>
+			<description>У меня несколько последовательно маршрутизаторов (192.168.1.1, *.2, *.5), и пропадает изредка...</description>
+			<content:encoded><![CDATA[<div>У меня несколько последовательно маршрутизаторов (192.168.1.1, *.2, *.5), и пропадает изредка интернет, и надо-бы это пинговать-трассеровать - чтоб определить - как? Я понимаю: по идее надо либо переброс адресов делать (муторно), либо (проще) посадить все клиенты на одно адресное пространство, забить клиентам уникальные IP (*.2 и *.5), и тогда они будут видны. Но как настроить DHCP-NAT-DNS? Чтобы клиенты каждого маршрутизатора нормально получали адресацию (то-есть - чтоб админский комп на последнем маршрутизаторе) нормально входил в сеть даже при обрыве &quot;выше&quot;) - сервера должны быть включены на каждом маршрутизаторе (на всякий случай можно разграничить диапазоны выделяемых ip-адресов). И тут вопрос: отключать DHCP или не отключать? Использовать WAN или не использовать? На одном (последнем, 5) WAN сгоревший, и я использую подключение через LAN, но DHCP, при этом, не отключал (но шлюз прописал на *.1). Короче - как быть? - поделитесь опытом.</div>
+
+]]></content:encoded>
+			<category domain="https://www.cyberforum.ru/networking-equipment/">Сетевое оборудование</category>
+			<dc:creator>Levontay</dc:creator>
+			<guid isPermaLink="true">https://www.cyberforum.ru/networking-equipment/thread3225076.html</guid>
+		</item>
+		<item>
+			<title>Не открывается bitrix:ui.sidepanel.wrapper - 1С Битрикс</title>
+			<link>https://www.cyberforum.ru/1c-bitrix/thread3225075.html</link>
+			<pubDate>Fri, 14 Aug 2026 09:09:30 GMT</pubDate>
+			<description>Всем привет! 
+ 
+Есть проблема. В шаблоне компонента iblock.element.add.form отображаются поля для...</description>
+			<content:encoded><![CDATA[<div>Всем привет!<br />
+<br />
+Есть проблема. В шаблоне компонента iblock.element.add.form отображаются поля для редактирования элемента инфоблока.<br />
+<br />
+Я хочу сделать так, чтоб по клику на кнопку подгружалась бы дополнительная информация по элементу инфоблока, и чтоб эта дополнительная информация отображалась бы в боковой панели в правой части страницы.<br />
+<br />
+Для этого есть компонент bitrix:ui.sidepanel.wrapper<br />
+<br />
+Сейчас структура выглядит так:<br />
+<br />
+/local/templates/main/components/bitrix/iblock.element.add.form/my-component-edit/template.php - шаблон компонента для редактирования элемента инфоблока<br />
+/local/templates/main/components/bitrix/iblock.element.add.form/my-component-edit/script.js - файл скриптов шаблона компонента, его содержимое:<br />
+<br />
+<br />
+<div class="printablecode">
+	<div class="smallfont">:</div>
+	<hr /><code dir="ltr">function openSettingsSlider()<br />
+{<br />
+&nbsp; &nbsp; console.log('openSettingsSlider:');<br />
+<br />
+&nbsp; &nbsp; console.log('BX:', typeof BX);<br />
+&nbsp; &nbsp; console.log('BX.SidePanel:', typeof BX.SidePanel);<br />
+&nbsp; &nbsp; console.log('BX.UI:', typeof BX.UI);<br />
+&nbsp; &nbsp; console.log('window.top:', window.top);<br />
+&nbsp; &nbsp; console.log('window.parent:', window.parent);<br />
+<br />
+// Проверяем, загружены ли скрипты<br />
+&nbsp; &nbsp; const scripts = document.querySelectorAll('script&#91;src*=&quot;sidepanel&quot;&#93;');<br />
+&nbsp; &nbsp; console.log('Скрипты sidepanel:', scripts.length);<br />
+<br />
+<br />
+<br />
+&nbsp; &nbsp; BX.SidePanel.Instance.open(<br />
+&nbsp; &nbsp; &nbsp; &nbsp; '/local/templates/main/components/bitrix/iblock.element.add.form/my-component-edit/sidepanelcontent.php', // URL страницы с контентом<br />
+&nbsp; &nbsp; &nbsp; &nbsp; {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; width: 700,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; cacheable: false,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; allowChangeHistory: true,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; events: {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; onClose: function() {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // Обновить грид или другие элементы на странице<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (window.BX &amp;&amp; window.BX.Main &amp;&amp; window.BX.Main.gridManager) {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // Пример обновления грида<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; const gridInstance = BX.Main.gridManager.getById('your-grid-id');<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (gridInstance) {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; gridInstance.reload();<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp; );<br />
+}</code><hr />
+</div><br />
+Файл public/local/templates/main/components/bitrix/iblock.element.add.form/my-component-edit/sidepanelcontent.php:<br />
+<br />
+<div class="printablecode">
+	<div class="smallfont">:</div>
+	<hr /><code dir="ltr">&lt;?php<br />
+// slider-content.php - файл, который загружается в слайдер<br />
+require($_SERVER&#91;&quot;DOCUMENT_ROOT&quot;&#93; . &quot;/bitrix/modules/main/include/prolog_before.php&quot;);<br />
+<br />
+// Ваш код с компонентом<br />
+$APPLICATION-&gt;IncludeComponent(<br />
+&nbsp; &nbsp; &nbsp; &nbsp; 'bitrix:ui.sidepanel.wrapper',<br />
+&nbsp; &nbsp; &nbsp; &nbsp; '',<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &#91;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'POPUP_COMPONENT_NAME' =&gt; 'bitrix:main.include',<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'POPUP_COMPONENT_TEMPLATE_NAME' =&gt; 'sidebar',<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'POPUP_COMPONENT_PARAMS' =&gt; &#91;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'AREA_FILE_SHOW' =&gt; 'file',<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'PATH' =&gt; '/local/templates/main/components/bitrix/iblock.element.add.form/my-component-edit/include/sidebar.php',<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //'EDIT_MODE' =&gt; 'html',<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &#93;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'USE_UI_TOOLBAR' =&gt; 'Y',<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'USE_PADDING' =&gt; true,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'PLAIN_VIEW' =&gt; false,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'PAGE_MODE' =&gt; false,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'CLOSE_AFTER_SAVE' =&gt; 'Y',<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'RELOAD_GRID_AFTER_SAVE' =&gt; 'Y',<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &#93;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; false,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &#91;'HIDE_ICONS' =&gt; 'Y'&#93;<br />
+);<br />
+<br />
+require($_SERVER&#91;&quot;DOCUMENT_ROOT&quot;&#93; . &quot;/bitrix/modules/main/include/epilog_after.php&quot;);<br />
+?&gt;</code><hr />
+</div><br />
+Файл local/templates/main/components/bitrix/main.include/sidebar/template.php:<br />
+<br />
+<div class="printablecode">
+	<div class="smallfont">:</div>
+	<hr /><code dir="ltr">&lt;?<br />
+if(!defined(&quot;B_PROLOG_INCLUDED&quot;) || B_PROLOG_INCLUDED!==true)die();<br />
+/** @var array $arParams */<br />
+/** @var array $arResult */<br />
+/** @global CMain $APPLICATION */<br />
+/** @global CUser $USER */<br />
+/** @global CDatabase $DB */<br />
+/** @var CBitrixComponentTemplate $this */<br />
+/** @var string $templateName */<br />
+/** @var string $templateFile */<br />
+/** @var string $templateFolder */<br />
+/** @var string $componentPath */<br />
+/** @var CBitrixComponent $component */<br />
+$this-&gt;setFrameMode(true);<br />
+<br />
+if($arResult&#91;&quot;FILE&quot;&#93; &lt;&gt; '')<br />
+&nbsp; &nbsp; &nbsp; &nbsp; include($arResult&#91;&quot;FILE&quot;&#93;);</code><hr />
+</div>	<br />
+Файл local/templates/main/components/bitrix/iblock.element.add.form/fns-licenses-edit/include/sidebar.php:<br />
+<br />
+<br />
+<div class="printablecode">
+	<div class="smallfont">:</div>
+	<hr /><code dir="ltr">&lt;div id=&quot;sidebar&quot;&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;sidebar-wrap&quot;&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; test123<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;close-btn&quot;&gt;Закрыть&lt;/div&gt;<br />
+&lt;/div&gt;</code><hr />
+</div><br />
+То есть хочу, чтоб по клику на кнопку вызывался бы компонент bitrix:ui.sidepanel.wrapper, который бы в popup-окне отображал бы содержимое файла sidebar.php<br />
+Сами данные для sidebar.php я заранее получаю ajax-запросом. Сейчас бы разобраться, почему ошибка вылазиет:<br />
+<br />
+<div class="printablecode">
+	<div class="smallfont">:</div>
+	<hr /><code dir="ltr">Uncaught TypeError: Cannot read properties of undefined (reading 'Instance')<br />
+&nbsp; &nbsp; at openSettingsSlider (page_e3dfe4fe68b944aee3f765815d0a16a0_v1.js?178669741435460:680:18)<br />
+&nbsp; &nbsp; at HTMLDivElement.onclick (edit/?DIRECTORY_ID=44&amp;edit=Y&amp;CODE=104707:1310:85)</code><hr />
+</div><br />
+Хотя в шаблонен компонента iblock.element.add.form я добавил строки<br />
+<br />
+<div class="printablecode">
+	<div class="smallfont">:</div>
+	<hr /><code dir="ltr">// Проверяем, загружен ли sidepanel<br />
+$sidepanelLoaded = \Bitrix\Main\UI\Extension::load('ui.sidepanel');<br />
+var_dump($sidepanelLoaded); // Для отладки<br />
+<br />
+<br />
+// Добавляем скрипты вручную через Asset<br />
+$asset = \Bitrix\Main\Page\Asset::getInstance();<br />
+$asset-&gt;addJs('/bitrix/js/ui/sidepanel/sidepanel.js');<br />
+$asset-&gt;addJs('/bitrix/js/ui/buttons/buttons.js');<br />
+$asset-&gt;addCss('/bitrix/css/ui/sidepanel/sidepanel.css');<br />
+<br />
+CJSCore::Init(&#91;'core', 'ui.sidepanel'&#93;);</code><hr />
+</div>Но всё равно ошибка сохраняется, и var_dump($sidepanelLoaded); выводит null<br />
+<br />
+Помогите пожалуйста</div>
+
+
+	<br />
+	<div style="padding:5px">
+
+	
+
+	
+
+	
+		<fieldset class="fieldset">
+			<legend>Изображения</legend>
+			<table cellpadding="0" cellspacing="3" border="0">
+			<tr>
+	<td><img loading="lazy" decoding="async" class="inlineimg" src="http://www.cyberforum.ru//cyberstatic.net/images/attach/png.gif" alt="Тип файла: png" width="16" height="16" border="0" style="vertical-align:baseline" /></td>
+	<td><a href="https://www.cyberforum.ru/attachments/1537692d1786698503" target="_blank"><b>Кнопка.png</b></a> (1.2 Кб)</td>
+</tr><tr>
+	<td><img loading="lazy" decoding="async" class="inlineimg" src="http://www.cyberforum.ru//cyberstatic.net/images/attach/png.gif" alt="Тип файла: png" width="16" height="16" border="0" style="vertical-align:baseline" /></td>
+	<td><a href="https://www.cyberforum.ru/attachments/1537693d1786698503" target="_blank"><b>Верстка кнопки.png</b></a> (3.4 Кб)</td>
+</tr><tr>
+	<td><img loading="lazy" decoding="async" class="inlineimg" src="http://www.cyberforum.ru//cyberstatic.net/images/attach/png.gif" alt="Тип файла: png" width="16" height="16" border="0" style="vertical-align:baseline" /></td>
+	<td><a href="https://www.cyberforum.ru/attachments/1537694d1786698557" target="_blank"><b>Ошибка в консоли.png</b></a> (9.8 Кб)</td>
+</tr>
+			</table>
+			</fieldset>
+	
+
+	
+
+	</div>
+]]></content:encoded>
+			<category domain="https://www.cyberforum.ru/1c-bitrix/">1С Битрикс</category>
+			<dc:creator><![CDATA[[FENIX]]]></dc:creator>
+			<guid isPermaLink="true">https://www.cyberforum.ru/1c-bitrix/thread3225075.html</guid>
+		</item>
+		<item>
+			<title>Проблемные (возможно нет) 4 слотах озу - Общие проблемы с компьютером</title>
+			<link>https://www.cyberforum.ru/pc-problem/thread3225072.html</link>
+			<pubDate>Thu, 13 Aug 2026 19:53:07 GMT</pubDate>
+			<description>Купил gigabyte b660m gaming x ddr4, поставил 12600kf. Сначала ОЗУ была в 2 и 4 слотах и все было...</description>
+			<content:encoded><![CDATA[<div>Купил gigabyte b660m gaming x ddr4, поставил 12600kf. Сначала ОЗУ была в 2 и 4 слотах и все было хорошо. Решил проверить 1 и 3. Сначала винда потребовала восстановление системы, потом захожу в Биос и написано &quot;система не загрузилась возможно из-за неправильной конфигурации&quot;. Восстановил заводские, пробую включить xmp и тоже самое. Снова восстановил заводские, частота 2400 а не 3200. Без xmp все сразу запускается, тест OCCT на данный момент уже идёт 40 минут, 9 циклов, 16 потоков - ни одной ошибки. Почитал, нейронка от Гугла сказала что с платой все хорошо (если что брал ее на Авито) и это особенность многих мат плат. Но если честно нейронка не очень доверяю и хотелось бы услышать мнение от людей по поводу этого всего. Может быть и правда лучше ее вернуть</div>
+
+]]></content:encoded>
+			<category domain="https://www.cyberforum.ru/pc-problem/">Общие проблемы с компьютером</category>
+			<dc:creator>Human7288</dc:creator>
+			<guid isPermaLink="true">https://www.cyberforum.ru/pc-problem/thread3225072.html</guid>
+		</item>
+		<item>
+			<title>Рассылка сообщений с ссылкой активации регистрации - Lazarus</title>
+			<link>https://www.cyberforum.ru/lazarus/thread3225069.html</link>
+			<pubDate>Thu, 13 Aug 2026 19:38:18 GMT</pubDate>
+			<description>Запускать почтовый сервер не охота, черз регистратора домена - буду пробовать. А так встроенного...</description>
+			<content:encoded><![CDATA[<div>Запускать почтовый сервер не охота, черз регистратора домена - буду пробовать. А так встроенного ничего нет?  Проект тут<a rel="nofollow noopener noreferrer" href="https://github.com/Andrei-Y/FPC_Lazarus_Server_Console" target="_blank" title="https://github.com/Andrei-Y/FPC_Lazarus_Server_Console">https://github.com/Andrei-Y/FP... er_Console</a> (кнопки не смотрите у зареганого пользователя - это ещё не всё, там с рангом добавятся кнопки модератора и админа, по ходу работы стало понятно, что это будет по комьюнити, деваться некуда, не прошедшие модерацию сообщения будут видеть только зарегестрированные пользователи) Там в общем среда получается, а не форум. Да, чем методом тыка подбирать способ рассылки - лучше задать вопрос и работать дальше над функционалом. Если варианты есть - то как можно попроще, почтовый сервер мне нафиг не нужен.<br />
+<br />
+<font size="1"><font color="grey"><i>Добавлено через 15 минут</i></font></font><br />
+Так-то считаю что правильно сделал, что не стал для HTML кода делать таблицу в БД, и вынес его в локальные функции роутера lpr...думаю, что все эти скины...пока не так уж и нужны...ну короче пока архитектура вот вот как-то складывается...<br />
+А вообще я конечно поражён мощностью HTML, по книгам у думал что это такой себе костыль - ерунда, а с ассистентом я понял, что в принципе смогу реализовать всё что угодно (что в голову взбредёт) на HTML, разумеется в связке с FPC Lazarus. С асситентом мы уже давным-давно обсудили создание шлюза для разных AI ассистентов с разных порталов, для работы над проектами базирующимися на моём сервере. Но это так, я сам не очень в это верю..., но чем больше работаю над проектом - тем больше начинаю верить что и это можно.<br />
+<br />
+<font size="1"><font color="grey"><i>Добавлено через 1 час 43 минуты</i></font></font><br />
+Вот такое есть <a rel="nofollow noopener noreferrer" href="https://wiki.lazarus.freepascal.org/lNet" target="_blank" title="https://wiki.lazarus.freepascal.org/lNet">https://wiki.lazarus.freepascal.org/lNet</a> , пробовал кто-нибудь?</div>
+
+]]></content:encoded>
+			<category domain="https://www.cyberforum.ru/lazarus/">Lazarus</category>
+			<dc:creator>Hrethgir</dc:creator>
+			<guid isPermaLink="true">https://www.cyberforum.ru/lazarus/thread3225069.html</guid>
+		</item>
+		<item>
+			<title>Ошибка после переустановки Windows Server - 1С: Администрирование и интеграция</title>
+			<link>https://www.cyberforum.ru/1c-admin/thread3225071.html</link>
+			<pubDate>Thu, 13 Aug 2026 18:14:18 GMT</pubDate>
+			<description>Доброго времени суток. Вообщем полетела серверная винда 2008 на работе. пришлось переустанавливать....</description>
+			<content:encoded><![CDATA[<div>Доброго времени суток. Вообщем полетела серверная винда 2008 на работе. пришлось переустанавливать. Переустановил. Накатил файлы. Установил SQL Server. Поставил 1С а она не хочет норм подключаться к бд. Выдает ошибку как на картинке. Но эта ошибка исправляется если файл ragent.exe запускаем от имени администратора. При этом ragent запускается как консольное окно, которое закрыв снова начинается эта ошибка. У кого-нибудь есть идеи?</div>
+
+
+	<br />
+	<div style="padding:5px">
+
+	
+
+	
+
+	
+		<fieldset class="fieldset">
+			<legend>Изображения</legend>
+			<table cellpadding="0" cellspacing="3" border="0">
+			<tr>
+	<td><img loading="lazy" decoding="async" class="inlineimg" src="http://www.cyberforum.ru//cyberstatic.net/images/attach/jpg.gif" alt="Тип файла: jpg" width="16" height="16" border="0" style="vertical-align:baseline" /></td>
+	<td><a href="https://www.cyberforum.ru/attachments/1537682d1786644702" target="_blank"><b>1.jpg</b></a> (99.8 Кб)</td>
+</tr>
+			</table>
+			</fieldset>
+	
+
+	
+
+	</div>
+]]></content:encoded>
+			<category domain="https://www.cyberforum.ru/1c-admin/">1С: Администрирование и интеграция</category>
+			<dc:creator>Kolugin</dc:creator>
+			<guid isPermaLink="true">https://www.cyberforum.ru/1c-admin/thread3225071.html</guid>
+		</item>
+		<item>
+			<title>Форматирование кода в Delphi 13 - Delphi</title>
+			<link>https://www.cyberforum.ru/delphi/thread3225070.html</link>
+			<pubDate>Thu, 13 Aug 2026 17:52:27 GMT</pubDate>
+			<description>Как известно, функция автоформатирования кода и часть старых инструментов рефакторинга были удалены...</description>
+			<content:encoded><![CDATA[<div>Как известно, функция автоформатирования кода и часть старых инструментов рефакторинга были удалены в ветке Delphi 13 из-за отказа от старых .NET-зависимостей в IDE. <br />
+<br />
+Чем заменить потерю автоформатирования кода (та, что по Ctrl-D была)? Кто чем теперь пользуется из сторонних компонент/методов? <br />
+<br />
+<div class="smallfont offtopic">
+				<p><b>Не по теме:</b></p>
+				<p><br />
+Корявость Delphi, конечно, не знает границ и в наше время воспринимаются подобные изменения IDE чем-то очень абсурдным.<br />
+</p>
+				</div></div>
+
+]]></content:encoded>
+			<category domain="https://www.cyberforum.ru/delphi/">Delphi</category>
+			<dc:creator>Storm Screamer</dc:creator>
+			<guid isPermaLink="true">https://www.cyberforum.ru/delphi/thread3225070.html</guid>
+		</item>
+		<item>
+			<title>Нарушается закон сохранения? - Механика</title>
+			<link>https://www.cyberforum.ru/mechanics/thread3225068.html</link>
+			<pubDate>Thu, 13 Aug 2026 14:36:40 GMT</pubDate>
+			<description>Здравствуйте. 
+Вложение 1537676 (https://www.cyberforum.ru/attachments/1537676)...</description>
+			<content:encoded><![CDATA[<div>Здравствуйте.<br />
+<a href="https://www.cyberforum.ru/attachments/1537676" target="_blank">Вложение 1537676</a><br />
+как известно механизм состоящий из примитивов сам является примитивом,<br />
+ т.е если закон сохранения не нарушается в частях то он не нарушается и в сумме.<br />
+Однако, в данной схеме, которую можно воспроизмести в графических программах <br />
+за 5 мин(в моём случае был использован autocad),<br />
+равенства моментов не наблюдается.<br />
+получившаяся у меня разница  составила 0,01 при заданной точности построений 0,000001<br />
+чего вообще-то быть не может, ибо я тоже чел, получивший высшее техн.образование в своё время.<br />
+Попробуйте посчитать и поделитесь в комментариях своими соображениями?</div>
+
+
+	<br />
+	<div style="padding:5px">
+
+	
+
+	
+
+	
+		<fieldset class="fieldset">
+			<legend>Изображения</legend>
+			<table cellpadding="0" cellspacing="3" border="0">
+			<tr>
+	<td><img loading="lazy" decoding="async" class="inlineimg" src="http://www.cyberforum.ru//cyberstatic.net/images/attach/png.gif" alt="Тип файла: png" width="16" height="16" border="0" style="vertical-align:baseline" /></td>
+	<td><a href="https://www.cyberforum.ru/attachments/1537676d1786630966" target="_blank"><b>форум математиков.png</b></a> (23.1 Кб)</td>
+</tr>
+			</table>
+			</fieldset>
+	
+
+	
+
+	</div>
+]]></content:encoded>
+			<category domain="https://www.cyberforum.ru/mechanics/">Механика</category>
+			<dc:creator>михалыч_</dc:creator>
+			<guid isPermaLink="true">https://www.cyberforum.ru/mechanics/thread3225068.html</guid>
+		</item>
+		<item>
+			<title>Server 2019 Где найти правильную настройку по установке radius сервера? - Windows Server</title>
+			<link>https://www.cyberforum.ru/windows-server/thread3225067.html</link>
+			<pubDate>Thu, 13 Aug 2026 11:50:13 GMT</pubDate>
+			<description>На Windows Server 2019 нужно развернуть радиус и самое главное подключить к нему клиента с помощью...</description>
+			<content:encoded><![CDATA[<div>На Windows Server 2019 нужно развернуть радиус и самое главное подключить к нему клиента с помощью авторизации.</div>
+
+]]></content:encoded>
+			<category domain="https://www.cyberforum.ru/windows-server/">Windows Server</category>
+			<dc:creator>Ruslansch</dc:creator>
+			<guid isPermaLink="true">https://www.cyberforum.ru/windows-server/thread3225067.html</guid>
+		</item>
+		<item>
+			<title>Ошибки при переносе MAPLE 2025 с win 10 на win11 - Maple</title>
+			<link>https://www.cyberforum.ru/maple/thread3225066.html</link>
+			<pubDate>Thu, 13 Aug 2026 10:20:10 GMT</pubDate>
+			<description>При переносе MAPLE 2025 с win 10 на win11 появилась странная ошибка: restart: ode := diff(y(x),x,x)...</description>
+			<content:encoded><![CDATA[<div>При переносе MAPLE 2025 с win 10 на win11 появилась странная ошибка: restart: ode := diff(y(x),x,x) = 2*y(x) + 1;desolve(ode);<br />
+Warning, not a built-in function (`copy`)<br />
+Error, (in Physics:-GetSetupINFO) invalid subscript selector<br />
+Error, (in Physics:-GetSetupINFO) invalid subscript selector<br />
+                     Typesetting:-mi(&quot;` `&quot;)<br />
+Исправить не смог!</div>
+
+]]></content:encoded>
+			<category domain="https://www.cyberforum.ru/maple/">Maple</category>
+			<dc:creator>VAF34</dc:creator>
+			<guid isPermaLink="true">https://www.cyberforum.ru/maple/thread3225066.html</guid>
+		</item>
+		<item>
+			<title>Hotspot 106 - Видеокарты</title>
+			<link>https://www.cyberforum.ru/videocards/thread3225065.html</link>
+			<pubDate>Thu, 13 Aug 2026 09:27:56 GMT</pubDate>
+			<description>здравствуйте, у меня сильно греется видеокарта(75 и 106 хотспот в фурбмарк),до обслуживания была...</description>
+			<content:encoded><![CDATA[<div>здравствуйте, у меня сильно греется видеокарта(75 и 106 хотспот в фурбмарк),до обслуживания была такая же фигня но я уже обслуживал ее год назад теми же термопрокладками(покупал на пломбе) у меня 3мм сбоку, 1мм снизу и 1мм скраю, на чипе gd900<br />
+видеокарта rx6600 powercolor fighter <br />
+я слышал она сама по себе сильно греется, но у меня прям очень<br />
+что можно заменить<br />
+<br />
+фото после обслуживания и фурмарка</div>
+
+
+	<br />
+	<div style="padding:5px">
+
+	
+
+	
+
+	
+		<fieldset class="fieldset">
+			<legend>Изображения</legend>
+			<table cellpadding="0" cellspacing="3" border="0">
+			<tr>
+	<td><img loading="lazy" decoding="async" class="inlineimg" src="http://www.cyberforum.ru//cyberstatic.net/images/attach/jpeg.gif" alt="Тип файла: jpeg" width="16" height="16" border="0" style="vertical-align:baseline" /></td>
+	<td><a href="https://www.cyberforum.ru/attachments/1537669d1786613256" target="_blank"><b>839056a3-4d21-4282-a450-4af793da4ecf.jpeg</b></a> (422.0 Кб)</td>
+</tr>
+			</table>
+			</fieldset>
+	
+
+	
+
+	</div>
+]]></content:encoded>
+			<category domain="https://www.cyberforum.ru/videocards/">Видеокарты</category>
+			<dc:creator>winsnow</dc:creator>
+			<guid isPermaLink="true">https://www.cyberforum.ru/videocards/thread3225065.html</guid>
+		</item>
+		<item>
+			<title>Geforce 1660 super - Видеокарты</title>
+			<link>https://www.cyberforum.ru/videocards/thread3225064.html</link>
+			<pubDate>Thu, 13 Aug 2026 09:20:23 GMT</pubDate>
+			<description>Всем привет. Столкнулся с такой проблемой: видеокарта покупалась новой,работала исправно,нареканий...</description>
+			<content:encoded><![CDATA[<div>Всем привет. Столкнулся с такой проблемой: видеокарта покупалась новой,работала исправно,нареканий не было. После примерно полутора лет перестала выводить изображение именно на моем ПК. У друга все работает. Также поставил новый БП,поэтому с ним по идее тоже проблем быть не может... Материнка GA-78LMT-USB3. В моем работает другая.</div>
+
+]]></content:encoded>
+			<category domain="https://www.cyberforum.ru/videocards/">Видеокарты</category>
+			<dc:creator>babab444</dc:creator>
+			<guid isPermaLink="true">https://www.cyberforum.ru/videocards/thread3225064.html</guid>
+		</item>
+		<item>
+			<title>Передать массив по значению - С++ для начинающих</title>
+			<link>https://www.cyberforum.ru/cpp-beginners/thread3225062.html</link>
+			<pubDate>Thu, 13 Aug 2026 08:21:14 GMT</pubDate>
+			<description>Добрый день 
+ 
+По ходу дела задал мелкий вопрос 
+ 
+---Цитата (сообщение от Igor3D)--- 
+Вопрос: как...</description>
+			<content:encoded><![CDATA[<div>Добрый день<br />
+<br />
+По ходу дела задал мелкий вопрос<br />
+<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Цитата:</div>
+	<table cellpadding="5" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td class="alt2">
+			<hr />
+			
+				<div>
+					Сообщение от <strong>Igor3D</strong>
+					(Сообщение 17758858)
+				</div>
+				<div style="font-style:italic">Вопрос: как передать в ф-цию массив по значению? Понятно что легко обойти: сделать массив членом структуры и ее пихать по значению. Также понятно что передача массива по значению малополезна, а может и просто глупа. Но все-таки как, из любви к языку?</div>
+			
+			<hr />
+		</td>
+	</tr>
+	</table>
+</div>И народ как-то подозрительно промолчал.. Ладно, создадим тему, как положено<br />
+<br />
+Спасибо</div>
+
+]]></content:encoded>
+			<category domain="https://www.cyberforum.ru/cpp-beginners/">С++ для начинающих</category>
+			<dc:creator>Igor3D</dc:creator>
+			<guid isPermaLink="true">https://www.cyberforum.ru/cpp-beginners/thread3225062.html</guid>
+		</item>
+		<item>
+			<title>После полцикла машина останавливается хочет уйти в разгон на отжим но сил как бы не хватает - Ремонт стиральных машин</title>
+			<link>https://www.cyberforum.ru/washing-machines/thread3225060.html</link>
+			<pubDate>Thu, 13 Aug 2026 06:48:44 GMT</pubDate>
+			<description>Стиральная машина Ariston AVL100. Машина отрабатывает примерно полцикла, но при попытке выхода на...</description>
+			<content:encoded><![CDATA[<div>Стиральная машина Ariston AVL100. Машина отрабатывает примерно полцикла, но при попытке выхода на отжим будто хочет разогнаться, а сил не хватает: обороты не набираются, слышен лёгкий и ровный треск. После этого машина полностью останавливается и больше не запускает ни один режим.<br />
+<br />
+Барабан на выключенной машине крутится легко, без скрежета и закусываний. Лёгкий треск появляется только при разгоне на отжим.<br />
+<br />
+При включении режимов после остановки - сзади слышен щелчок, как будто вода хочет набраться, но не набирается... однако через два часа снова начинает набирать и включаются режимы.<br />
+<br />
+На силовой плате симистор установлен не на винтовом креплении, а как будто приклеен к радиатору. Визуально отсутствует теплоотводящая паста либо её слой истончён. Есть подозрение на перегрев симистора из‑за плохого теплового контакта, износа семистора или обвязки. Подскажите пожалуйста навскидку что это может быть, спасибо!</div>
+
+]]></content:encoded>
+			<category domain="https://www.cyberforum.ru/washing-machines/">Ремонт стиральных машин</category>
+			<dc:creator>Yvdjyvfjyvfh</dc:creator>
+			<guid isPermaLink="true">https://www.cyberforum.ru/washing-machines/thread3225060.html</guid>
+		</item>
+		<item>
+			<title>Где хранить строки подключения в приложении - C# .NET</title>
+			<link>https://www.cyberforum.ru/csharp-net/thread3225059.html</link>
+			<pubDate>Thu, 13 Aug 2026 04:05:07 GMT</pubDate>
+			<description>Сейчас строка подключения лежит в коде, при смене окружения приходится пересобирать. 
+Хочу вынести...</description>
+			<content:encoded><![CDATA[<div>Сейчас строка подключения лежит в коде, при смене окружения приходится пересобирать.<br />
+Хочу вынести в конфигурацию и переключать по окружению.<br />
+Какой способ считается стандартным?</div>
+
+]]></content:encoded>
+			<category domain="https://www.cyberforum.ru/csharp-net/">C# .NET</category>
+			<dc:creator>rustam4870</dc:creator>
+			<guid isPermaLink="true">https://www.cyberforum.ru/csharp-net/thread3225059.html</guid>
+		</item>
+		<item>
+			<title>Указатель или ссылка: как выбирать на практике - С++ для начинающих</title>
+			<link>https://www.cyberforum.ru/cpp-beginners/thread3225055.html</link>
+			<pubDate>Thu, 13 Aug 2026 04:00:58 GMT</pubDate>
+			<description>Формальное отличие понимаю, но не понимаю, что выбирать в реальном коде. 
+Если объект всегда...</description>
+			<content:encoded><![CDATA[<div>Формальное отличие понимаю, но не понимаю, что выбирать в реальном коде.<br />
+Если объект всегда существует и не меняется, достаточно ссылки?<br />
+А где ссылка станет ошибкой и нужен указатель?</div>
+
+]]></content:encoded>
+			<category domain="https://www.cyberforum.ru/cpp-beginners/">С++ для начинающих</category>
+			<dc:creator>rustam4870</dc:creator>
+			<guid isPermaLink="true">https://www.cyberforum.ru/cpp-beginners/thread3225055.html</guid>
+		</item>
+	</channel>
+</rss>
