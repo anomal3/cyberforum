@@ -15,8 +15,8 @@ set PROJECT=src\CyberForum.App\CyberForum.App.csproj
 set OUTDIR=%~dp0..\dist
 
 echo Собираем %CONFIG% для Android...
-rem arm64 и arm сразу: 32-битные телефоны ещё встречаются
-dotnet publish "%PROJECT%" -f net10.0-android -c %CONFIG% -o "%OUTDIR%" -p:"RuntimeIdentifiers=android-arm64;android-arm"
+rem Собираем под arm64 — на нём работают все телефоны последних лет
+dotnet publish "%PROJECT%" -f net10.0-android -c %CONFIG% -o "%OUTDIR%"
 if errorlevel 1 (
     echo.
     echo Сборка не прошла.
