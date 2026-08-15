@@ -1,9 +1,10 @@
 @echo off
-rem ‘¡®àª  apk ¤«ï Android - â®£® á ¬®£® ä ©« , ª®â®àë© ¬®¦­® ®â¤ âì ç¥«®¢¥ªã.
+chcp 65001 >nul
+rem Ð¡Ð±Ð¾Ñ€ÐºÐ° apk Ð´Ð»Ñ Android - Ñ‚Ð¾Ð³Ð¾ ÑÐ°Ð¼Ð¾Ð³Ð¾ Ñ„Ð°Ð¹Ð»Ð°, ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ð¹ Ð¼Ð¾Ð¶Ð½Ð¾ Ð¾Ñ‚Ð´Ð°Ñ‚ÑŒ Ñ‡ÐµÐ»Ð¾Ð²ÐµÐºÑƒ.
 rem   scripts\build-android.bat
-rem ‘¢®¥£® ª«îç  ¯®ª  ­¥â, ¯®íâ®¬ã ¯ ª¥â ¯®¤¯¨áë¢ ¥âáï ®â« ¤®ç­ë¬: ¯à¨ ãáâ ­®¢ª¥
-rem á¨áâ¥¬  á¯à®á¨â à §à¥è¥­¨¥ ­  "­¥¨§¢¥áâ­ë© ¨áâ®ç­¨ª", íâ® ­®à¬ «ì­®.
-rem Š®­ä¨£ãà æ¨î ¬®¦­® ¯¥à¥®¯à¥¤¥«¨âì:  set CONFIG=Debug ^& scripts\build-android.bat
+rem Ð¡Ð²Ð¾ÐµÐ³Ð¾ ÐºÐ»ÑŽÑ‡Ð° Ð¿Ð¾ÐºÐ° Ð½ÐµÑ‚, Ð¿Ð¾ÑÑ‚Ð¾Ð¼Ñƒ Ð¿Ð°ÐºÐµÑ‚ Ð¿Ð¾Ð´Ð¿Ð¸ÑÑ‹Ð²Ð°ÐµÑ‚ÑÑ Ð¾Ñ‚Ð»Ð°Ð´Ð¾Ñ‡Ð½Ñ‹Ð¼: Ð¿Ñ€Ð¸ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²ÐºÐµ
+rem ÑÐ¸ÑÑ‚ÐµÐ¼Ð° ÑÐ¿Ñ€Ð¾ÑÐ¸Ñ‚ Ñ€Ð°Ð·Ñ€ÐµÑˆÐµÐ½Ð¸Ðµ Ð½Ð° "Ð½ÐµÐ¸Ð·Ð²ÐµÑÑ‚Ð½Ñ‹Ð¹ Ð¸ÑÑ‚Ð¾Ñ‡Ð½Ð¸Ðº", ÑÑ‚Ð¾ Ð½Ð¾Ñ€Ð¼Ð°Ð»ÑŒÐ½Ð¾.
+rem ÐšÐ¾Ð½Ñ„Ð¸Ð³ÑƒÑ€Ð°Ñ†Ð¸ÑŽ Ð¼Ð¾Ð¶Ð½Ð¾ Ð¿ÐµÑ€ÐµÐ¾Ð¿Ñ€ÐµÐ´ÐµÐ»Ð¸Ñ‚ÑŒ:  set CONFIG=Debug ^& scripts\build-android.bat
 
 setlocal enabledelayedexpansion
 cd /d "%~dp0.."
@@ -13,30 +14,29 @@ if "%CONFIG%"=="" set CONFIG=Release
 set PROJECT=src\CyberForum.App\CyberForum.App.csproj
 set OUTDIR=%~dp0..\dist
 
-echo ‘®¡¨à ¥¬ %CONFIG% ¤«ï Android...
-rem arm64 ¨ arm áà §ã: 32-¡¨â­ë¥ â¥«¥ä®­ë ¥éñ ¢áâà¥ç îâáï
-dotnet publish "%PROJECT%" -f net10.0-android -c %CONFIG% -o "%OUTDIR%" -p:RuntimeIdentifiers=android-arm64;android-arm
+echo Ð¡Ð¾Ð±Ð¸Ñ€Ð°ÐµÐ¼ %CONFIG% Ð´Ð»Ñ Android...
+rem arm64 Ð¸ arm ÑÑ€Ð°Ð·Ñƒ: 32-Ð±Ð¸Ñ‚Ð½Ñ‹Ðµ Ñ‚ÐµÐ»ÐµÑ„Ð¾Ð½Ñ‹ ÐµÑ‰Ñ‘ Ð²ÑÑ‚Ñ€ÐµÑ‡Ð°ÑŽÑ‚ÑÑ
+dotnet publish "%PROJECT%" -f net10.0-android -c %CONFIG% -o "%OUTDIR%" -p:"RuntimeIdentifiers=android-arm64;android-arm"
 if errorlevel 1 (
     echo.
-    echo ‘¡®àª  ­¥ ¯à®è« .
+    echo Ð¡Ð±Ð¾Ñ€ÐºÐ° Ð½Ðµ Ð¿Ñ€Ð¾ÑˆÐ»Ð°.
     exit /b 1
 )
 
-rem ¥àñ¬ á ¬ë© á¢¥¦¨© ¯®¤¯¨á ­­ë© ¯ ª¥â: ¨å ­¥áª®«ìª®, ¥á«¨ á®¡¨à «¨ à §­ë¥ ¢¥àá¨¨
+rem Ð‘ÐµÑ€Ñ‘Ð¼ ÑÐ°Ð¼Ñ‹Ð¹ ÑÐ²ÐµÐ¶Ð¸Ð¹ Ð¿Ð¾Ð´Ð¿Ð¸ÑÐ°Ð½Ð½Ñ‹Ð¹ Ð¿Ð°ÐºÐµÑ‚: Ð¸Ñ… Ð½ÐµÑÐºÐ¾Ð»ÑŒÐºÐ¾, ÐµÑÐ»Ð¸ ÑÐ¾Ð±Ð¸Ñ€Ð°Ð»Ð¸ Ñ€Ð°Ð·Ð½Ñ‹Ðµ Ð²ÐµÑ€ÑÐ¸Ð¸
 set APK=
-for /f "delims=" %%F in ('dir /b /s /o-d "%OUTDIR%\*-Signed.apk" 2^>nul') do (
+for /f "delims=" %%F in ('dir /b /s /o-d "src\CyberForum.App\bin\%CONFIG%\net10.0-android\*-Signed.apk" 2^>nul') do (
     if not defined APK set APK=%%F
 )
 
 if not defined APK (
     echo.
-    echo  ª¥â ­¥ ­ èñ«áï - ¯®á¬®âà¨â¥, çâ® ­ ¯¨á « dotnet ¢ëè¥.
+    echo ÐŸÐ°ÐºÐµÑ‚ Ð½Ðµ Ð½Ð°ÑˆÑ‘Ð»ÑÑ - Ð¿Ð¾ÑÐ¼Ð¾Ñ‚Ñ€Ð¸Ñ‚Ðµ, Ñ‡Ñ‚Ð¾ Ð½Ð°Ð¿Ð¸ÑÐ°Ð» dotnet Ð²Ñ‹ÑˆÐµ.
     exit /b 1
 )
 
-if not exist "%OUTDIR%" mkdir "%OUTDIR%"
 copy /y "!APK!" "%OUTDIR%\cyberforum.apk" >nul
 
 echo.
-echo ƒ®â®¢®: %OUTDIR%\cyberforum.apk
+echo Ð“Ð¾Ñ‚Ð¾Ð²Ð¾: %OUTDIR%\cyberforum.apk
 endlocal

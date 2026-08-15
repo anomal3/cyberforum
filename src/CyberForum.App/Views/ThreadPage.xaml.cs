@@ -53,7 +53,10 @@ public partial class ThreadPage : ContentPage
 #if ANDROID
         if (Posts.Handler is Microsoft.Maui.Handlers.WebViewHandler handler)
         {
-            if (AppFeatures.FilterRequests)
+            /* Гостю чужие запросы не режем: форум показывает ему партнёрские
+               вставки, и это его хлеб. Вошедшему форум их и сам не рисует,
+               поэтому там фильтр включаем — с ним тема собирается быстрее. */
+            if (AppFeatures.FilterRequests && _session.Current.IsAuthenticated)
             {
                 handler.PlatformView.SetWebViewClient(
                     new Platforms.Android.RequestFilterWebViewClient(handler));

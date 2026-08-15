@@ -230,14 +230,25 @@
     }
   }
 
-  /* В тело сообщения форум подсовывает свои вставки, причём уже после загрузки.
-     Скрипты мы снесли, и от них остаются битые обломки — выкидываем. */
-  function stripJunk(root) {
+  /* Форум зарабатывает вставками от партнёров, и незачем лишать его этого —
+     у гостя мы их сохраняем и переносим в собранную страницу, отдельным блоком
+     под сообщением. Вошедшим форум их и сам не показывает, так что выкидываем. */
+  var keptInserts = [];
+
+  function stripJunk(root, keep) {
     var junk = root.querySelectorAll(
       'iframe, ins, .adsbygoogle, [id^="yandex_rtb"], [class*="adsbygoogle"], ' +
       'a[href*="studwork"], a[href*="click"], img[src*="studwork"], img[alt*="Студворк"]');
 
     for (var i = 0; i < junk.length; i++) {
+      if (keep && junk[i].closest('.cf-insert') === null) {
+        var holder = document.createElement('div');
+        holder.className = 'cf-insert';
+        holder.appendChild(junk[i]);
+        keptInserts.push(holder);
+        continue;
+      }
+
       junk[i].remove();
     }
   }
@@ -398,6 +409,7 @@
      Сравниваем по имени, а не по номеру: у своих сообщений форум показывает имя
      простым текстом, без ссылки на профиль, и номера там взять негде. */
   var canPost = !!window.cfForm;
+  var guest = !window.cfSigned;
   var me = '%%ME%%';
   var threadStarter = posts.length ? posts[0].author : '';
 
@@ -507,7 +519,7 @@
     body.className = 'cf-body';
     body.innerHTML = post.html;
 
-    stripJunk(body);
+    stripJunk(body, guest);
     rebuildSpoilers(body);
     rebuildCode(body);
     rebuildQuotes(body);
@@ -523,6 +535,15 @@
     }
 
     page.appendChild(article);
+
+    if (guest && keptInserts.length > 0 && (p === 0 || p === posts.length - 1)) {
+      page.appendChild(keptInserts.shift());
+    }
+  }
+
+  // что не поместилось между сообщениями — ставим внизу
+  while (guest && keptInserts.length > 0) {
+    page.appendChild(keptInserts.shift());
   }
 
   /* Листалку собираем по всем ссылкам вида thread123-page7.html, а не по тем,
@@ -661,6 +682,13 @@
 
         if (node.id === 'cf-reader' || node.className === 'cf-jump' ||
             node.tagName === 'STYLE' || node.tagName === 'META') {
+          continue;
+        }
+
+        /* Гостю партнёрские вставки оставляем: их скрипты дорисовывают себя уже
+           после нашей сборки, и сторож не должен считать это чужим мусором. */
+        if (guest && (node.tagName === 'INS' || node.tagName === 'IFRAME' ||
+            (node.id || '').indexOf('yandex_rtb') === 0)) {
           continue;
         }
 

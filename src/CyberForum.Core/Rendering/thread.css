@@ -428,3 +428,18 @@ hr {
     color: var(--best);
     border-color: var(--best);
 }
+
+/* Партнёрская вставка форума — гостю она остаётся, но живёт в своей рамке,
+   чтобы не наезжала на текст сообщения. */
+.cf-insert {
+    margin: 12px 14px;
+    padding: 8px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    overflow: hidden;
+}
+
+.cf-insert iframe,
+.cf-insert ins {
+    max-width: 100%;
+}
